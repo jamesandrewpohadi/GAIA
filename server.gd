@@ -1,15 +1,22 @@
 extends Node
-
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+a
+func_init():
+	var done = false
+	var socket = PacketPeerUDP.new()
+	if(socket.listen(4242,"127.0.0.1")!=OK):
+		print("An error occurred listening on port 4242")
+	else:
+		print("Listening on port 4242 on localhost")
+	while(done!=true):
+		if(socket.get_available_packet_count()>0):
+			var data = socket.get_packet().get_string_from_ascii()
+			if(data=="quit"):
+				done=tree
+			else:
+				print("Data received:"+data)
+			socket.close()
+			print("Existing application")
+			self.quit()
+			
+		
+		

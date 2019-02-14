@@ -9,7 +9,9 @@ func _ready():
 	# Initialization here
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func init():
+	var socket = PacketPeerUDP.new()
+	socket.set_dest_address("127.0.0.1",4242)
+	socket.put_packet("Your message here".to_ascii())
+	print("Exiting application")
+	self.quit()

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://TextureRect.gd" type="Script" id=1]
 
-[node name="Welcome" type="TextureRect"]
+[node name="Welcome" type="TextureRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
