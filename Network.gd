@@ -5,6 +5,7 @@ var port = 5000
 var player_id
 var player_name
 onready var welcome = get_parent().get_node('Welcome')
+onready var social = get_parent().get_node('Social')
 
 func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
@@ -30,9 +31,10 @@ func _player_disconnected(id):
 	
 func _connected_ok():
 	welcome.hide()
-	print('You have joined the room')
-	rpc('announce_user', player_id)
 	
-remote func announce_user(player):
+	print('You have joined the room')
+	rpc('add_player', player_name, player_id)
+	
+remote func add_player(name, id):
 	welcome.hide()
 	print(player + ' has joined the room')

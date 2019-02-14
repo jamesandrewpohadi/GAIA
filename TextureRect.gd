@@ -1,4 +1,4 @@
-extends TextureRect
+extends Panel
 signal host(host)
 var network
 onready var host = $InputHost.text

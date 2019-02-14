@@ -1,12 +1,10 @@
-extends Node
+extends Node2D
 
 onready var network = get_parent().get_node("Network")
+var recipient_id
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
 	pass
-
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
@@ -22,3 +20,10 @@ sync func display_message(sender, message):
 		$Messages.text += '\n' + sender + ' : ' + message
 	else:
 		$Messages.text += '\nYou' + ' : ' + message
+
+
+func _on_Back_pressed():
+	hide()
+	
+func initiate(name):
+	$Panel/Name.text = name
