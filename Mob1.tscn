@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Mob1.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Mob1Sprites/Idle.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Mob1Sprites/Slash2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Mob1Sprites/Slash.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Mob1Sprites/Slash3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Mob1Sprites/Walk1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Mob1Sprites/Walk2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Mob1Sprites/Walk3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Mob1Sprites/Walk4.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Mob1Sprites/Hit1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Mob1Sprites/Hit2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Mob1Sprites/ded.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "die",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5.94456, 8.79679 )
+
+[node name="Mob1" type="KinematicBody2D"]
+
+position = Vector2( 14.5, -21 )
+scale = Vector2( 2.54688, 2.46875 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.001
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+position = Vector2( -6.08589, 5.67089 )
+frames = SubResource( 1 )
+animation = "die"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -5.30062, 5.26583 )
+scale = Vector2( 0.892372, 1.0575 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
+
+position = Vector2( -1.37424, 3.64556 )
+scale = Vector2( 1, 0.93038 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 13 )
+collision_mask = 1
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+
