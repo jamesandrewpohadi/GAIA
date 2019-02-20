@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var social = get_parent().get_node("Social")
+onready var main = get_parent()
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -14,4 +14,4 @@ func _ready():
 
 
 func _on_Social_pressed():
-	social.show()
+	main.social.show()

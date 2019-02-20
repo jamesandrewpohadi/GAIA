@@ -1,5 +1,5 @@
 extends Node2D
-onready var chat = get_parent().get_node("Chat")
+onready var main = get_parent()
 const GlobalListItem = preload("GlobalListItem.tscn")
 const FriendListItem = preload("FriendListItem.tscn")
 

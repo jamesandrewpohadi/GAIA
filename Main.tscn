@@ -28,6 +28,4 @@ visible = false
 
 [node name="Notification" parent="." index="5" instance=ExtResource( 7 )]
 
-visible = false
-
 

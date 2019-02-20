@@ -1,8 +1,11 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+onready var network = get_node("Network")
+onready var village = get_node("Village")
+onready var social = get_node("Social")
+onready var chat = get_node("Chat")
+onready var welcome = get_node("Welcome")
+onready var notification = get_node("Notification")
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

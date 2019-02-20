@@ -1,5 +1,5 @@
 extends ColorRect
-onready var chat = get_parent().get_parent().get_parent().get_parent().chat
+onready var main = get_parent().get_parent().get_parent().get_parent().main
 var id
 
 func _ready():

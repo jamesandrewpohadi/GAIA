@@ -1,6 +1,8 @@
 extends Panel
 signal host(host)
-var network
+onready var main = get_parent()
+onready var player_name = $InputName.text
+onready var password = $Password.text
 onready var host = $InputHost.text
 onready var port = $InputPort.text
 
@@ -9,10 +11,7 @@ onready var port = $InputPort.text
 # var b = "textvar"
 
 func _ready():
-	print(11)
-	network = get_parent().get_node("Network")
-	print(network)
-
+	pass
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
@@ -20,9 +19,15 @@ func _ready():
 
 
 func _on_Host_pressed():
-	network._on_Host(host, port)
-	network.player_name = $InputName.text
+	player_name = $InputName.text
+	main.network._on_Host(host, player_name)
+	main.network.player_name = player_name
 
 func _on_Join_pressed():
-	network._on_Join(host, port)
-	network.player_name = $InputName.text
+	player_name = $InputName.text
+	main.network.player_name = player_name
+	if (main.network.peer == null):
+		main.network._on_Join(host, port, player_name)
+	else:
+		main.network.retry(player_name, main.network.player_id)
+	

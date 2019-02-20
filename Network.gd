@@ -2,23 +2,23 @@ extends Node
 
 var host = '127.0.0.1'
 var port = 5000
-var player_id
 var player_name
-onready var welcome = get_parent().get_node('Welcome')
-onready var social = get_parent().get_node('Social')
+var player_id
+var peer
+onready var main = get_parent()
 
 func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
 
-func _on_Join(host, port):
-	var peer = NetworkedMultiplayerENet.new()
+func _on_Join(host, port, name):
+	peer = NetworkedMultiplayerENet.new()
 	peer.create_client(host, int(port))
 	get_tree().set_network_peer(peer)
 	player_id = str(get_tree().get_network_unique_id())
 
-func _on_Host(host, port):
-	var peer = NetworkedMultiplayerENet.new()
+func _on_Host(host, name):
+	peer = NetworkedMultiplayerENet.new()
 	peer.create_server(int(port),5)
 	get_tree().set_network_peer(peer)
 	player_id = str(get_tree().get_network_unique_id())
@@ -30,11 +30,22 @@ func _player_disconnected(id):
 	$Display.text += '\n ' + str(id) + ' has left'
 	
 func _connected_ok():
-	welcome.hide()
 	
 	print('You have joined the room')
-	rpc('add_player', player_name, player_id)
+	rpc('check_exist', player_name, int(player_id))
 	
-remote func add_player(name, id):
-	welcome.hide()
-	print(player + ' has joined the room')
+func retry(player_name, id):
+	rpc('check_exist', player_name, int(id))
+	
+remote func check_exist(name, id):
+	if name == player_name:
+		rpc_id(id, "rejected")
+	else:
+		main.welcome.hide()
+		rpc_id(id, "accepted")
+		
+remote func rejected():
+	main.notification.respond("Error", "Player with name " + player_name + " is already in the game", "Retry")
+
+remote func accepted():
+	main.welcome.hide()
