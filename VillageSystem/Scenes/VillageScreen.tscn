@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/VillageScreen.gd" type="Script" id=1]
+[ext_resource path="res://Tileset/TowerDefenceTileSet.res" type="TileSet" id=2]
+[ext_resource path="res://Scenes/Buildings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/BuildingMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/VillageUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/ResourceMenu.tscn" type="PackedScene" id=6]
+
+[node name="VillageScreen" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Floor" type="TileMap" parent="." index="0"]
+
+position = Vector2( -366.545, 2.78949 )
+mode = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 120, 70 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -589822, 433, 0, -589821, 433, 0, -589820, 433, 0, -589819, 433, 0, -589818, 433, 0, -589817, 433, 0, -589816, 433, 0, -589815, 433, 0, -589814, 433, 0, -589813, 433, 0, -589812, 433, 0, -589811, 433, 0, -589810, 433, 0, -589809, 433, 0, -524286, 433, 0, -524285, 433, 0, -524284, 433, 0, -524283, 433, 0, -524282, 433, 0, -524281, 433, 0, -524280, 433, 0, -524279, 433, 0, -524278, 433, 0, -524277, 433, 0, -524276, 433, 0, -524275, 433, 0, -524274, 433, 0, -524273, 433, 0, -458750, 433, 0, -458749, 433, 0, -458748, 433, 0, -458747, 433, 0, -458746, 433, 0, -458745, 433, 0, -458744, 433, 0, -458743, 433, 0, -458742, 433, 0, -458741, 433, 0, -458740, 433, 0, -458739, 433, 0, -458738, 433, 0, -458737, 433, 0, -393214, 433, 0, -393213, 433, 0, -393212, 433, 0, -393211, 433, 0, -393210, 433, 0, -393209, 433, 0, -393208, 433, 0, -393207, 433, 0, -393206, 433, 0, -393205, 433, 0, -393204, 433, 0, -393203, 433, 0, -393202, 433, 0, -393201, 433, 0, -327678, 433, 0, -327677, 433, 0, -327676, 433, 0, -327675, 433, 0, -327674, 433, 0, -327673, 433, 0, -327672, 433, 0, -327671, 433, 0, -327670, 433, 0, -327669, 433, 0, -327668, 433, 0, -327667, 433, 0, -327666, 433, 0, -327665, 433, 0, -262142, 433, 0, -262141, 433, 0, -262140, 433, 0, -262139, 433, 0, -262138, 433, 0, -262137, 433, 0, -262136, 433, 0, -262135, 433, 0, -262134, 433, 0, -262133, 433, 0, -262132, 433, 0, -262131, 433, 0, -262130, 432, 0, -262129, 433, 0, -196606, 433, 0, -196605, 433, 0, -196604, 433, 0, -196603, 433, 0, -196602, 433, 0, -196601, 433, 0, -196600, 433, 0, -196599, 433, 0, -196598, 433, 0, -196597, 433, 0, -196596, 433, 0, -196595, 433, 0, -196594, 433, 0, -196593, 433, 0, -131070, 433, 0, -131069, 433, 0, -131068, 433, 0, -131067, 433, 0, -131066, 433, 0, -131065, 433, 0, -131064, 433, 0, -131063, 433, 0, -131062, 433, 0, -131061, 433, 0, -131060, 433, 0, -131059, 433, 0, -131058, 433, 0, -131057, 433, 0, -65534, 433, 0, -65533, 433, 0, -65532, 433, 0, -65531, 433, 0, -65530, 433, 0, -65529, 433, 0, -65528, 433, 0, -65527, 433, 0, -65526, 433, 0, -65525, 433, 0, -65524, 433, 0, -65523, 433, 0, -65522, 433, 0, -65521, 433, 0, 2, 433, 0, 3, 433, 0, 4, 433, 0, 5, 433, 0, 6, 433, 0, 7, 433, 0, 8, 433, 0, 9, 433, 0, 10, 433, 0, 11, 433, 0, 12, 433, 0, 13, 433, 0, 14, 433, 0, 15, 433, 0, 65538, 433, 0, 65539, 433, 0, 65540, 433, 0, 65541, 433, 0, 65542, 433, 0, 65543, 433, 0, 65544, 433, 0, 65545, 433, 0, 65546, 433, 0, 65547, 433, 0, 65548, 433, 0, 65549, 433, 0, 65550, 433, 0, 65551, 433, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Buildings" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 772.692, 225.822 )
+
+[node name="BuildingMenu" parent="." index="2" instance=ExtResource( 4 )]
+
+[node name="VillageUI" parent="." index="3" instance=ExtResource( 5 )]
+
+[node name="ResourceMenu" parent="." index="4" instance=ExtResource( 6 )]
+
+[connection signal="buildingIsDeployed" from="Buildings" to="ResourceMenu" method="_on_Buildings_buildingIsDeployed"]
+
+[connection signal="deploy_building" from="BuildingMenu" to="Buildings" method="_on_BuildingMenu_deploy_building"]
+
+[connection signal="spend_resource" from="BuildingMenu" to="ResourceMenu" method="_on_BuildingMenu_spend_resource"]
+
+[connection signal="open_build_menu" from="VillageUI" to="BuildingMenu" method="_on_VillageUI_open_build_menu"]
+
+[connection signal="open_resource_menu" from="VillageUI" to="ResourceMenu" method="_on_VillageUI_open_resource_menu"]
+
+
