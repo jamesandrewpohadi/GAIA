@@ -11,4 +11,5 @@ func _ready():
 
 
 func _on_Button_pressed():
+	hide()
 	queue_free()

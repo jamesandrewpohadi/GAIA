@@ -1,10 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Social.gd" type="Script" id=1]
-[ext_resource path="res://Market.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Wish.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Wish.gd" type="Script" id=1]
 
-[node name="Social" type="Node2D"]
+[node name="Wish" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -24,16 +22,16 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Wish" type="Button" parent="Main" index="0"]
+[node name="Button" type="Button" parent="Main" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 866.0
-margin_top = 338.0
-margin_right = 1066.0
-margin_bottom = 538.0
+margin_left = 1060.0
+margin_top = 20.0
+margin_right = 1260.0
+margin_bottom = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -45,138 +43,18 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Wish"
-flat = false
-align = 1
-_sections_unfolded = [ "Anchor", "Rect" ]
-
-[node name="Market" type="Button" parent="Main" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 554.0
-margin_top = 342.0
-margin_right = 754.0
-margin_bottom = 542.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Market"
+text = "Add Wish"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Interact" type="Button" parent="Main" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 261.0
-margin_top = 344.0
-margin_right = 461.0
-margin_bottom = 544.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Interact"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect", "Textures" ]
-
-[node name="Interact" type="Panel" parent="." index="1"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1300.0
-margin_bottom = 750.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
-
-[node name="ButtonFriends" type="Button" parent="Interact" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 650.0
-margin_top = 100.0
-margin_right = 1300.0
-margin_bottom = 200.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Friend"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
-
-[node name="ButtonGlobal" type="Button" parent="Interact" index="1"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Main" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 100.0
-margin_right = 650.0
-margin_bottom = 200.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Global"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
-
-[node name="Global" type="ScrollContainer" parent="Interact" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 200.0
 margin_right = 1300.0
 margin_bottom = 750.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -192,7 +70,7 @@ scroll_vertical = 0
 scroll_deadzone = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="List" type="VBoxContainer" parent="Interact/Global" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/ScrollContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -207,13 +85,201 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Friends" type="ScrollContainer" parent="Interact" index="3"]
+[node name="ItemCategories" type="Panel" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 200.0
+margin_right = 1300.0
+margin_bottom = 750.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Ore" type="Button" parent="ItemCategories" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 363.0
+margin_top = 186.0
+margin_right = 563.0
+margin_bottom = 386.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Ores"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Food" type="Button" parent="ItemCategories" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 363.0
+margin_top = 473.0
+margin_right = 563.0
+margin_bottom = 673.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Foods"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Water" type="Button" parent="ItemCategories" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 605.0
+margin_top = 488.0
+margin_right = 805.0
+margin_bottom = 688.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Water"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Cement" type="Button" parent="ItemCategories" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 903.0
+margin_top = 192.0
+margin_right = 1103.0
+margin_bottom = 392.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Cements"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Academy" type="Button" parent="ItemCategories" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 628.0
+margin_top = 199.0
+margin_right = 828.0
+margin_bottom = 399.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Academies"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Tree" type="Button" parent="ItemCategories" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 881.0
+margin_top = 471.0
+margin_right = 1081.0
+margin_bottom = 671.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Trees"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="ItemList" type="Panel" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1300.0
+margin_bottom = 750.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ItemList" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 100.0
 margin_right = 1300.0
 margin_bottom = 750.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -229,7 +295,7 @@ scroll_vertical = 0
 scroll_deadzone = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="List" type="VBoxContainer" parent="Interact/Friends" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemList/ScrollContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -244,50 +310,6 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Market" parent="." index="2" instance=ExtResource( 2 )]
-
-visible = false
-
-[node name="Wish" parent="." index="3" instance=ExtResource( 3 )]
-
-visible = false
-
-[node name="Back" type="Button" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 40.0
-margin_top = 15.0
-margin_right = 190.0
-margin_bottom = 85.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Back"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
-
-[connection signal="pressed" from="Main/Wish" to="." method="_on_Wish_pressed"]
-
-[connection signal="pressed" from="Main/Market" to="." method="_on_Market_pressed"]
-
-[connection signal="pressed" from="Main/Interact" to="." method="_on_Interact_pressed"]
-
-[connection signal="pressed" from="Interact/ButtonFriends" to="." method="_on_ButtonFriends_pressed"]
-
-[connection signal="pressed" from="Interact/ButtonGlobal" to="." method="_on_ButtonGlobal_pressed"]
-
-[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Main/Button" to="." method="_on_Button_pressed"]
 
 
