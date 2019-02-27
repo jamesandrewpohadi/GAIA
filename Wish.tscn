@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Wish.gd" type="Script" id=1]
 
-[node name="Wish" type="Node2D" index="0"]
+[node name="Wish" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -76,6 +76,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_right = 1300.0
+margin_bottom = 650.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -87,6 +89,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="ItemCategories" type="Panel" parent="." index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -259,6 +262,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="ItemList" type="Panel" parent="." index="2"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
