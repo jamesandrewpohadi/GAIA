@@ -5,6 +5,9 @@ extends Control
 # var b = "textvar"
 signal activate_resource_counter
 signal minus_resources
+signal foodResourceCount
+signal waterResourceCount
+
 var minus_resources = 10
 func _ready():
 	self.hide()
@@ -38,3 +41,11 @@ func _on_BuildingMenu_spend_resource():
 
 func _on_Buildings_buildingIsDeployed():
 	emit_signal("activate_resource_counter")
+
+
+func _on_FoodBuilding_resourceCount(resource):
+	emit_signal("foodResourceCount", resource)
+
+
+func _on_WaterBuilding_resourceCount(resource):
+	emit_signal("waterResourceCount", resource)

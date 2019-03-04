@@ -5,6 +5,9 @@ extends Control
 # var b = "textvar"
 signal open_build_menu
 signal open_resource_menu
+signal open_yggdrasil_menu
+signal open_villager_menu
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -25,3 +28,11 @@ func _on_Build_pressed():
 func _on_Resources_pressed():
 	emit_signal("open_resource_menu")
 	 # replace with function body
+
+
+func _on_Yggdrasil_button_pressed():
+	emit_signal("open_yggdrasil_menu")
+
+
+func _on_Villager_button_pressed():
+	emit_signal("open_villager_menu")

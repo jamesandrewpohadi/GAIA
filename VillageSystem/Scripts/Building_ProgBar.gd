@@ -6,6 +6,7 @@ extends TextureProgress
 signal update_building_animation
 signal building_complete
 var check_number = 20
+# Remember to add timer in 
 func _ready():
 	self.value = self.min_value
 	
