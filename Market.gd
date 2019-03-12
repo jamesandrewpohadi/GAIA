@@ -36,9 +36,9 @@ func setShopList():
 		addGameItem("Cement" + str(i), "Cement", str(10), "Cancel", $ShopList/ScrollContainer/VBoxContainer)
 
 func clearList():
-	#for i in $ItemList/ScrollContainer/VScrollBar.get_children():
-    #i.queue_free()
-	pass
+	for i in $ItemList/ScrollContainer/VScrollBar.get_children():
+		i.queue_free()
+	#pass
 	
 func addGameItem(name, category, amount, button_text, node):
 	var gameItem = GameListItem.instance()

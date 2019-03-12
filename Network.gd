@@ -22,6 +22,9 @@ func _on_Host(host, name):
 	peer.create_server(int(port),5)
 	get_tree().set_network_peer(peer)
 	player_id = str(get_tree().get_network_unique_id())
+
+func login(name, password):
+	pass
 	
 func _player_connected(id):
 	$Display.text += '\n ' + str(id) + ' has joined'
