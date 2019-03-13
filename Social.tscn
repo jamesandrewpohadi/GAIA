@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Social.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Social/Social.gd" type="Script" id=1]
 [ext_resource path="res://Market.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Wish.tscn" type="PackedScene" id=3]
 
