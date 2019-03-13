@@ -27,14 +27,17 @@ func _on_CloseButton_pressed():
 
 
 func _on_SoloButton_pressed():
-	get_tree().change_scene('res://StageOne.tscn')
-	pass # replace with function body
+	dungeonMenu.hide()
+	hide()
+	queue_free()
+	var stageOne = load('res://StageOne.tscn').instance()
+	get_parent().add_child(stageOne)
 
 
 
 
 func _on_Exit_pressed():
-	get_tree().change_scene('res://Village.tscn')
-	pass # replace with function body
+	hide()
+	queue_free()
 
 

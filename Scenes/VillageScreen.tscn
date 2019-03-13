@@ -12,7 +12,7 @@
 [ext_resource path="res://Scenes/YggdrasilMenu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/VillagerMenu.tscn" type="PackedScene" id=11]
 
-[node name="VillageScreen" type="Node"]
+[node name="VillageScreen" type="Node" index="0"]
 
 script = ExtResource( 1 )
 

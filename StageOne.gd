@@ -21,14 +21,13 @@ func _on_Button_pressed():
 
 
 func _on_ConfirmationDialog_confirmed():
-	get_tree().change_scene('res://Village.tscn')
-	pass # replace with function body
+	hide()
+	queue_free()
 
 
 func _on_GoBack_pressed():
-	get_tree().change_scene('res://Village.tscn')
-	pass # replace with function body
-
+	get_parent().hide()
+	get_parent().queue_free()
 
 func _on_TryAgain_pressed():
 	get_tree().reload_current_scene()
