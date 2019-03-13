@@ -2,15 +2,15 @@
 
 [ext_resource path="res://Scripts/VillageScreen.gd" type="Script" id=1]
 [ext_resource path="res://Tileset/BuildingSprites.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/Yggdrasil.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/WaterBuilding.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/FoodBuilding.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Village/Yggdrasil.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Village/WaterBuilding.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Village/FoodBuilding.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/VillageCamera.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/VillageUI.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/BuildingMenu.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/ResourceMenu.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/YggdrasilMenu.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/VillagerMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Village/VillageUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Village/BuildingMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Village/ResourceMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Village/YggdrasilMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Village/VillagerMenu.tscn" type="PackedScene" id=11]
 
 [node name="VillageScreen" type="Node" index="0"]
 

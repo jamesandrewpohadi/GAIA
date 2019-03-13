@@ -20,7 +20,7 @@ var is_dead = false
 var jumpdelay = 0.5
 var can_jump = true
 
-const HADOUKEN = preload("res://hadouken.tscn")
+const HADOUKEN = preload("res://Scenes/Combat/hadouken.tscn")
 
 func _ready():
 	timer = Timer.new()

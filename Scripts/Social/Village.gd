@@ -18,5 +18,5 @@ func _on_Social_pressed():
 
 
 func _on_Combat_pressed():
-	var map = load('res://MapScreen.tscn').instance()
+	var map = load('res://Scenes/Social/MapScreen.tscn').instance()
 	add_child(map)

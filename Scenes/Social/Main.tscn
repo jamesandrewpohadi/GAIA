@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Social/Main.gd" type="Script" id=1]
-[ext_resource path="res://Network.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Village.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Social.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Chat.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Welcome.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Notification.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Database.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Social/Network.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Social/Village.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Social/Social.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Social/Chat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Social/Welcome.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Social/Notification.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Social/Database.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node"]
 
