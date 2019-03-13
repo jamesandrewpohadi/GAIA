@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scripts/VillageUI.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Village/VillageUI.gd" type="Script" id=1]
 [ext_resource path="res://kenny_iso_td/iso_td/towerDefense_001_0.png" type="Texture" id=2]
 [ext_resource path="res://kenny_iso_td/iso_td/towerDefense_001_1.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Build.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Village/Build.gd" type="Script" id=4]
 [ext_resource path="res://kenny_iso_td/iso_td/towerDefense_119_1.png" type="Texture" id=5]
 [ext_resource path="res://kenny_iso_td/iso_td/towerDefense_119_3.png" type="Texture" id=6]
 [ext_resource path="res://kenny_iso_td/iso_td/towerDefense_004_0.png" type="Texture" id=7]

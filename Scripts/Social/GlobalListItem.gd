@@ -1,4 +1,4 @@
-extends "res://ListItem.gd"
+extends "res://Scripts/Social/ListItem.gd"
 
 # class member variables go here, for example:
 # var a = 2

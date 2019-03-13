@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://hadouken.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Combat/hadouken.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/SkillSprites/Hadouken/Water__04.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/SkillSprites/Hadouken/Water__05.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/SkillSprites/Hadouken/Water__01.png" type="Texture" id=4]

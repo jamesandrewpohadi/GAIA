@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Mob1.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Combat/Mob1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Mob1Sprites/Idle.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Mob1Sprites/Slash2.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Mob1Sprites/Slash.png" type="Texture" id=4]

@@ -1,7 +1,7 @@
 extends Node2D
 onready var main = get_parent()
-const GlobalListItem = preload("GlobalListItem.tscn")
-const FriendListItem = preload("FriendListItem.tscn")
+const GlobalListItem = preload("res://Scenes/Social/GlobalListItem.tscn")
+const FriendListItem = preload("res://Scenes/Social/FriendListItem.tscn")
 onready var view = [get_node(".")]
 
 func _ready():

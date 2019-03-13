@@ -1,4 +1,4 @@
-extends "res://ListItem.gd"
+extends "res://Scripts/Social/ListItem.gd"
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

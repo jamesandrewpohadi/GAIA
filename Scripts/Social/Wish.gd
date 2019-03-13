@@ -1,6 +1,6 @@
 extends Node2D
 
-const GameListItem = preload("GameListItem.tscn")
+const GameListItem = preload("res://Scenes/Social/GameListItem.tscn")
 onready var social = get_parent()
 
 func _ready():

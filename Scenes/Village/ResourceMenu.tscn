@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/ResourceMenu.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/ResourceCounter.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Village/ResourceMenu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Village/ResourceCounter.gd" type="Script" id=2]
 [ext_resource path="res://Kenney_Roguelike_Pack/food.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/waterResourceCounter.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Village/waterResourceCounter.gd" type="Script" id=4]
 [ext_resource path="res://Kenney_Roguelike_Pack/cool water texture.jpg" type="Texture" id=5]
 
 [node name="ResourceMenu" type="Control" index="0"]
