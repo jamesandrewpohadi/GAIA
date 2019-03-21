@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Social/Market.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Social/Wish.tscn" type="PackedScene" id=3]
 
-[node name="Social" type="Node2D" index="0"]
+[node name="Social" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -104,6 +104,7 @@ _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Interact" type="Panel" parent="." index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

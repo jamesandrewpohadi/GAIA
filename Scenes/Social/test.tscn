@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Social/test.gd" type="Script" id=1]
 
-[node name="test" type="HTTPRequest" index="0"]
+[node name="test" type="HTTPRequest"]
 
 download_file = ""
 use_threads = false

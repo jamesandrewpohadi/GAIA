@@ -7,7 +7,8 @@ func _ready():
 	# Initialization here
 	pass
 
-func respond(title, message, action):
+func respond(node, title, message, action):
+	node.add_child(self)
 	$respond/Title.text = title
 	$respond/Message.text = message
 	$respond/Button.text = action
@@ -16,3 +17,4 @@ func respond(title, message, action):
 
 func _on_ButtonRespond_pressed():
 	$respond.hide()
+	queue_free()

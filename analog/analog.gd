@@ -28,7 +28,7 @@ func _ready():
 	squaredHalfSizeLength = halfSize.x * halfSize.y
 	
 	if (listenerNodePath != "" && listenerNodePath!=null):
-		listenerNodePath = get_node("/root/StageOne/Player")
+		listenerNodePath = get_node("../../../Player")
 	elif listenerNodePath=="":
 		listenerNodePath = null
 

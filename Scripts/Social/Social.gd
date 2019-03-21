@@ -6,10 +6,20 @@ onready var view = [get_node(".")]
 
 func _ready():
 	$Interact/Friends.hide()
-	print(view)
-	for i in range(20):
-		addGlobal(i, "Global " + str(i))
-		addFriend(i, "Friend " + str(i))
+	#for i in range(20):
+	#	addGlobal(i, "Global " + str(i))
+	#	addFriend(i, "Friend " + str(i))
+	#print(main.network.player_info)
+	#for peer_id in main.network.player_info:
+	#	addGlobal(peer_id, main.network.player_info[peer_id]["name"])
+
+func update():
+	for child in $Interact/Global/List.get_children():
+		child.hide()
+		child.queue_free()
+	for peer_id in main.network.player_info:
+		addGlobal(peer_id, main.network.player_info[peer_id]["name"])
+		
 
 func addGlobal(id, name):
 	var global = GlobalListItem.instance()
@@ -43,8 +53,11 @@ func _on_ButtonFriends_pressed():
 
 
 func _on_Back_pressed():
-	var curr_node = view.pop_back()
-	curr_node.hide()
+	if (view.size() > 1):
+		var curr_node = view.pop_back()
+		curr_node.hide()
+	else:
+		hide()
 
 
 func _on_Wish_pressed():

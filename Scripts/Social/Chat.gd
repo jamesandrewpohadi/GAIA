@@ -10,7 +10,6 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-
 func _on_MessageInput_text_entered(message):
 	$MessageInput.text = ''
 	rpc('display_message', network.player_name, message)

@@ -30,7 +30,7 @@ func _on_SoloButton_pressed():
 	dungeonMenu.hide()
 	hide()
 	queue_free()
-	var stageOne = load('res://Scenes/Social/StageOne.tscn').instance()
+	var stageOne = load('res://Scenes/Combat/StageOne.tscn').instance()
 	get_parent().add_child(stageOne)
 
 
