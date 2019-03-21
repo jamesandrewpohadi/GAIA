@@ -6,3 +6,6 @@ func _ready():
 
 func _on_VillagerMenu_open_villager_menu():
 	self.popup()
+
+
+

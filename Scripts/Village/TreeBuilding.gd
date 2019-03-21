@@ -4,14 +4,11 @@ extends Sprite
 # var a = 2
 # var b = "textvar"
 var buildingDeployed = false
-var foodResourceGenerated = 1
-var contaminationPoint = 1 # add into the contamination system later
+var contaminationPoint = -6 # add into the contamination system later
 var spaceTaken = 2 # add space constraint later
 
-
-signal contaminationAdd
 signal buildingIsDeployed
-signal resourceCount 
+signal repelContamination
 signal updateSpaceTaken
 
 var timeCheck = 1
@@ -37,7 +34,7 @@ func _process(delta):
 				#resource_production()
 				#timeSave == false
 		if ((OS.get_system_time_secs() - timeStart) == timeCheck):
-			resource_production();
+			contamination_reduction()
 			timeSave = false
 	
 		
@@ -52,15 +49,11 @@ func _on_Building_ProgBar_building_complete():
 	emit_signal("buildingIsDeployed")
 	emit_signal("updateSpaceTaken",spaceTaken)
 	
-func resource_production():
-	emit_signal("contaminationAdd",contaminationPoint)
-	emit_signal("resourceCount", foodResourceGenerated)
+func contamination_reduction():
+	emit_signal("repelContamination",contaminationPoint) 
 
-
-func _on_BuildingMenu_deploy_building_food():
-	#When signal deploy_building is emitted by buildingmenu, i.e. building chosen , building appears on village
+func _on_BuildingMenu_deploy_building_tree():
 	self.show()
 	for child in self.get_children():
 		for things in child.get_children():
-			things.show()  # replace with function body
-
+			things.show()  # replace with function bodypass # replace with function body

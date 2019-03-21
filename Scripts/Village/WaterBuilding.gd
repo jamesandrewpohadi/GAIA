@@ -4,12 +4,14 @@ extends Sprite
 # var a = 2
 # var b = "textvar"
 var buildingDeployed = false
-var waterResource = 0
+var waterResourceGenerated = 1
 var contaminationPoint = 1 # add into the contamination system later
 var spaceTaken = 2 # add space constraint later
 
 signal buildingIsDeployed
 signal resourceCount 
+signal contaminationAdd
+signal updateSpaceTaken
 
 var timeCheck = 1
 var timeStart
@@ -47,10 +49,12 @@ func _process(delta):
 func _on_Building_ProgBar_building_complete():
 	buildingDeployed = true
 	emit_signal("buildingIsDeployed")
+	emit_signal("updateSpaceTaken",spaceTaken)
 	
 func resource_production():
-	waterResource += 1;
-	emit_signal("resourceCount", waterResource)
+	emit_signal("contaminationAdd",contaminationPoint)
+	emit_signal("resourceCount", waterResourceGenerated)
+
 
 
 
