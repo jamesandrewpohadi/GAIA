@@ -7,6 +7,9 @@ signal activate_resource_counter
 signal minus_resources
 signal foodResourceCount
 signal waterResourceCount
+signal oreResourceCount
+signal cementResourceCount
+
 
 var minus_resources = 10
 func _ready():
@@ -43,9 +46,19 @@ func _on_Buildings_buildingIsDeployed():
 	emit_signal("activate_resource_counter")
 
 
-func _on_FoodBuilding_resourceCount(resource):
-	emit_signal("foodResourceCount", resource)
+
+func _on_VillageResourcesCounter_update_oreResource(ores):
+	emit_signal("oreResourceCount", ores)
 
 
-func _on_WaterBuilding_resourceCount(resource):
-	emit_signal("waterResourceCount", resource)
+func _on_VillageResourcesCounter_update_waterResource(water):
+	emit_signal("waterResourceCount", water)
+
+
+
+func _on_VillageResourcesCounter_update_foodResource(food):
+	emit_signal("foodResourceCount", food)
+
+
+func _on_VillageResourcesCounter_update_cementResource(cement):
+	emit_signal("cementResourceCount", cement)

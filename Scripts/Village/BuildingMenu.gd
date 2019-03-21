@@ -5,6 +5,11 @@ extends Control
 # var b = "textvar"
 signal deploy_building_food
 signal deploy_building_water
+signal deploy_building_ore
+signal deploy_building_academy
+signal deploy_building_cement
+signal deploy_building_tree
+
 
 signal spend_resource
 func _ready():
@@ -55,6 +60,43 @@ func _on_Food_Building_Button_pressed():
 
 func _on_Water_Building_Button_pressed():
 	emit_signal("deploy_building_water")
+	self.hide()
+	for child in self.get_children():
+		child.hide()
+		for stuff in child.get_children():
+			stuff.hide()
+
+func _on_Ore_Building_Button_pressed():
+	emit_signal("deploy_building_ore")
+	self.hide()
+	for child in self.get_children():
+		child.hide()
+		for stuff in child.get_children():
+			stuff.hide()
+			
+
+
+
+func _on_Cement_Building_Button_pressed():
+	emit_signal("deploy_building_cement")
+	self.hide()
+	for child in self.get_children():
+		child.hide()
+		for stuff in child.get_children():
+			stuff.hide()
+
+
+func _on_Academy_Building_Button_pressed():
+	emit_signal("deploy_building_academy")
+	self.hide()
+	for child in self.get_children():
+		child.hide()
+		for stuff in child.get_children():
+			stuff.hide()
+
+
+func _on_Tree_Building_Button_pressed():
+	emit_signal("deploy_building_tree")
 	self.hide()
 	for child in self.get_children():
 		child.hide()
