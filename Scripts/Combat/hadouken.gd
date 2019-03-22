@@ -8,6 +8,7 @@ const speed = 300
 var velocity = Vector2()
 var launched = 0
 var direction = 1
+var Player
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -34,5 +35,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_WaterGun_body_entered(body):
 	if "Mob" in body.name:
 		body.dead()
+	#Player = get_parent()
+	#Player.shotlimit += 1
 	queue_free()
 	pass # replace with function body
