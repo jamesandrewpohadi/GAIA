@@ -1,4 +1,4 @@
-extends Label
+extends Popup
 
 # class member variables go here, for example:
 # var a = 2
@@ -9,13 +9,11 @@ func _ready():
 	# Initialization here
 	pass
 
-func _process(delta):
-	self.update()
+#func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
 
 
-func _on_YggdrasilMenu_update_yggdrasil_status_space(space):
-	self.text = str(space)
-	self.update()
+func _on_BuildingMenu_insufficient_resources():
+	self.popup()

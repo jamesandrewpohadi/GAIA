@@ -10,7 +10,6 @@ signal waterResourceCount
 signal oreResourceCount
 signal cementResourceCount
 
-
 var minus_resources = 10
 func _ready():
 	self.hide()
@@ -62,3 +61,4 @@ func _on_VillageResourcesCounter_update_foodResource(food):
 
 func _on_VillageResourcesCounter_update_cementResource(cement):
 	emit_signal("cementResourceCount", cement)
+

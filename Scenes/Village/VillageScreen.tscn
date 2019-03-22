@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Village/VillageScreen.gd" type="Script" id=1]
 [ext_resource path="res://Tileset/BuildingSprites.tres" type="TileSet" id=2]
@@ -11,13 +11,16 @@
 [ext_resource path="res://Scenes/Village/ResourceMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Village/YggdrasilMenu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Village/VillagerMenu.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Village/OreBuilding.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Village/CementBuilding.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scripts/Village/Villagers.gd" type="Script" id=14]
-[ext_resource path="res://Scenes/Village/AcademyBuilding.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scripts/Village/YggdrasilStatus.gd" type="Script" id=16]
-[ext_resource path="res://Scenes/Village/TreeBuilding.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scripts/Village/VillageResourcesCounter.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/Village/InsufficientResourceMessage.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Village/UpgradeSuccess.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Village/MaxLevelAchievedPopup.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/Village/OreBuilding.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Village/CementBuilding.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/Village/Villagers.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/Village/AcademyBuilding.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scripts/Village/YggdrasilStatus.gd" type="Script" id=19]
+[ext_resource path="res://Scenes/Village/TreeBuilding.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripts/Village/VillageResourcesCounter.gd" type="Script" id=21]
 
 [node name="VillageScreen" type="Node" index="0"]
 
@@ -50,7 +53,7 @@ position = Vector2( -41.2567, -181.942 )
 
 [node name="WaterBuilding" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 91.2952, 360.164 )
+position = Vector2( 76.3165, 350.688 )
 
 [node name="FoodBuilding" parent="." index="3" instance=ExtResource( 5 )]
 
@@ -101,11 +104,8 @@ margin_bottom = -1.0
 
 [node name="BuildingMenu" parent="VillageCamera/CanvasLayer" index="1" instance=ExtResource( 8 )]
 
-visible = false
-
 [node name="ResourceMenu" parent="VillageCamera/CanvasLayer" index="2" instance=ExtResource( 9 )]
 
-visible = false
 margin_left = -1.0
 margin_top = -7.0
 margin_right = 1025.0
@@ -113,51 +113,186 @@ margin_bottom = 605.0
 
 [node name="YggdrasilMenu" parent="VillageCamera/CanvasLayer" index="3" instance=ExtResource( 10 )]
 
-visible = false
-
 [node name="VillagerMenu" parent="VillageCamera/CanvasLayer" index="4" instance=ExtResource( 11 )]
 
-visible = false
 margin_left = 4.0
 margin_top = 2.0
 margin_right = 1027.0
 margin_bottom = 606.0
 
-[node name="OreBuilding" parent="." index="5" instance=ExtResource( 12 )]
+[node name="InsufficientResourceMessage" type="PopupDialog" parent="VillageCamera/CanvasLayer" index="5"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 254.0
+margin_top = 165.0
+margin_right = 712.0
+margin_bottom = 464.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 12 )
+
+[node name="insufficientResourcesLabel" type="Label" parent="VillageCamera/CanvasLayer/InsufficientResourceMessage" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 136.0
+margin_top = 120.0
+margin_right = 375.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Insufficient Resources or Space !"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="UpgradeSuccess" type="PopupDialog" parent="VillageCamera/CanvasLayer" index="6"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 362.0
+margin_top = 178.0
+margin_right = 669.0
+margin_bottom = 388.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 13 )
+
+[node name="upgradeSuccessLabel" type="Label" parent="VillageCamera/CanvasLayer/UpgradeSuccess" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 78.0
+margin_top = 63.0
+margin_right = 247.0
+margin_bottom = 139.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Upgrade Success!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="MaxLevelAchievedPopup" type="PopupDialog" parent="VillageCamera/CanvasLayer" index="7"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = 182.0
+margin_right = 693.0
+margin_bottom = 430.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 14 )
+
+[node name="maxlevelachieved" type="Label" parent="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 92.0
+margin_right = 347.0
+margin_bottom = 164.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Max Level Achieved! Unable to upgrade further"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="OreBuilding" parent="." index="5" instance=ExtResource( 15 )]
 
 position = Vector2( 1218.61, 359.013 )
 
-[node name="CementBuilding" parent="." index="6" instance=ExtResource( 13 )]
+[node name="CementBuilding" parent="." index="6" instance=ExtResource( 16 )]
 
-position = Vector2( -275.548, 357.785 )
+position = Vector2( -282.642, 348.64 )
 
 [node name="Villagers" type="Node" parent="." index="7"]
 
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 
-[node name="AcademyBuilding" parent="." index="8" instance=ExtResource( 15 )]
+[node name="AcademyBuilding" parent="." index="8" instance=ExtResource( 18 )]
 
 position = Vector2( -663.513, 340.597 )
 
 [node name="YggdrasilStatus" type="Node" parent="." index="9"]
 
-script = ExtResource( 16 )
+script = ExtResource( 19 )
 
-[node name="TreeBuilding" parent="." index="10" instance=ExtResource( 17 )]
+[node name="TreeBuilding" parent="." index="10" instance=ExtResource( 20 )]
 
 position = Vector2( 1582.08, 353.581 )
 
 [node name="VillageResourcesCounter" type="Node" parent="." index="11"]
 
-script = ExtResource( 18 )
+script = ExtResource( 21 )
+
+[connection signal="update_space_constraints_in_bldg_menu" from="." to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageScreen_update_space_constraints_in_bldg_menu"]
+
+[connection signal="update_village_status" from="." to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageScreen_update_village_status"]
+
+[connection signal="update_villager_status" from="." to="Villagers" method="_on_VillageScreen_update_villager_status"]
 
 [connection signal="contaminationAdd" from="WaterBuilding" to="YggdrasilStatus" method="_on_WaterBuilding_contaminationAdd"]
+
+[connection signal="deduct_resources_for_water_bldg" from="WaterBuilding" to="VillageResourcesCounter" method="_on_WaterBuilding_deduct_resources_for_water_bldg"]
+
+[connection signal="notify_max_level_achieved" from="WaterBuilding" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_WaterBuilding_notify_max_level_achieved"]
 
 [connection signal="resourceCount" from="WaterBuilding" to="VillageResourcesCounter" method="_on_WaterBuilding_resourceCount"]
 
 [connection signal="updateSpaceTaken" from="WaterBuilding" to="YggdrasilStatus" method="_on_WaterBuilding_updateSpaceTaken"]
 
 [connection signal="contaminationAdd" from="FoodBuilding" to="YggdrasilStatus" method="_on_FoodBuilding_contaminationAdd"]
+
+[connection signal="deduct_resources_for_food_bldg" from="FoodBuilding" to="VillageResourcesCounter" method="_on_FoodBuilding_deduct_resources_for_food_bldg"]
+
+[connection signal="notify_max_level_achieved" from="FoodBuilding" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_FoodBuilding_notify_max_level_achieved"]
 
 [connection signal="resourceCount" from="FoodBuilding" to="VillageResourcesCounter" method="_on_FoodBuilding_resourceCount"]
 
@@ -183,13 +318,25 @@ script = ExtResource( 18 )
 
 [connection signal="deploy_building_water" from="VillageCamera/CanvasLayer/BuildingMenu" to="WaterBuilding" method="_on_BuildingMenu_deploy_building_water"]
 
+[connection signal="insufficient_resources" from="VillageCamera/CanvasLayer/BuildingMenu" to="VillageCamera/CanvasLayer/InsufficientResourceMessage" method="_on_BuildingMenu_insufficient_resources"]
+
+[connection signal="request_to_upgrade_yggdrasil" from="VillageCamera/CanvasLayer/YggdrasilMenu" to="VillageResourcesCounter" method="_on_YggdrasilMenu_request_to_upgrade_yggdrasil"]
+
 [connection signal="contaminationAdd" from="OreBuilding" to="YggdrasilStatus" method="_on_OreBuilding_contaminationAdd"]
+
+[connection signal="deduct_resources_for_ore_bldg" from="OreBuilding" to="VillageResourcesCounter" method="_on_OreBuilding_deduct_resources_for_ore_bldg"]
+
+[connection signal="notify_max_level_achieved" from="OreBuilding" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_OreBuilding_notify_max_level_achieved"]
 
 [connection signal="resourceCount" from="OreBuilding" to="VillageResourcesCounter" method="_on_OreBuilding_resourceCount"]
 
 [connection signal="updateSpaceTaken" from="OreBuilding" to="YggdrasilStatus" method="_on_OreBuilding_updateSpaceTaken"]
 
 [connection signal="contaminationAdd" from="CementBuilding" to="YggdrasilStatus" method="_on_CementBuilding_contaminationAdd"]
+
+[connection signal="deduct_resources_for_cement_bldg" from="CementBuilding" to="VillageResourcesCounter" method="_on_CementBuilding_deduct_resources_for_cement_bldg"]
+
+[connection signal="notify_max_level_achieved" from="CementBuilding" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_CementBuilding_notify_max_level_achieved"]
 
 [connection signal="resourceCount" from="CementBuilding" to="VillageResourcesCounter" method="_on_CementBuilding_resourceCount"]
 
@@ -199,17 +346,31 @@ script = ExtResource( 18 )
 
 [connection signal="contaminationAdd" from="AcademyBuilding" to="YggdrasilStatus" method="_on_AcademyBuilding_contaminationAdd"]
 
+[connection signal="deduct_resources_for_academy_bldg" from="AcademyBuilding" to="VillageResourcesCounter" method="_on_AcademyBuilding_deduct_resources_for_academy_bldg"]
+
+[connection signal="notify_max_level_achieved" from="AcademyBuilding" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_AcademyBuilding_notify_max_level_achieved"]
+
 [connection signal="updateSpaceTaken" from="AcademyBuilding" to="YggdrasilStatus" method="_on_AcademyBuilding_updateSpaceTaken"]
 
 [connection signal="updateVillagerStatus" from="AcademyBuilding" to="Villagers" method="_on_AcademyBuilding_updateVillagerStatus"]
 
+[connection signal="notify_max_level_achieved" from="YggdrasilStatus" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_YggdrasilStatus_notify_max_level_achieved"]
+
+[connection signal="notify_upgrade_success" from="YggdrasilStatus" to="VillageCamera/CanvasLayer/UpgradeSuccess" method="_on_YggdrasilStatus_notify_upgrade_success"]
+
+[connection signal="reject_upgrade_request" from="YggdrasilStatus" to="VillageCamera/CanvasLayer/InsufficientResourceMessage" method="_on_YggdrasilStatus_reject_upgrade_request"]
+
+[connection signal="update_village_system" from="YggdrasilStatus" to="." method="_on_YggdrasilStatus_update_village_system"]
+
 [connection signal="update_yggdrasil_menu" from="YggdrasilStatus" to="VillageCamera/CanvasLayer/YggdrasilMenu" method="_on_YggdrasilStatus_update_yggdrasil_menu"]
 
-[connection signal="update_yggdrasil_menu_space" from="YggdrasilStatus" to="VillageCamera/CanvasLayer/YggdrasilMenu" method="_on_YggdrasilStatus_update_yggdrasil_menu_space"]
+[connection signal="notify_max_level_achieved" from="TreeBuilding" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_TreeBuilding_notify_max_level_achieved"]
 
 [connection signal="repelContamination" from="TreeBuilding" to="YggdrasilStatus" method="_on_TreeBuilding_repelContamination"]
 
 [connection signal="updateSpaceTaken" from="TreeBuilding" to="YggdrasilStatus" method="_on_TreeBuilding_updateSpaceTaken"]
+
+[connection signal="response_to_upgrade_request" from="VillageResourcesCounter" to="YggdrasilStatus" method="_on_VillageResourcesCounter_response_to_upgrade_request"]
 
 [connection signal="update_cementResource" from="VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_cementResource"]
 

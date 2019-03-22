@@ -15,6 +15,10 @@ func _ready():
 #	pass
 
 
-func _on_YggdrasilMenu_update_yggdrasil_status(contaminationLevel):
-	self.text = str(contaminationLevel)
+func _on_YggdrasilMenu_update_yggdrasil_status(yggdrasilStatus):
+	if(yggdrasilStatus[0] < 0):
+		self.text = str(0)
+	else:
+		self.text = str(yggdrasilStatus[0])
+	
 	self.update()
