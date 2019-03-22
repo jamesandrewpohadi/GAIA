@@ -62,6 +62,7 @@ func _on_Join_pressed():
 	db.query("users/"+player_name+"/mail")	
 	yield(db,"done")
 	var mail = db.res
+
 	if (db.res == null):
 		var notif = load("res://Scenes/Social/Notification.tscn").instance()
 		notif.respond(self,"Login Error","You haven't registered yet","Retry")

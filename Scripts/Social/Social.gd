@@ -29,6 +29,7 @@ func addGlobal(id, name):
 	#friend.get_node("YggLevel").text = yggLevel
 	#friend.get_node("HeroLevel").text = heroLevel
 	#friend.get_node("Rank").text = rank
+	global.ref = get_node(".")
 	global.id = id
 	$Interact/Global/List.add_child(global)
 	
@@ -40,7 +41,8 @@ func addFriend(id, name):
 	#friend.get_node("YggLevel").text = yggLevel
 	#friend.get_node("HeroLevel").text = heroLevel
 	#friend.get_node("Rank").text = rank
-	#friend.id = id
+	friend.name = name
+	friend.id = id
 	$Interact/Friends/List.add_child(friend)
 
 func _on_ButtonGlobal_pressed():
