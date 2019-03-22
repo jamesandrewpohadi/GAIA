@@ -8,3 +8,6 @@ func _ready():
 
 func _on_Button_pressed():
 	main.chat.show()
+	main.Panel2.show()
+	
+	
