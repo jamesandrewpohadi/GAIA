@@ -27,10 +27,11 @@ func _on_CloseButton_pressed():
 
 
 func _on_SoloButton_pressed():
+	get_node("../../Village").hide()
 	dungeonMenu.hide()
 	hide()
 	queue_free()
-	var stageOne = load('res://StageOne.tscn').instance()
+	var stageOne = load('res://Scenes/Combat/StageOne.tscn').instance()
 	get_parent().add_child(stageOne)
 
 

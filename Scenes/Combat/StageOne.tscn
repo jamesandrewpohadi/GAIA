@@ -18,7 +18,7 @@
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
+[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 63.2954, 585.533 )
 
@@ -50,7 +50,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="AnalogLeft" parent="UI/AreaAnalogLeft" index="0" instance=ExtResource( 4 )]
+[node name="AnalogLeft" parent="UI/AreaAnalogLeft" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 128, 96 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
@@ -62,8 +62,8 @@ padname = "leftPad"
 
 position = Vector2( 1120, 576 )
 scale = Vector2( 0.75, 0.75 )
-normal = ExtResource( 5 )
-pressed = ExtResource( 6 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -294,12 +294,10 @@ __meta__ = {
 [node name="Mob1" parent="." index="3" instance=ExtResource( 10 )]
 
 position = Vector2( 672, 80 )
-_sections_unfolded = [ "Collision", "Z Index", "collision" ]
 
 [node name="Mob2" parent="." index="4" instance=ExtResource( 10 )]
 
 position = Vector2( 832, 144 )
-_sections_unfolded = [ "Collision", "Z Index", "collision" ]
 
 [node name="Mob3" parent="." index="5" instance=ExtResource( 10 )]
 

@@ -11,16 +11,15 @@ config_version=3
 [application]
 
 config/name="New Game Project"
-run/main_scene="res://Scenes/Combat/StageOne.tscn"
+run/main_scene="res://Scenes/Social/Main.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=1300
 window/size/height=750
-window/stretch/mode="viewport"
 window/handheld/emulate_touchscreen=true
-window/stretch/aspect="keep"
+window/stretch/mode="viewport"
 
 [input]
 
@@ -38,4 +37,3 @@ btn_up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":""
 [rendering]
 
 quality/2d/use_pixel_snap=true
-environment/default_environment="res://default_env.tres"

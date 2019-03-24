@@ -18,14 +18,26 @@ func query(tree):
 	
 func put(tree, data):
 	var response = request("https://gaia-f511d.firebaseio.com/" + tree + ".json", [], false,HTTPClient.METHOD_PUT, data)
-	yield(self, "done")
-	return res
+	#yield(self, "done")
+	#return res
 
 func _ready():
 	#query("users/gaia/GRO")
 	#yield(self, "done")
 	#print(res)
+	#put("users/k",'{"you":"you"}')
+	#init_player("jaexp","jaexp.bots@gmail.com")
+	#var name = "jaexp"
+	#var mail = 'jaexp.bots@gmail.com'
+	
+	#put("users/jaexp", '{"GRO":1000,"game":{"friends":"","mangrove":100,"market":{"cement":10,"food":10,"ore":10,"water":10},"population":100,"resources":{"cement":10,"food":10,"ore":10,"water":10},"wealth":100},"mail":jaexp.bots@gmail.com}')
+	#init_player(name, mail)
+	#put("users/jaexp", '{"GRO":1000,"game":{"friends":"","mangrove":100,"market":{"cement":10,"food":10,"ore":10,"water":10},"population":100,"resources":{"cement":10,"food":10,"ore":10,"water":10},"wealth":100},"mail":'+'"jaexp.bots@gmail.com"'+'}')
 	pass
+	#put("user/"+name,'{"G":1000,"g":{"f":"","m":100,"m":{"c":10,"f":10,"o":10,"w":10},"p":100,"r":{"c":10,"f":10,"o":10,"w":10},"w":100},"m":'+mail+'}')
+	
+func init_player(name, mail):
+	put("users/"+name, '{"GRO":1000,"game":{"friends":"","mangrove":100,"market":{"cement":10,"food":10,"ore":10,"water":10},"population":100,"resources":{"cement":10,"food":10,"ore":10,"water":10},"wealth":100},"mail":"'+mail+'"}')
 
 func push():
 	return "clear"

@@ -1,6 +1,6 @@
 extends Node
 
-var host = '127.0.0.1'
+#var host = '127.0.0.1'
 var port = 5000
 var player_name
 var player_id
@@ -13,6 +13,7 @@ onready var my_info={}
 func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
+	get_tree().connect("network_peer_connected", self, "_player_connected")
 
 func _on_Join(host, port, name):
 	print("on join")

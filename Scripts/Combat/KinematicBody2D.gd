@@ -149,7 +149,7 @@ func dead():
 		emit_signal("on_health_changed",health)
 		$InvicibilityTime.start()
 		
-	elif(health < 1):
+	if(health < 1):
 	#	$AnimatedSprite.play("Dead")
 		$AnimatedSprite.play("Dead")
 		is_dead = true

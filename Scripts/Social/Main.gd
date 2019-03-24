@@ -9,5 +9,6 @@ onready var notification = get_node("Notification")
 onready var database = get_node("Database")
 
 func _ready():
+	#print(IP.get_local_addresses()[11])
 	pass
 	

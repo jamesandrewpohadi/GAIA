@@ -11,12 +11,13 @@ onready var port = $InputPort.text
 # var b = "textvar"
 
 func _ready():
+	#$InputHost.text = str(IP.get_local_addresses())
 	pass
+
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
 
 func _on_Host_pressed():
 	player_name = $InputName.text

@@ -11,7 +11,6 @@ func addItem(value):
 	listIndex+=1
 	item.get_node("number").text=str(listIndex)
 	item.get_node("itemName").text=value
-	item.rect_min_size=Vector2(320,30)
 	$ScrollContainer/ItemList.add_child(item)
 	
 

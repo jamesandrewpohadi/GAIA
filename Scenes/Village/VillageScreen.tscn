@@ -19,7 +19,7 @@
 [ext_resource path="res://Scenes/Village/TreeBuilding.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scripts/Village/VillageResourcesCounter.gd" type="Script" id=18]
 
-[node name="VillageScreen" type="Node" index="0"]
+[node name="VillageScreen" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -58,7 +58,7 @@ position = Vector2( 935.587, 359.578 )
 
 [node name="VillageCamera" type="Camera2D" parent="." index="4"]
 
-position = Vector2( 514.472, 301.651 )
+position = Vector2( 644.924, 376.195 )
 anchor_mode = 1
 rotating = false
 current = false
