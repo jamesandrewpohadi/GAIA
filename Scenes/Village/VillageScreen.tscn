@@ -1,32 +1,55 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Village/VillageScreen.gd" type="Script" id=1]
-[ext_resource path="res://Tileset/BuildingSprites.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/Village/Yggdrasil.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Village/WaterBuilding.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Village/FoodBuilding.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/Village/VillageCamera.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/Village/VillageUI.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Village/BuildingMenu.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Village/ResourceMenu.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Village/YggdrasilMenu.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Village/VillagerMenu.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Village/OreBuilding.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Village/CementBuilding.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scripts/Village/Villagers.gd" type="Script" id=14]
-[ext_resource path="res://Scenes/Village/AcademyBuilding.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scripts/Village/YggdrasilStatus.gd" type="Script" id=16]
-[ext_resource path="res://Scenes/Village/TreeBuilding.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scripts/Village/VillageResourcesCounter.gd" type="Script" id=18]
+[ext_resource path="res://Scenes/Village/Wrapper.gd" type="Script" id=2]
+[ext_resource path="res://Tileset/BuildingSprites.tres" type="TileSet" id=3]
+[ext_resource path="res://Scenes/Village/Yggdrasil.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Village/WaterBuilding.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Village/FoodBuilding.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Village/OreBuilding.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Village/CementBuilding.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Village/Villagers.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Village/AcademyBuilding.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/Village/YggdrasilStatus.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Village/TreeBuilding.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Village/VillageResourcesCounter.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Village/VillageCamera.gd" type="Script" id=14]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Scenes/Village/VillageUI.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Village/BuildingMenu.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Village/ResourceMenu.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Village/YggdrasilMenu.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Village/VillagerMenu.tscn" type="PackedScene" id=20]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 15 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 15 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="VillageScreen" type="Node2D"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Backgroundvillage" type="TileMap" parent="." index="0"]
+[node name="Wrapper" type="Node2D" parent="." index="0"]
+
+script = ExtResource( 2 )
+
+[node name="Backgroundvillage" type="TileMap" parent="Wrapper" index="0"]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 18, 18 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -44,19 +67,47 @@ format = 1
 tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell" ]
 
-[node name="Yggdrasil" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Yggdrasil" parent="Wrapper" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( -41.2567, -181.942 )
 
-[node name="WaterBuilding" parent="." index="2" instance=ExtResource( 4 )]
+[node name="WaterBuilding" parent="Wrapper" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 91.2952, 360.164 )
 
-[node name="FoodBuilding" parent="." index="3" instance=ExtResource( 5 )]
+[node name="FoodBuilding" parent="Wrapper" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 935.587, 359.578 )
 
-[node name="VillageCamera" type="Camera2D" parent="." index="4"]
+[node name="OreBuilding" parent="Wrapper" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 1218.61, 359.013 )
+
+[node name="CementBuilding" parent="Wrapper" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( -275.548, 357.785 )
+
+[node name="Villagers" type="Node" parent="Wrapper" index="6"]
+
+script = ExtResource( 9 )
+
+[node name="AcademyBuilding" parent="Wrapper" index="7" instance=ExtResource( 10 )]
+
+position = Vector2( -663.513, 340.597 )
+
+[node name="YggdrasilStatus" type="Node" parent="Wrapper" index="8"]
+
+script = ExtResource( 11 )
+
+[node name="TreeBuilding" parent="Wrapper" index="9" instance=ExtResource( 12 )]
+
+position = Vector2( 1582.08, 353.581 )
+
+[node name="VillageResourcesCounter" type="Node" parent="Wrapper" index="10"]
+
+script = ExtResource( 13 )
+
+[node name="VillageCamera" type="Camera2D" parent="." index="1"]
 
 position = Vector2( 644.924, 376.195 )
 anchor_mode = 1
@@ -81,29 +132,88 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = ExtResource( 6 )
-_sections_unfolded = [ "Editor" ]
+script = ExtResource( 14 )
+_sections_unfolded = [ "Editor", "Z Index" ]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="VillageCamera" index="0"]
+[node name="CanvasLayer" type="Control" parent="VillageCamera" index="0"]
 
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -644.924
+margin_top = -376.195
+margin_right = -644.924
+margin_bottom = -376.195
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect", "Z Index" ]
 
-[node name="VillageUI" parent="VillageCamera/CanvasLayer" index="0" instance=ExtResource( 7 )]
+[node name="Social" type="Button" parent="VillageCamera/CanvasLayer" index="0"]
 
-margin_left = -1.0
-margin_top = -1.0
-margin_right = -1.0
-margin_bottom = -1.0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1040.0
+margin_top = 440.0
+margin_right = 1240.0
+margin_bottom = 540.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Social"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
 
-[node name="BuildingMenu" parent="VillageCamera/CanvasLayer" index="1" instance=ExtResource( 8 )]
+[node name="Combat" type="Button" parent="VillageCamera/CanvasLayer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1040.0
+margin_top = 597.0
+margin_right = 1240.0
+margin_bottom = 697.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Combat"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="VillageUI" parent="VillageCamera/CanvasLayer" index="2" instance=ExtResource( 16 )]
+
+[node name="BuildingMenu" parent="VillageCamera/CanvasLayer" index="3" instance=ExtResource( 17 )]
 
 visible = false
 
-[node name="ResourceMenu" parent="VillageCamera/CanvasLayer" index="2" instance=ExtResource( 9 )]
+[node name="ResourceMenu" parent="VillageCamera/CanvasLayer" index="4" instance=ExtResource( 18 )]
 
 visible = false
 margin_left = -1.0
@@ -111,11 +221,11 @@ margin_top = -7.0
 margin_right = 1025.0
 margin_bottom = 605.0
 
-[node name="YggdrasilMenu" parent="VillageCamera/CanvasLayer" index="3" instance=ExtResource( 10 )]
+[node name="YggdrasilMenu" parent="VillageCamera/CanvasLayer" index="5" instance=ExtResource( 19 )]
 
 visible = false
 
-[node name="VillagerMenu" parent="VillageCamera/CanvasLayer" index="4" instance=ExtResource( 11 )]
+[node name="VillagerMenu" parent="VillageCamera/CanvasLayer" index="6" instance=ExtResource( 20 )]
 
 visible = false
 margin_left = 4.0
@@ -123,45 +233,57 @@ margin_top = 2.0
 margin_right = 1027.0
 margin_bottom = 606.0
 
-[node name="OreBuilding" parent="." index="5" instance=ExtResource( 12 )]
+[connection signal="contaminationAdd" from="Wrapper/WaterBuilding" to="Wrapper/YggdrasilStatus" method="_on_WaterBuilding_contaminationAdd"]
 
-position = Vector2( 1218.61, 359.013 )
+[connection signal="resourceCount" from="Wrapper/WaterBuilding" to="Wrapper/VillageResourcesCounter" method="_on_WaterBuilding_resourceCount"]
 
-[node name="CementBuilding" parent="." index="6" instance=ExtResource( 13 )]
+[connection signal="updateSpaceTaken" from="Wrapper/WaterBuilding" to="Wrapper/YggdrasilStatus" method="_on_WaterBuilding_updateSpaceTaken"]
 
-position = Vector2( -275.548, 357.785 )
+[connection signal="contaminationAdd" from="Wrapper/FoodBuilding" to="Wrapper/YggdrasilStatus" method="_on_FoodBuilding_contaminationAdd"]
 
-[node name="Villagers" type="Node" parent="." index="7"]
+[connection signal="resourceCount" from="Wrapper/FoodBuilding" to="Wrapper/VillageResourcesCounter" method="_on_FoodBuilding_resourceCount"]
 
-script = ExtResource( 14 )
+[connection signal="updateSpaceTaken" from="Wrapper/FoodBuilding" to="Wrapper/YggdrasilStatus" method="_on_FoodBuilding_updateSpaceTaken"]
 
-[node name="AcademyBuilding" parent="." index="8" instance=ExtResource( 15 )]
+[connection signal="contaminationAdd" from="Wrapper/OreBuilding" to="Wrapper/YggdrasilStatus" method="_on_OreBuilding_contaminationAdd"]
 
-position = Vector2( -663.513, 340.597 )
+[connection signal="resourceCount" from="Wrapper/OreBuilding" to="Wrapper/VillageResourcesCounter" method="_on_OreBuilding_resourceCount"]
 
-[node name="YggdrasilStatus" type="Node" parent="." index="9"]
+[connection signal="updateSpaceTaken" from="Wrapper/OreBuilding" to="Wrapper/YggdrasilStatus" method="_on_OreBuilding_updateSpaceTaken"]
 
-script = ExtResource( 16 )
+[connection signal="contaminationAdd" from="Wrapper/CementBuilding" to="Wrapper/YggdrasilStatus" method="_on_CementBuilding_contaminationAdd"]
 
-[node name="TreeBuilding" parent="." index="10" instance=ExtResource( 17 )]
+[connection signal="resourceCount" from="Wrapper/CementBuilding" to="Wrapper/VillageResourcesCounter" method="_on_CementBuilding_resourceCount"]
 
-position = Vector2( 1582.08, 353.581 )
+[connection signal="updateSpaceTaken" from="Wrapper/CementBuilding" to="Wrapper/YggdrasilStatus" method="_on_CementBuilding_updateSpaceTaken"]
 
-[node name="VillageResourcesCounter" type="Node" parent="." index="11"]
+[connection signal="updateVillagerMenu" from="Wrapper/Villagers" to="VillageCamera/CanvasLayer/VillagerMenu" method="_on_Villagers_updateVillagerMenu"]
 
-script = ExtResource( 18 )
+[connection signal="contaminationAdd" from="Wrapper/AcademyBuilding" to="Wrapper/YggdrasilStatus" method="_on_AcademyBuilding_contaminationAdd"]
 
-[connection signal="contaminationAdd" from="WaterBuilding" to="YggdrasilStatus" method="_on_WaterBuilding_contaminationAdd"]
+[connection signal="updateSpaceTaken" from="Wrapper/AcademyBuilding" to="Wrapper/YggdrasilStatus" method="_on_AcademyBuilding_updateSpaceTaken"]
 
-[connection signal="resourceCount" from="WaterBuilding" to="VillageResourcesCounter" method="_on_WaterBuilding_resourceCount"]
+[connection signal="updateVillagerStatus" from="Wrapper/AcademyBuilding" to="Wrapper/Villagers" method="_on_AcademyBuilding_updateVillagerStatus"]
 
-[connection signal="updateSpaceTaken" from="WaterBuilding" to="YggdrasilStatus" method="_on_WaterBuilding_updateSpaceTaken"]
+[connection signal="update_yggdrasil_menu" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/YggdrasilMenu" method="_on_YggdrasilStatus_update_yggdrasil_menu"]
 
-[connection signal="contaminationAdd" from="FoodBuilding" to="YggdrasilStatus" method="_on_FoodBuilding_contaminationAdd"]
+[connection signal="update_yggdrasil_menu_space" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/YggdrasilMenu" method="_on_YggdrasilStatus_update_yggdrasil_menu_space"]
 
-[connection signal="resourceCount" from="FoodBuilding" to="VillageResourcesCounter" method="_on_FoodBuilding_resourceCount"]
+[connection signal="repelContamination" from="Wrapper/TreeBuilding" to="Wrapper/YggdrasilStatus" method="_on_TreeBuilding_repelContamination"]
 
-[connection signal="updateSpaceTaken" from="FoodBuilding" to="YggdrasilStatus" method="_on_FoodBuilding_updateSpaceTaken"]
+[connection signal="updateSpaceTaken" from="Wrapper/TreeBuilding" to="Wrapper/YggdrasilStatus" method="_on_TreeBuilding_updateSpaceTaken"]
+
+[connection signal="update_cementResource" from="Wrapper/VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_cementResource"]
+
+[connection signal="update_foodResource" from="Wrapper/VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_foodResource"]
+
+[connection signal="update_oreResource" from="Wrapper/VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_oreResource"]
+
+[connection signal="update_waterResource" from="Wrapper/VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_waterResource"]
+
+[connection signal="pressed" from="VillageCamera/CanvasLayer/Social" to="." method="_on_Social_pressed"]
+
+[connection signal="pressed" from="VillageCamera/CanvasLayer/Combat" to="." method="_on_Combat_pressed"]
 
 [connection signal="open_build_menu" from="VillageCamera/CanvasLayer/VillageUI" to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageUI_open_build_menu"]
 
@@ -171,52 +293,16 @@ script = ExtResource( 18 )
 
 [connection signal="open_yggdrasil_menu" from="VillageCamera/CanvasLayer/VillageUI" to="VillageCamera/CanvasLayer/YggdrasilMenu" method="_on_VillageUI_open_yggdrasil_menu"]
 
-[connection signal="deploy_building_academy" from="VillageCamera/CanvasLayer/BuildingMenu" to="AcademyBuilding" method="_on_BuildingMenu_deploy_building_academy"]
+[connection signal="deploy_building_academy" from="VillageCamera/CanvasLayer/BuildingMenu" to="Wrapper/AcademyBuilding" method="_on_BuildingMenu_deploy_building_academy"]
 
-[connection signal="deploy_building_cement" from="VillageCamera/CanvasLayer/BuildingMenu" to="CementBuilding" method="_on_BuildingMenu_deploy_building_cement"]
+[connection signal="deploy_building_cement" from="VillageCamera/CanvasLayer/BuildingMenu" to="Wrapper/CementBuilding" method="_on_BuildingMenu_deploy_building_cement"]
 
-[connection signal="deploy_building_food" from="VillageCamera/CanvasLayer/BuildingMenu" to="FoodBuilding" method="_on_BuildingMenu_deploy_building_food"]
+[connection signal="deploy_building_food" from="VillageCamera/CanvasLayer/BuildingMenu" to="Wrapper/FoodBuilding" method="_on_BuildingMenu_deploy_building_food"]
 
-[connection signal="deploy_building_ore" from="VillageCamera/CanvasLayer/BuildingMenu" to="OreBuilding" method="_on_BuildingMenu_deploy_building_ore"]
+[connection signal="deploy_building_ore" from="VillageCamera/CanvasLayer/BuildingMenu" to="Wrapper/OreBuilding" method="_on_BuildingMenu_deploy_building_ore"]
 
-[connection signal="deploy_building_tree" from="VillageCamera/CanvasLayer/BuildingMenu" to="TreeBuilding" method="_on_BuildingMenu_deploy_building_tree"]
+[connection signal="deploy_building_tree" from="VillageCamera/CanvasLayer/BuildingMenu" to="Wrapper/TreeBuilding" method="_on_BuildingMenu_deploy_building_tree"]
 
-[connection signal="deploy_building_water" from="VillageCamera/CanvasLayer/BuildingMenu" to="WaterBuilding" method="_on_BuildingMenu_deploy_building_water"]
-
-[connection signal="contaminationAdd" from="OreBuilding" to="YggdrasilStatus" method="_on_OreBuilding_contaminationAdd"]
-
-[connection signal="resourceCount" from="OreBuilding" to="VillageResourcesCounter" method="_on_OreBuilding_resourceCount"]
-
-[connection signal="updateSpaceTaken" from="OreBuilding" to="YggdrasilStatus" method="_on_OreBuilding_updateSpaceTaken"]
-
-[connection signal="contaminationAdd" from="CementBuilding" to="YggdrasilStatus" method="_on_CementBuilding_contaminationAdd"]
-
-[connection signal="resourceCount" from="CementBuilding" to="VillageResourcesCounter" method="_on_CementBuilding_resourceCount"]
-
-[connection signal="updateSpaceTaken" from="CementBuilding" to="YggdrasilStatus" method="_on_CementBuilding_updateSpaceTaken"]
-
-[connection signal="updateVillagerMenu" from="Villagers" to="VillageCamera/CanvasLayer/VillagerMenu" method="_on_Villagers_updateVillagerMenu"]
-
-[connection signal="contaminationAdd" from="AcademyBuilding" to="YggdrasilStatus" method="_on_AcademyBuilding_contaminationAdd"]
-
-[connection signal="updateSpaceTaken" from="AcademyBuilding" to="YggdrasilStatus" method="_on_AcademyBuilding_updateSpaceTaken"]
-
-[connection signal="updateVillagerStatus" from="AcademyBuilding" to="Villagers" method="_on_AcademyBuilding_updateVillagerStatus"]
-
-[connection signal="update_yggdrasil_menu" from="YggdrasilStatus" to="VillageCamera/CanvasLayer/YggdrasilMenu" method="_on_YggdrasilStatus_update_yggdrasil_menu"]
-
-[connection signal="update_yggdrasil_menu_space" from="YggdrasilStatus" to="VillageCamera/CanvasLayer/YggdrasilMenu" method="_on_YggdrasilStatus_update_yggdrasil_menu_space"]
-
-[connection signal="repelContamination" from="TreeBuilding" to="YggdrasilStatus" method="_on_TreeBuilding_repelContamination"]
-
-[connection signal="updateSpaceTaken" from="TreeBuilding" to="YggdrasilStatus" method="_on_TreeBuilding_updateSpaceTaken"]
-
-[connection signal="update_cementResource" from="VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_cementResource"]
-
-[connection signal="update_foodResource" from="VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_foodResource"]
-
-[connection signal="update_oreResource" from="VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_oreResource"]
-
-[connection signal="update_waterResource" from="VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_waterResource"]
+[connection signal="deploy_building_water" from="VillageCamera/CanvasLayer/BuildingMenu" to="Wrapper/WaterBuilding" method="_on_BuildingMenu_deploy_building_water"]
 
 

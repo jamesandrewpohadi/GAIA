@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -19,7 +19,7 @@ func _ready():
 			stuff.hide()
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	#pass
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

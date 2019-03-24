@@ -46,6 +46,7 @@ func _on_Host_pressed():
 			print("succeed")
 			main.network.player_name = player_name
 			main.network._on_Host(host, player_name)
+			main.welcome.hide()
 			
 			#main.database.login(player_name, password)
 

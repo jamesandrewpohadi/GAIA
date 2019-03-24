@@ -24,12 +24,14 @@ func _on_Join(host, port, name):
 	my_info["name"] = player_name
 
 func _on_Host(host, name):
-	main.welcome.hide()
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_server(int(port),5)
 	get_tree().set_network_peer(peer)
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
+	#main.welcome.hide()
+	#main.village.get_node("VillageCamera/CanvasLayer/VillageUI").show()
+	#main.village.is_village = true
 
 func login(name, password):
 	pass
@@ -47,6 +49,8 @@ func _connected_ok():
 	print("you have connected to a server")
 	rpc('register_player', int(player_id), my_info)
 	main.welcome.hide()
+	#main.village.is_village = true
+	main.village.get_node("VillageCamera/CanvasLayer/VillageUI").show()
 	
 func retry(player_name, id):
 	rpc('check_exist', player_name, int(id))
@@ -90,3 +94,4 @@ remote func rejected():
 remote func accepted():
 	print("accepted")
 	main.welcome.hide()
+	main.village.get_node("VillageCamera/CanvasLayer/VillageUI").show()

@@ -1,7 +1,7 @@
 extends Node
 
 onready var network = get_node("Network")
-onready var village = get_node("Village")
+onready var village = get_node("VillageScreen")
 onready var social = get_node("Social")
 onready var chat = get_node("Chat")
 onready var welcome = get_node("Welcome")
