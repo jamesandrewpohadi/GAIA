@@ -2,15 +2,15 @@
 
 [ext_resource path="res://Scripts/Combat/Boss1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Boss1/idle.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Boss1/slash1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Boss1/slash2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Boss1/slash3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Boss1/walk1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Boss1/walk2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Boss1/walk3.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Boss1/walk4.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Boss1/hit1.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Boss1/hit2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Boss1/hit1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Boss1/hit2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Boss1/slash1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Boss1/slash2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Boss1/slash3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Boss1/walk1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Boss1/walk2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Boss1/walk3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Boss1/walk4.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Boss1/die.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -21,19 +21,19 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "hit",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -59,10 +59,10 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-SPEED = 50
+SPEED = 150
 health = 5
 contact_distance = 50
-need_to_jump = 0
+need_to_jump = 0.05
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -101,10 +101,21 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
+position = Vector2( 0.164036, 1.04002 )
+scale = Vector2( 1.20952, 1.20952 )
 shape = SubResource( 3 )
+
+[node name="JumpTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]
 
 

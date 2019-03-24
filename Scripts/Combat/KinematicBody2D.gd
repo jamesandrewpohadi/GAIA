@@ -17,7 +17,7 @@ var timer = null
 
 var is_dead = false
 
-var shotlimit = 3
+export var shotlimit = 3
 var can_shoot = true
 
 var jumpdelay = 0.5
@@ -149,7 +149,7 @@ func dead():
 		emit_signal("on_health_changed",health)
 		$InvicibilityTime.start()
 		
-	if(health < 1):
+	if(health <= 0):
 	#	$AnimatedSprite.play("Dead")
 		$AnimatedSprite.play("Dead")
 		is_dead = true
@@ -159,7 +159,7 @@ func dead():
 		$Timer.start()
 	
 func _on_Timer_timeout():
-	get_tree().get_root().get_node('/root/StageOne/UI/PopupDialog').popup()
+	get_tree().get_root().get_node('/root/StageOne/UI/PopupDialog').show()
 	pass # replace with function body
 	
 
@@ -186,14 +186,14 @@ func _on_InvicibilityTime_timeout():
 
 
 func _on_WaterGunButton_pressed():
-	if(shotlimit>0 && can_shoot==true):
-		can_shoot = false;
-		shotlimit -= 1;
-		$ShotTimer.start()
-		var Hadouken = HADOUKEN.instance()
-		$AnimatedSprite.play("Punch")
-		Hadouken.set_fireball_direction(sign($Position2D.position.x))
-		get_parent().add_child(Hadouken)
-		Hadouken.position = $Position2D.global_position
+#	if(shotlimit>0 && can_shoot==true):
+#		can_shoot = false;
+#		shotlimit -= 1;
+#		$ShotTimer.start()
+#		var Hadouken = HADOUKEN.instance()
+#		$AnimatedSprite.play("Punch")
+#		Hadouken.set_fireball_direction(sign($Position2D.position.x))
+#		get_parent().add_child(Hadouken)
+#		Hadouken.position = $Position2D.global_position
 	
 	pass # replace with function body

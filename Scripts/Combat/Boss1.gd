@@ -4,8 +4,8 @@ extends KinematicBody2D
 # var a = 2
 # var b = "textvar"
 
-const GRAVITY = 10
-export var SPEED = 100
+const GRAVITY = 15
+export var SPEED = 150
 const FLOOR = Vector2(0,-1)
 
 var motion = Vector2()
@@ -20,11 +20,13 @@ var aggro = false
 
 export var contact_distance = 50
 
-export var need_to_jump = 0.05
+export var need_to_jump = 0.025
 
 var canjump = true
 
 var player 
+
+signal on_boss_dead()
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -36,7 +38,7 @@ func dead():
 	if(health>0):
 		$AnimatedSprite.play("hit")
 		health-=1
-	else:
+	if(health==0):
 		is_dead = true
 		motion = Vector2(0,0)
 		$AnimatedSprite.play("die")
@@ -56,8 +58,8 @@ func _physics_process(delta):
 		var total_dist_to_player = global_position.distance_to(player.global_position)
 		$AnimatedSprite.flip_h = direction2.x < 0
 		$AnimatedSprite.play("walk")
-		motion.y += GRAVITY
 		motion = move_and_slide(motion,FLOOR)
+		motion.y += GRAVITY
 		
 		motion.x = (direction2.x * SPEED)
 		
@@ -65,7 +67,7 @@ func _physics_process(delta):
 			if (pow(direction2.y,2.0) >  need_to_jump && canjump==true):
 				canjump = false
 				$JumpTimer.start()
-				motion.y -= 300
+				motion.y -= 500
 				print("Boss Jump")
 		
 		
@@ -87,19 +89,18 @@ func _physics_process(delta):
 
 		
 	if is_dead == false && aggro == false:
+		motion = move_and_slide(motion,FLOOR)
+		
 		motion.x = SPEED * direction
 		
 		if direction == 1:
 			$AnimatedSprite.flip_h = false
 		else:
-	
 			$AnimatedSprite.flip_h = true
 		
 		$AnimatedSprite.play("walk")
 		
 		motion.y += GRAVITY
-		
-		motion = move_and_slide(motion,FLOOR)
 		
 		if is_on_wall():
 			direction = direction * -1
@@ -115,6 +116,7 @@ func _physics_process(delta):
 					get_slide_collision(i).collider.dead()
 
 func _on_Timer_timeout():
+	emit_signal("on_boss_dead")
 	queue_free()
 
 #func _process(delta):
