@@ -22,7 +22,7 @@
 [ext_resource path="res://Scenes/Village/TreeBuilding.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scripts/Village/VillageResourcesCounter.gd" type="Script" id=21]
 
-[node name="VillageScreen" type="Node" index="0"]
+[node name="VillageScreen" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
