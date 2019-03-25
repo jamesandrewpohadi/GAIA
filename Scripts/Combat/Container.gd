@@ -27,7 +27,6 @@ func _on_CloseButton_pressed():
 
 
 func _on_SoloButton_pressed():
-	get_node("../../Village").hide()
 	dungeonMenu.hide()
 	hide()
 	queue_free()

@@ -33,7 +33,8 @@ func _on_VillageUI_open_resource_menu():
 		child.popup()
 		for children in child.get_children():
 			children.show()
-	 # replace with function body
+	 # replace with function bod
+	pass
 
 
 

@@ -215,11 +215,10 @@ visible = false
 
 [node name="ResourceMenu" parent="VillageCamera/CanvasLayer" index="4" instance=ExtResource( 18 )]
 
-visible = false
 margin_left = -1.0
 margin_top = -7.0
-margin_right = 1025.0
-margin_bottom = 605.0
+margin_right = -1.0
+margin_bottom = -7.0
 
 [node name="YggdrasilMenu" parent="VillageCamera/CanvasLayer" index="5" instance=ExtResource( 19 )]
 
