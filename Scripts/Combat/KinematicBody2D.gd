@@ -159,7 +159,7 @@ func dead():
 		$Timer.start()
 	
 func _on_Timer_timeout():
-	get_tree().get_root().get_node('/root/StageOne/UI/PopupDialog').popup()
+	get_parent().get_node('UI/PopupDialog').popup()
 	pass # replace with function body
 	
 

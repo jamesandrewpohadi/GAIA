@@ -116,8 +116,8 @@ tile_data = PoolIntArray( -524293, 0, 0, -524292, 0, 0, -524291, 0, 0, -524290, 
 script = ExtResource( 6 )
 _sections_unfolded = [ "Cell" ]
 
-[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
-
 [connection signal="building_complete" from="Building_UI/Building_ProgBar" to="BldgImg" method="_on_Building_ProgBar_building_complete"]
+
+[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
 
 

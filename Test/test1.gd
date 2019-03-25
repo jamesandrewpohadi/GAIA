@@ -58,8 +58,6 @@ func test_client1():
 	client = network.instance()
 	add_child(client)
 	client._on_Join("127.0.0.1",5000,"client")
-	print("client==============")
-	print(client.player_info)
 	assert_true(client.get_tree().get_network_unique_id()!=1,
 	"id = 1 only reserved for server")
 	server.queue_free()

@@ -79,7 +79,7 @@ func _on_Join_pressed():
 			print("succeed")
 			main.network.player_name = player_name
 			if (main.network.peer == null):
-				main.network._on_Join(host, port, player_name)
+				main.network._on_Join($InputHost.text, $InputPort.text, player_name)
 			else:
 				main.network.retry(player_name, main.network.player_id)
 				

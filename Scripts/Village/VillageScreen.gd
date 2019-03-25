@@ -15,4 +15,5 @@ func _on_Social_pressed():
 	
 func _on_Combat_pressed():
 	var map = load('res://Scenes/Combat/MapScreen.tscn').instance()
+	hide()
 	get_parent().add_child(map)

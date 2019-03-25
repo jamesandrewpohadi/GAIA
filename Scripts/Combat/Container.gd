@@ -38,7 +38,8 @@ func _on_SoloButton_pressed():
 
 
 func _on_Exit_pressed():
-	hide()
-	queue_free()
+	get_parent().get_parent().village.show()
+	get_parent().hide()
+	get_parent().queue_free()
 
 

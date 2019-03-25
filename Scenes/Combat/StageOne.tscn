@@ -13,7 +13,7 @@
 [ext_resource path="res://env/Background1-2.jpg" type="Texture" id=11]
 [ext_resource path="res://Scenes/Combat/MobBoss1.tscn" type="PackedScene" id=12]
 
-[node name="StageOne" type="Node2D"]
+[node name="StageOne" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -332,7 +332,7 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 scroll_offset = Vector2( 0, 0 )
 scroll_base_offset = Vector2( 0, 0 )
-scroll_base_scale = Vector2( 0.5, 0.75 )
+scroll_base_scale = Vector2( 1, 1 )
 scroll_limit_begin = Vector2( 0, 0 )
 scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true

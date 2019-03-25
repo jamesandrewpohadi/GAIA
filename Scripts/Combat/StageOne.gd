@@ -21,14 +21,18 @@ func _on_Button_pressed():
 
 
 func _on_ConfirmationDialog_confirmed():
-	hide()
-	queue_free()
+	get_parent().get_parent().village.show()
+	get_parent().hide()
+	get_parent().queue_free()
 
 
 func _on_GoBack_pressed():
+	get_parent().get_parent().village.show()
 	get_parent().hide()
 	get_parent().queue_free()
 
 func _on_TryAgain_pressed():
-	get_tree().reload_current_scene()
-	pass # replace with function body
+	var stageOne = load('res://Scenes/Combat/StageOne.tscn').instance()
+	get_parent().add_child(stageOne)
+	hide()
+	queue_free()
