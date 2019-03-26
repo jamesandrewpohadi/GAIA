@@ -1,18 +1,20 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Combat/StageOne.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Combat/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://analog/analog.tscn" type="PackedScene" id=3]
-[ext_resource path="res://analog/big_circle.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UITextures/jumpbutton.png" type="Texture" id=4]
 [ext_resource path="res://analog/small_circle.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UITextures/Asset 3.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/UITextures/Asset 1.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Combat/TextureProgress.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Combat/WinMenu.gd" type="Script" id=9]
-[ext_resource path="res://Tileset/groundTileset.tres" type="TileSet" id=10]
-[ext_resource path="res://Scenes/Combat/Mob1.tscn" type="PackedScene" id=11]
-[ext_resource path="res://env/Background1-2.jpg" type="Texture" id=12]
-[ext_resource path="res://Scenes/Combat/MobBoss1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/UITextures/SlashButton.png" type="Texture" id=10]
+[ext_resource path="res://Tileset/groundTileset.tres" type="TileSet" id=11]
+[ext_resource path="res://Scenes/Combat/Mob1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://env/Picture6.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Combat/MobBoss1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Combat/Mob2.tscn" type="PackedScene" id=15]
 
 [node name="StageOne" type="Node2D" index="0"]
 
@@ -33,6 +35,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="AreaAnalogLeft" type="Control" parent="UI" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -55,13 +58,14 @@ __meta__ = {
 
 position = Vector2( 128, 96 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
+isDynamicallyShowing = true
 listenerNodePath = "/root/StageOne/KinematicBody2D"
 padname = "leftPad"
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="UI" index="1"]
+[node name="JumpButton" type="TouchScreenButton" parent="UI" index="1"]
 
-position = Vector2( 1120, 576 )
-scale = Vector2( 0.75, 0.75 )
+position = Vector2( 1121.55, 563.37 )
+scale = Vector2( 1.09689, 1.01528 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 5 )
 bitmask = null
@@ -73,8 +77,7 @@ action = "btn_up"
 visibility_mode = 0
 _sections_unfolded = [ "Material", "Visibility" ]
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="Button" type="Button" parent="UI" index="2"]
@@ -222,8 +225,8 @@ align = 1
 
 [node name="WaterGunButton" type="TouchScreenButton" parent="UI" index="5"]
 
-position = Vector2( 1005.1, 568.193 )
-scale = Vector2( 0.692429, 0.692429 )
+position = Vector2( 935.591, 506.557 )
+scale = Vector2( 1.03162, 0.985914 )
 normal = ExtResource( 6 )
 pressed = ExtResource( 6 )
 bitmask = null
@@ -269,6 +272,7 @@ _sections_unfolded = [ "Grow Direction", "Textures" ]
 
 [node name="WinMenu" type="Panel" parent="UI" index="7"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -359,10 +363,23 @@ text = "Back to Village"
 flat = false
 align = 1
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="UI" index="8"]
+
+position = Vector2( 1132.99, 425.818 )
+normal = ExtResource( 10 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
 [node name="TileMap" type="TileMap" parent="." index="2"]
 
 mode = 0
-tile_set = ExtResource( 10 )
+tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -384,37 +401,37 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Mob1" parent="." index="3" instance=ExtResource( 11 )]
+[node name="Mob1" parent="." index="3" instance=ExtResource( 12 )]
 
-position = Vector2( 672, 80 )
+position = Vector2( 778.109, 406.49 )
 
-[node name="Mob2" parent="." index="4" instance=ExtResource( 11 )]
+[node name="Mob2" parent="." index="4" instance=ExtResource( 12 )]
 
-position = Vector2( 832, 144 )
+position = Vector2( 1423.76, 414.714 )
 
-[node name="Mob3" parent="." index="5" instance=ExtResource( 11 )]
+[node name="Mob3" parent="." index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 1072.84, 469.153 )
 
-[node name="Mob4" parent="." index="6" instance=ExtResource( 11 )]
+[node name="Mob4" parent="." index="6" instance=ExtResource( 12 )]
 
-position = Vector2( 256, 368 )
+position = Vector2( 492.839, 485.806 )
 
-[node name="Mob5" parent="." index="7" instance=ExtResource( 11 )]
+[node name="Mob5" parent="." index="7" instance=ExtResource( 12 )]
 
 position = Vector2( 1286.5, 389.712 )
 
-[node name="Mob8" parent="." index="8" instance=ExtResource( 11 )]
+[node name="Mob8" parent="." index="8" instance=ExtResource( 12 )]
 
 position = Vector2( 1587.14, 456.52 )
 
-[node name="Mob6" parent="." index="9" instance=ExtResource( 11 )]
+[node name="Mob6" parent="." index="9" instance=ExtResource( 12 )]
 
-position = Vector2( 560, 320 )
+position = Vector2( 660.668, 419.307 )
 
-[node name="Mob7" parent="." index="10" instance=ExtResource( 11 )]
+[node name="Mob7" parent="." index="10" instance=ExtResource( 12 )]
 
-position = Vector2( 1022.45, 345.348 )
+position = Vector2( 1237.72, 400.669 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="11"]
 
@@ -425,7 +442,7 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 scroll_offset = Vector2( 0, 0 )
 scroll_base_offset = Vector2( 0, 0 )
-scroll_base_scale = Vector2( 1, 1 )
+scroll_base_scale = Vector2( 0.5, 0.75 )
 scroll_limit_begin = Vector2( 0, 0 )
 scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
@@ -438,24 +455,33 @@ motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 900, 0 )
 _sections_unfolded = [ "Motion" ]
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
-position = Vector2( 487.326, 559.311 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 12 )
+position = Vector2( 958.792, 546.484 )
+texture = ExtResource( 13 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="MobBoss1" parent="." index="12" instance=ExtResource( 13 )]
+[node name="MobBoss1" parent="." index="12" instance=ExtResource( 14 )]
 
 position = Vector2( 1718.36, 419.04 )
 scale = Vector2( 3, 3 )
 _sections_unfolded = [ "Transform" ]
+need_to_jump = 0.25
+
+[node name="Mob9" parent="." index="13" instance=ExtResource( 15 )]
+
+position = Vector2( 997.858, 367.791 )
+
+[node name="Mob10" parent="." index="14" instance=ExtResource( 15 )]
+
+position = Vector2( 228.724, 446.984 )
 
 [connection signal="on_health_changed" from="Player" to="UI/TextureProgress" method="_on_Player_on_health_changed"]
 
@@ -469,9 +495,11 @@ _sections_unfolded = [ "Transform" ]
 
 [connection signal="pressed" from="UI/WaterGunButton" to="Player" method="_on_WaterGunButton_pressed"]
 
-[connection signal="pressed" from="UI/WinMenu/TryAgain2" to="." method="_on_TryAgain_pressed"]
+[connection signal="pressed" from="UI/WinMenu/TryAgain2" to="." method="_on_TryAgain2_pressed"]
 
-[connection signal="pressed" from="UI/WinMenu/GoBack2" to="." method="_on_GoBack_pressed"]
+[connection signal="pressed" from="UI/WinMenu/GoBack2" to="." method="_on_GoBack2_pressed"]
+
+[connection signal="pressed" from="UI/TouchScreenButton" to="Player" method="_on_TouchScreenButton_pressed"]
 
 [connection signal="on_boss_dead" from="MobBoss1" to="UI/WinMenu" method="_on_MobBoss1_on_boss_dead"]
 

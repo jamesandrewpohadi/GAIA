@@ -41,4 +41,3 @@ func _on_Exit_pressed():
 	get_parent().hide()
 	get_parent().queue_free()
 
-

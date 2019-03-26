@@ -71,15 +71,16 @@ animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 position = Vector2( 0, 0.371956 )
 shape = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="2"]
 
 position = Vector2( 7.74588, -4.18696 )
-enabled = false
+enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, 50 )
+cast_to = Vector2( 0, 18 )
 collision_mask = 1
 
 [node name="Timer" type="Timer" parent="." index="3"]
@@ -91,6 +92,7 @@ autostart = false
 
 [node name="Area2D" type="Area2D" parent="." index="4"]
 
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -101,6 +103,7 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
+visible = false
 position = Vector2( 0.143986, 5.29981 )
 scale = Vector2( 1.27327, 1.27327 )
 shape = SubResource( 3 )
@@ -117,5 +120,4 @@ autostart = false
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]
-
 

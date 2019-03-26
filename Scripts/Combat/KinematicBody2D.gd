@@ -5,13 +5,13 @@ export (int) var speed = 200
 var motion = Vector2(0,0)
 const right = 200
 const left = -200
-const up = 400
+const up = 500
 const stop = 0
 const UP = Vector2(0,-1)
 
 var analog_velocity = Vector2(0,0)
 
-var gravity = 15
+var gravity = 20
 
 var timer = null
 
@@ -23,11 +23,15 @@ var can_shoot = true
 var jumpdelay = 0.5
 var can_jump = true
 
+var can_slash = true
+
 var invincible = false
 
 export var health = 3
 
 signal on_health_changed(healthvalue)
+
+const AOISLASHU = preload("res://Scenes/Combat/BlueSlash.tscn")
 
 const HADOUKEN = preload("res://Scenes/Combat/hadouken.tscn")
 
@@ -132,6 +136,17 @@ func _process(delta):
 				Hadouken.set_fireball_direction(sign($Position2D.position.x))
 				get_parent().add_child(Hadouken)
 				Hadouken.position = $Position2D.global_position
+
+		if Input.is_action_just_pressed("ui_slash"):
+			if(can_slash == true):
+				can_slash = false;
+				$SlashTimer.start()
+				var AoiSlash = AOISLASHU.instance()
+				$AnimatedSprite.play("Slash")
+				AoiSlash.set_slash_direction(sign($Position2D.position.x))
+				get_parent().add_child(AoiSlash)
+				AoiSlash.position = $Position2D.global_position
+				
 	elif (is_dead == true):
 		$AnimatedSprite.play("Dead")
 	pass
@@ -160,8 +175,6 @@ func dead():
 	
 func _on_Timer_timeout():
 	get_parent().get_node('UI/PopupDialog').show()
-	pass # replace with function body
-	
 
 func analog_force_change(inForce, inStick):
 	if(inStick.get_name()=="AnalogRight") or (inStick.get_name()=="AnalogLeft"):
@@ -179,21 +192,37 @@ func analog_force_change(inForce, inStick):
 		analog_velocity.y = stepify(analog_velocity.y, 1)
 #		print(analog_velocity)
 
-
 func _on_InvicibilityTime_timeout():
 	invincible=false
 	pass # replace with function body
 
-
 func _on_WaterGunButton_pressed():
-#	if(shotlimit>0 && can_shoot==true):
-#		can_shoot = false;
-#		shotlimit -= 1;
-#		$ShotTimer.start()
-#		var Hadouken = HADOUKEN.instance()
-#		$AnimatedSprite.play("Punch")
-#		Hadouken.set_fireball_direction(sign($Position2D.position.x))
-#		get_parent().add_child(Hadouken)
-#		Hadouken.position = $Position2D.global_position
+	if(is_dead==false):
+		if(shotlimit>0 && can_shoot==true):
+					can_shoot = false;
+					shotlimit -= 1;
+					$ShotTimer.start()
+					var Hadouken = HADOUKEN.instance()
+					$AnimatedSprite.play("Punch")
+					Hadouken.set_fireball_direction(sign($Position2D.position.x))
+					get_parent().add_child(Hadouken)
+					Hadouken.position = $Position2D.global_position
 	
+	pass # replace with function body
+
+func _on_SlashTimer_timeout():
+	can_slash = true
+	pass # replace with function body
+
+
+func _on_TouchScreenButton_pressed():
+	if(is_dead==false):
+		if(can_slash == true):
+			can_slash = false;
+			$SlashTimer.start()
+			var AoiSlash = AOISLASHU.instance()
+			$AnimatedSprite.play("Slash")
+			AoiSlash.set_slash_direction(sign($Position2D.position.x))
+			get_parent().add_child(AoiSlash)
+			AoiSlash.position = $Position2D.global_position
 	pass # replace with function body

@@ -36,3 +36,14 @@ func _on_TryAgain_pressed():
 	get_parent().add_child(stageOne)
 	hide()
 	queue_free()
+
+
+#func _on_TryAgain2_pressed():
+#	get_tree().reload_current_scene()
+#	pass # replace with function body
+#
+#
+#func _on_GoBack2_pressed():
+#	get_parent().hide()
+#	get_parent().queue_free()
+#	pass # replace with function body

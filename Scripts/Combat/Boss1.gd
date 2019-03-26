@@ -4,7 +4,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "textvar"
 
-const GRAVITY = 15
+const GRAVITY = 20
 export var SPEED = 150
 const FLOOR = Vector2(0,-1)
 
@@ -20,7 +20,7 @@ var aggro = false
 
 export var contact_distance = 50
 
-export var need_to_jump = 0.025
+export var need_to_jump = 0.25
 
 var canjump = true
 
@@ -64,7 +64,7 @@ func _physics_process(delta):
 		motion.x = (direction2.x * SPEED)
 		
 		if(is_on_floor()):
-			if (pow(direction2.y,2.0) >  need_to_jump && canjump==true):
+			if (direction2.y >  need_to_jump && canjump==true):
 				canjump = false
 				$JumpTimer.start()
 				motion.y -= 500
@@ -74,13 +74,19 @@ func _physics_process(delta):
 		
 			
 		
-#		if is_on_wall():
-#			direction = direction * -1
-#			$RayCast2D.position.x *= -1
-			
-#		if $RayCast2D.is_colliding() == false:
-#			direction = direction * -1
-#			$RayCast2D.position.x *= -1
+		if is_on_wall() && is_on_floor():
+			if canjump==true:
+				canjump = false
+				$JumpTimer.start()
+				motion.y -= 500
+				print("Boss Jump over Obstacle")
+
+		if $RayCast2D.is_colliding() == false && is_on_floor():
+			if canjump==true:
+				canjump = false
+				$JumpTimer.start()
+				motion.y -= 500
+				print("Boss Jump to avoid fall")
 			
 		if get_slide_count() > 0:
 			for i in range(get_slide_count()):

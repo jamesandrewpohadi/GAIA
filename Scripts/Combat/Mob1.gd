@@ -33,7 +33,6 @@ func _physics_process(delta):
 		if direction == 1:
 			$AnimatedSprite.flip_h = false
 		else:
-	
 			$AnimatedSprite.flip_h = true
 		
 		$AnimatedSprite.play("walk")

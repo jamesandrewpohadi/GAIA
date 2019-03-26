@@ -52,7 +52,7 @@ extents = Vector2( 9.12227, 11.3101 )
 custom_solver_bias = 0.0
 radius = 60.4958
 
-[node name="MobBoss1" type="KinematicBody2D" index="0"]
+[node name="MobBoss1" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -62,7 +62,7 @@ script = ExtResource( 1 )
 SPEED = 150
 health = 5
 contact_distance = 50
-need_to_jump = 0.05
+need_to_jump = 0.25
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -117,5 +117,4 @@ autostart = false
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]
-
 

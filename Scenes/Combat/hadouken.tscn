@@ -42,7 +42,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.551667, 0.551667 )
 frames = SubResource( 1 )
 animation = "HADOUKEN"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
@@ -57,5 +57,4 @@ rect = Rect2( -10, -10, 20, 20 )
 [connection signal="body_entered" from="." to="." method="_on_WaterGun_body_entered"]
 
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
-
 
