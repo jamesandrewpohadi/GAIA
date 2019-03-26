@@ -1,0 +1,299 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Village/BuildingMenu.gd" type="Script" id=1]
+[ext_resource path="res://UIpack/UI/blue_button01.png" type="Texture" id=2]
+[ext_resource path="res://UIpack/UI/blue_button00.png" type="Texture" id=3]
+[ext_resource path="res://UIpack/UI/yellow_button07.png" type="Texture" id=4]
+[ext_resource path="res://UIpack/UI/red_button04.png" type="Texture" id=5]
+[ext_resource path="res://UIpack/UI/red_button08.png" type="Texture" id=6]
+[ext_resource path="res://UIpack/UI/green_button07.png" type="Texture" id=7]
+
+[node name="BuildingMenu" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 596.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+
+[node name="Building_Menu" type="WindowDialog" parent="." index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 73.0
+margin_top = 62.0
+margin_right = 951.0
+margin_bottom = 507.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Building_Menu"
+resizable = false
+_sections_unfolded = [ "Popup" ]
+
+[node name="Food_Building_Label" type="RichTextLabel" parent="Building_Menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 195.0
+margin_top = 44.0
+margin_right = 370.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 5
+text = "Food Building"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="Food_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="2"]
+
+position = Vector2( 83.9749, 24.3543 )
+scale = Vector2( 0.497331, 1.96286 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 3 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Water_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="3"]
+
+position = Vector2( 87.9523, 158.628 )
+scale = Vector2( 0.469237, 1.84763 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 3 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Water_Building_Label" type="RichTextLabel" parent="Building_Menu" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 201.0
+margin_top = 185.0
+margin_right = 342.0
+margin_bottom = 225.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Water Building"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="Ore_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="5"]
+
+position = Vector2( 179.76, 378.699 )
+scale = Vector2( -1.87621, -1.72129 )
+normal = ExtResource( 4 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Ore_Building_Label" type="RichTextLabel" parent="Building_Menu" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 317.0
+margin_right = 321.0
+margin_bottom = 357.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Ore Building"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="Cement_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="7"]
+
+position = Vector2( 590.779, 111.345 )
+scale = Vector2( -1.92015, -1.7605 )
+normal = ExtResource( 5 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Cement_Building_Label" type="RichTextLabel" parent="Building_Menu" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 607.0
+margin_top = 32.0
+margin_right = 756.0
+margin_bottom = 72.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Cement  Building"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="Academy_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="9"]
+
+position = Vector2( 593.176, 243.272 )
+scale = Vector2( -2.03606, -1.82968 )
+normal = ExtResource( 6 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Academy_Building_Label" type="Label" parent="Building_Menu" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 611.0
+margin_top = 171.0
+margin_right = 726.0
+margin_bottom = 187.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Academy Building"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Tree_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="11"]
+
+position = Vector2( 597.307, 287.845 )
+scale = Vector2( -2.17337, 1.82342 )
+normal = ExtResource( 7 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Tree_Building_Label" type="Label" parent="Building_Menu" index="12"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 610.0
+margin_top = 300.0
+margin_right = 734.0
+margin_bottom = 331.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Mangrove Trees"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="Building_Menu/Food_Building_Button" to="." method="_on_Food_Building_Button_pressed"]
+
+[connection signal="pressed" from="Building_Menu/Water_Building_Button" to="." method="_on_Water_Building_Button_pressed"]
+
+[connection signal="pressed" from="Building_Menu/Ore_Building_Button" to="." method="_on_Ore_Building_Button_pressed"]
+
+[connection signal="pressed" from="Building_Menu/Cement_Building_Button" to="." method="_on_Cement_Building_Button_pressed"]
+
+[connection signal="pressed" from="Building_Menu/Academy_Building_Button" to="." method="_on_Academy_Building_Button_pressed"]
+
+[connection signal="pressed" from="Building_Menu/Tree_Building_Button" to="." method="_on_Tree_Building_Button_pressed"]
+
+

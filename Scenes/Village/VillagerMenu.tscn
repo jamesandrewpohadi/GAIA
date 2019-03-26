@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Village/VillagerMenu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Village/VillagerMenuWindow.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Village/villagerLevel.gd" type="Script" id=3]
+
+[node name="VillagerMenu" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1023.0
+margin_bottom = 604.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+
+[node name="VillagerMenuWindow" type="WindowDialog" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 58.0
+margin_top = 55.0
+margin_right = 1005.0
+margin_bottom = 545.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Villager"
+resizable = false
+script = ExtResource( 2 )
+
+[node name="Villager Level" type="Label" parent="VillagerMenuWindow" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 90.0
+margin_top = 60.0
+margin_right = 224.0
+margin_bottom = 121.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Villager Level"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="villagerLevel" type="Label" parent="VillagerMenuWindow/Villager Level" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 106.0
+margin_right = 162.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 3 )
+
+[connection signal="open_villager_menu" from="." to="VillagerMenuWindow" method="_on_VillagerMenu_open_villager_menu"]
+
+[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/Villager Level/villagerLevel" method="_on_VillagerMenu_update_villager_menu"]
+
+

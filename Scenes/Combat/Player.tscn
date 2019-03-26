@@ -1,0 +1,162 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Scripts/Combat/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/PlayerSprite/Idle.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/PlayerSprite/Run1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/PlayerSprite/Run2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/PlayerSprite/Run3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/PlayerSprite/Run4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/PlayerSprite/Slash2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/PlayerSprite/Slash1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/PlayerSprite/Slash3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/PlayerSprite/Dead1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/PlayerSprite/Dead2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/PlayerSprite/Hit1.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/PlayerSprite/Hit2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 83.3992, 25.4173 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Slash",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Punch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": false,
+"name": "Fall",
+"speed": 0.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+
+position = Vector2( 208, 168 )
+scale = Vector2( 0.5, 0.75 )
+z_index = 1
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.001
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Z Index", "collision" ]
+speed = 200
+shotlimit = 3
+health = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 0, -1.88847 )
+scale = Vector2( 0.383697, 1.19253 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( -2, 0 )
+scale = Vector2( 4.26666, 2.90909 )
+frames = SubResource( 2 )
+animation = "Slash"
+frame = 1
+playing = true
+
+[node name="Position2D" type="Position2D" parent="." index="2"]
+
+position = Vector2( 60, 6.50001 )
+scale = Vector2( 2.1, 1.85 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.55, 0.55 )
+limit_left = 0
+limit_top = 0
+limit_right = 1900
+limit_bottom = 720
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 8.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = true
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Transform" ]
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="ShotTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[node name="InvicibilityTime" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[node name="SlashTimer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
+
+[connection signal="timeout" from="InvicibilityTime" to="." method="_on_InvicibilityTime_timeout"]
+
+[connection signal="timeout" from="SlashTimer" to="." method="_on_SlashTimer_timeout"]
+
+
