@@ -4,7 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/forest-monster-evil-hero-cartoon-512.png" type="Texture" id=3]
 
-[node name="MapScreen" type="Control"]
+[node name="MapScreen" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

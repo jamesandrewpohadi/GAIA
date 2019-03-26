@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Scripts/Combat/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Combat/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/PlayerSprite/Idle.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/PlayerSprite/Run1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/PlayerSprite/Run2.png" type="Texture" id=4]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Sprites/PlayerSprite/Hit2.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=17]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
