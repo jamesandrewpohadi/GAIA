@@ -304,32 +304,6 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Trees" type="Button" parent="Items" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 806.0
-margin_top = 176.0
-margin_right = 1006.0
-margin_bottom = 376.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Trees"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
-
 [node name="ItemList" type="Panel" parent="." index="3"]
 
 visible = false
@@ -402,7 +376,5 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="pressed" from="Items/Cements" to="." method="_on_Cements_pressed"]
 
 [connection signal="pressed" from="Items/Academies" to="." method="_on_Academies_pressed"]
-
-[connection signal="pressed" from="Items/Trees" to="." method="_on_Trees_pressed"]
 
 
