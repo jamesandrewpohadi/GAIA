@@ -32,7 +32,7 @@ size_flags_vertical = 1
 popup_exclusive = false
 window_title = "Building_Menu"
 resizable = false
-_sections_unfolded = [ "Popup" ]
+_sections_unfolded = [ "Popup", "Rect" ]
 
 [node name="Food_Building_Label" type="RichTextLabel" parent="Building_Menu" index="1"]
 

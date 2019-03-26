@@ -7,12 +7,15 @@ var buildingDeployed = false
 var foodResourceGenerated = 1
 var contaminationPoint = 1 # add into the contamination system later
 var spaceTaken = 2 # add space constraint later
+var foodBuildingLevel = 0
 
 
 signal contaminationAdd
-signal buildingIsDeployed
 signal resourceCount 
 signal updateSpaceTaken
+signal deduct_resources_for_food_bldg
+signal upgrade_food_building
+signal notify_max_level_achieved
 
 var timeCheck = 1
 var timeStart
@@ -49,18 +52,43 @@ func _process(delta):
 
 func _on_Building_ProgBar_building_complete():
 	buildingDeployed = true
-	emit_signal("buildingIsDeployed")
+	foodBuildingLevel = 1
 	emit_signal("updateSpaceTaken",spaceTaken)
+	emit_signal("contaminationAdd",contaminationPoint)
 	
 func resource_production():
-	emit_signal("contaminationAdd",contaminationPoint)
 	emit_signal("resourceCount", foodResourceGenerated)
 
 
 func _on_BuildingMenu_deploy_building_food():
 	#When signal deploy_building is emitted by buildingmenu, i.e. building chosen , building appears on village
-	self.show()
-	for child in self.get_children():
-		for things in child.get_children():
-			things.show()  # replace with function body
+	var current_ygg_level = get_node("../../").yggdrasilLevel
+	
+	if(foodBuildingLevel < current_ygg_level):
+		if(foodBuildingLevel == 0):
+			self.show()	
+			var checklevelupgradegraphics = self.get_child(2)
+			for child in self.get_children():
+				if child == checklevelupgradegraphics:
+					pass
+				else:				
+					for things in child.get_children():
+						things.show()  # replace with function bodypass # replace with function body
+		else:
+			upgrade()
+			
+		emit_signal("deduct_resources_for_food_bldg")
+	else:
+		emit_signal("notify_max_level_achieved") 
+				
+	
+func upgrade():
+	emit_signal("upgrade_food_building")
+
+func _on_Levelupbar_food_upgrade_food_bldg_complete():
+	foodBuildingLevel =2
+	contaminationPoint = contaminationPoint * foodBuildingLevel
+	foodResourceGenerated = foodResourceGenerated * foodBuildingLevel
+	emit_signal("updateSpaceTaken",spaceTaken)
+	emit_signal("contaminationAdd",contaminationPoint)
 

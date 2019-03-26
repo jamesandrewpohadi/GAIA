@@ -15,6 +15,6 @@ func _ready():
 #	pass
 
 
-func _on_VillagerMenu_update_villager_menu(villagerLevel):
-	self.text = str(villagerLevel)
+func _on_VillagerMenu_update_villager_menu(villagerStatus):
+	self.text = str(villagerStatus[0])
 	self.update()

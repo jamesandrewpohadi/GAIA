@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Village/FoodBuilding.gd" type="Script" id=1]
 [ext_resource path="res://UIpack/UI/blue_button13.png" type="Texture" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://Scripts/Village/Building_ProgBar.gd" type="Script" id=4]
 [ext_resource path="res://Tileset/BuildingSprites.tres" type="TileSet" id=5]
 [ext_resource path="res://Scripts/Village/BldgImg.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Village/level2_foodimg.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Village/Levelupbar_food.gd" type="Script" id=8]
 
-[node name="FoodBuilding" type="Sprite" index="0"]
+[node name="FoodBuilding" type="Sprite"]
 
 position = Vector2( 535.987, 257.111 )
 script = ExtResource( 1 )
@@ -108,12 +110,87 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -65541, 2, 0, -65540, 2, 0, -65537, 2, 0, -131072, 2, 0, -131068, 2, 0, -5, 2, 0, -4, 2, 0, -3, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, 65531, 2, 0, 65532, 2, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 131067, 2, 0, 131068, 2, 0, 131069, 2, 0, 131070, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 196603, 2, 0, 196604, 2, 0, 196605, 2, 0, 196606, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0 )
+tile_data = PoolIntArray( -65541, 2, 0, -65540, 2, 0, -65539, 2, 0, -65538, 2, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -5, 2, 0, -4, 2, 0, -3, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, 65531, 2, 0, 65532, 2, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 131067, 2, 0, 131068, 2, 0, 131069, 2, 0, 131070, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 196603, 2, 0, 196604, 2, 0, 196605, 2, 0, 196606, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0 )
 script = ExtResource( 6 )
 _sections_unfolded = [ "Cell" ]
+
+[node name="LevelUpScheme" type="Control" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="level2_foodimg" type="TileMap" parent="LevelUpScheme" index="0"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 18, 18 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -720901, 4, 0, -720900, 4, 0, -720899, 4, 0, -720898, 4, 0, -720897, 4, 0, -786432, 4, 0, -786431, 4, 0, -786430, 4, 0, -786429, 4, 0, -786428, 4, 0, -655365, 4, 0, -655364, 4, 0, -655363, 4, 0, -655362, 2, 0, -655361, 2, 0, -720896, 2, 0, -720895, 2, 0, -720894, 4, 0, -720893, 4, 0, -720892, 4, 0, -589829, 4, 0, -589828, 4, 0, -589827, 4, 0, -589826, 2, 0, -589825, 4, 0, -655360, 4, 0, -655359, 4, 0, -655358, 4, 0, -655357, 4, 0, -655356, 4, 0, -524293, 4, 0, -524292, 4, 0, -524291, 4, 0, -524290, 2, 0, -524289, 2, 0, -589824, 2, 0, -589823, 2, 0, -589822, 4, 0, -589821, 4, 0, -589820, 4, 0, -458757, 4, 0, -458756, 4, 0, -458755, 4, 0, -458754, 2, 0, -458753, 4, 0, -524288, 4, 0, -524287, 4, 0, -524286, 4, 0, -524285, 4, 0, -524284, 4, 0, -393221, 4, 0, -393220, 4, 0, -393219, 4, 0, -393218, 2, 0, -393217, 4, 0, -458752, 4, 0, -458751, 4, 0, -458750, 4, 0, -458749, 4, 0, -458748, 4, 0, -327685, 4, 0, -327684, 4, 0, -327683, 4, 0, -327682, 2, 0, -327681, 4, 0, -393216, 4, 0, -393215, 4, 0, -393214, 4, 0, -393213, 4, 0, -393212, 4, 0, -262149, 4, 0, -262148, 4, 0, -262147, 4, 0, -262146, 4, 0, -262145, 4, 0, -327680, 4, 0, -327679, 4, 0, -327678, 4, 0, -327677, 4, 0, -327676, 4, 0, -196613, 4, 0, -196612, 4, 0, -196611, 4, 0, -196610, 4, 0, -196609, 4, 0, -262144, 4, 0, -262143, 4, 0, -262142, 4, 0, -262141, 4, 0, -262140, 4, 0, -131077, 4, 0, -131076, 4, 0, -131075, 4, 0, -131074, 4, 0, -131073, 4, 0, -196608, 4, 0, -196607, 4, 0, -196606, 4, 0, -196605, 4, 0, -196604, 4, 0 )
+script = ExtResource( 7 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Levelupbar_food" type="TextureProgress" parent="LevelUpScheme" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -89.0
+margin_top = -274.0
+margin_right = 101.0
+margin_bottom = -225.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 2 )
+texture_over = null
+texture_progress = ExtResource( 3 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 8 )
+_sections_unfolded = [ "Textures" ]
+
+[connection signal="upgrade_food_building" from="." to="LevelUpScheme/Levelupbar_food" method="_on_FoodBuilding_upgrade_food_building"]
 
 [connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
 
 [connection signal="building_complete" from="Building_UI/Building_ProgBar" to="BldgImg" method="_on_Building_ProgBar_building_complete"]
+
+[connection signal="upgrade_food_bldg_complete" from="LevelUpScheme/Levelupbar_food" to="." method="_on_Levelupbar_food_upgrade_food_bldg_complete"]
+
+[connection signal="upgrade_food_bldg_complete" from="LevelUpScheme/Levelupbar_food" to="LevelUpScheme/level2_foodimg" method="_on_Levelupbar_food_upgrade_food_bldg_complete"]
 
 

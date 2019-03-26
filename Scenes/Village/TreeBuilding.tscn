@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Village/TreeBuilding.gd" type="Script" id=1]
 [ext_resource path="res://UIpack/UI/blue_button13.png" type="Texture" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://Scripts/Village/Building_ProgBar.gd" type="Script" id=4]
 [ext_resource path="res://Tileset/BuildingSprites.tres" type="TileSet" id=5]
 [ext_resource path="res://Scripts/Village/BldgImg.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Village/level2_treeimg.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Village/Levelupbar_Tree.gd" type="Script" id=8]
 
-[node name="TreeBuilding" type="Sprite" index="0"]
+[node name="TreeBuilding" type="Sprite"]
 
 position = Vector2( 535.987, 257.111 )
 script = ExtResource( 1 )
@@ -116,8 +118,83 @@ tile_data = PoolIntArray( -524293, 0, 0, -524292, 0, 0, -524291, 0, 0, -524290, 
 script = ExtResource( 6 )
 _sections_unfolded = [ "Cell" ]
 
-[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="BldgImg" method="_on_Building_ProgBar_building_complete"]
+[node name="LevelupScheme" type="Control" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="level2_treeimg" type="TileMap" parent="LevelupScheme" index="0"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 18, 18 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -917510, 0, 0, -917509, 0, 0, -917508, 0, 0, -917507, 0, 0, -917506, 0, 0, -917505, 0, 0, -983040, 0, 0, -983039, 0, 0, -851974, 0, 0, -851973, 0, 0, -851972, 0, 0, -851971, 0, 0, -851970, 0, 0, -851969, 0, 0, -917504, 0, 0, -917503, 0, 0, -917502, 0, 0, -786438, 0, 0, -786437, 0, 0, -786436, 0, 0, -786435, 0, 0, -786434, 0, 0, -786433, 0, 0, -851968, 0, 0, -851967, 0, 0, -851966, 0, 0, -851965, 0, 0, -851964, 0, 0, -720904, 0, 0, -720903, 0, 0, -720902, 0, 0, -720901, 0, 0, -720900, 0, 0, -720899, 0, 0, -720898, 0, 0, -720897, 0, 0, -786432, 0, 0, -786431, 0, 0, -786430, 0, 0, -786429, 0, 0, -786428, 0, 0, -786427, 0, 0, -655369, 0, 0, -655368, 0, 0, -655367, 0, 0, -655366, 0, 0, -655365, 0, 0, -655364, 0, 0, -655363, 0, 0, -655362, 0, 0, -655361, 0, 0, -720896, 0, 0, -720895, 0, 0, -720894, 0, 0, -720893, 0, 0, -720892, 0, 0, -720891, 0, 0, -720890, 0, 0, -589834, 0, 0, -589833, 0, 0, -589832, 0, 0, -589831, 0, 0, -589830, 0, 0, -589829, 0, 0, -589828, 0, 0, -589827, 0, 0, -589826, 0, 0, -589825, 0, 0, -655360, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -655356, 0, 0, -655355, 0, 0, -655354, 0, 0, -655353, 0, 0, -524299, 0, 0, -524298, 0, 0, -524297, 0, 0, -524296, 0, 0, -524295, 0, 0, -524294, 0, 0, -524293, 0, 0, -524292, 0, 0, -524291, 0, 0, -524290, 0, 0, -524289, 0, 0, -589823, 0, 0, -589821, 0, 0, -589820, 0, 0, -589819, 0, 0, -589818, 0, 0, -589817, 0, 0, -458763, 0, 0, -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 2, 0, -458756, 2, 0, -458755, 2, 0, -458754, 2, 0, -458753, 2, 0, -524288, 2, 0, -524287, 2, 0, -524286, 0, 0, -524285, 0, 0, -524284, 0, 0, -524283, 0, 0, -524282, 0, 0, -524281, 0, 0, -393227, 0, 0, -393226, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 2, 0, -393220, 2, 0, -393219, 2, 0, -393218, 2, 0, -393217, 2, 0, -458752, 2, 0, -458751, 2, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -327691, 0, 0, -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 2, 0, -327684, 2, 0, -327683, 2, 0, -327682, 2, 0, -327681, 2, 0, -393216, 2, 0, -393215, 2, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -262154, 0, 0, -262153, 0, 0, -262152, 0, 0, -262150, 0, 0, -262149, 2, 0, -262148, 2, 0, -262147, 2, 0, -262146, 2, 0, -262145, 2, 0, -327680, 2, 0, -327679, 2, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196613, 2, 0, -196612, 2, 0, -196611, 2, 0, -196610, 2, 0, -196609, 2, 0, -262144, 2, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 2, 0, -131076, 2, 0, -131075, 2, 0, -131074, 2, 0, -131073, 2, 0, -196608, 2, 0, -196607, 2, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -65541, 2, 0, -65540, 2, 0, -65539, 2, 0, -65537, 2, 0, -131071, 2, 0, -131070, 2, 0, -131069, 2, 0, -5, 2, 0, -4, 2, 0, -3, 2, 0, -1, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, 65530, 2, 0, 65531, 2, 0, 65532, 2, 0, 65533, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 131061, 2, 0, 131062, 2, 0, 131063, 2, 0, 131064, 2, 0, 131065, 2, 0, 131066, 2, 0, 131067, 2, 0, 131068, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 196596, 2, 0, 196597, 2, 0, 196599, 2, 0, 196600, 2, 0, 196601, 2, 0, 196602, 2, 0, 196603, 2, 0, 196604, 2, 0, 196605, 2, 0, 196606, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 131077, 2, 0, 131078, 2, 0, 131079, 2, 0, 262132, 2, 0, 262135, 2, 0, 262136, 2, 0, 262138, 2, 0, 262139, 2, 0, 196610, 2, 0, 196611, 2, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 327668, 2, 0, 327670, 2, 0, 327671, 2, 0, 327672, 2, 0, 327674, 2, 0, 327675, 2, 0, 262147, 2, 0, 262148, 2, 0, 262152, 2, 0, 262153, 2, 0, 393204, 2, 0, 393206, 2, 0, 393207, 2, 0, 393208, 2, 0, 393210, 2, 0, 393211, 2, 0, 327683, 2, 0, 327684, 2, 0, 327688, 2, 0, 327689, 2, 0, 458739, 2, 0, 458742, 2, 0, 458743, 2, 0, 458746, 2, 0, 458747, 2, 0, 393219, 2, 0, 393220, 2, 0, 393225, 2, 0, 524275, 2, 0, 524277, 2, 0, 524278, 2, 0, 524282, 2, 0, 524283, 2, 0, 458756, 2, 0, 458761, 2, 0, 589811, 2, 0, 589813, 2, 0, 589818, 2, 0, 589819, 2, 0, 524292, 2, 0, 524293, 2, 0, 524297, 2, 0, 655349, 2, 0, 655354, 2, 0, 655355, 2, 0, 589828, 2, 0, 589829, 2, 0, 589833, 2, 0, 589834, 2, 0, 720889, 2, 0, 720890, 2, 0, 655364, 2, 0, 655365, 2, 0, 720901, 2, 0, 720902, 2, 0, 786438, 2, 0 )
+script = ExtResource( 7 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Levelupbar_Tree" type="TextureProgress" parent="LevelupScheme" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -110.0
+margin_top = -183.0
+margin_right = 80.0
+margin_bottom = -134.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 2 )
+texture_over = null
+texture_progress = ExtResource( 3 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 8 )
+_sections_unfolded = [ "Textures" ]
+
+[connection signal="upgrade_tree_building" from="." to="LevelupScheme/Levelupbar_Tree" method="_on_TreeBuilding_upgrade_tree_building"]
 
 [connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
+
+[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="BldgImg" method="_on_Building_ProgBar_building_complete"]
+
+[connection signal="upgrade_tree_bldg_complete" from="LevelupScheme/Levelupbar_Tree" to="." method="_on_Levelupbar_Tree_upgrade_tree_bldg_complete"]
+
+[connection signal="upgrade_tree_bldg_complete" from="LevelupScheme/Levelupbar_Tree" to="LevelupScheme/level2_treeimg" method="_on_Levelupbar_Tree_upgrade_tree_bldg_complete"]
 
 

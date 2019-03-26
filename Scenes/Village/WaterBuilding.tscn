@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Village/WaterBuilding.gd" type="Script" id=1]
 [ext_resource path="res://UIpack/UI/blue_button13.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Scripts/Village/Building_ProgBar.gd" type="Script" id=4]
 [ext_resource path="res://Tileset/BuildingSprites.tres" type="TileSet" id=5]
 [ext_resource path="res://Scripts/Village/BldgImg.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Village/level2_waterimg.gd" type="Script" id=7]
+[ext_resource path="res://UIpack/UI/blue_button00.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Village/levelupbar_water.gd" type="Script" id=9]
 
 [node name="WaterBuilding" type="Sprite"]
 
@@ -112,8 +115,83 @@ tile_data = PoolIntArray( -65541, 2, 0, -65540, 3, 0, -65539, 3, 0, -65538, 3, 0
 script = ExtResource( 6 )
 _sections_unfolded = [ "Cell" ]
 
+[node name="LevelUpScheme" type="Control" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="level2_waterimg" type="TileMap" parent="LevelUpScheme" index="0"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 18, 18 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -524293, 2, 0, -524292, 2, 0, -524291, 2, 0, -524290, 2, 0, -524289, 2, 0, -589824, 2, 0, -589823, 2, 0, -589822, 2, 0, -589821, 2, 0, -589820, 2, 0, -458757, 2, 0, -458756, 3, 0, -458755, 2, 0, -458754, 2, 0, -458753, 2, 0, -524288, 2, 0, -524287, 2, 0, -524286, 2, 0, -524285, 3, 0, -524284, 2, 0, -393221, 2, 0, -393220, 3, 0, -393219, 2, 0, -393218, 2, 0, -393217, 3, 0, -458752, 3, 0, -458751, 2, 0, -458750, 2, 0, -458749, 3, 0, -458748, 2, 0, -327685, 2, 0, -327684, 3, 0, -327683, 2, 0, -327682, 2, 0, -327681, 3, 0, -393216, 3, 0, -393215, 2, 0, -393214, 2, 0, -393213, 3, 0, -393212, 2, 0, -262149, 2, 0, -262148, 3, 0, -262147, 2, 0, -262146, 2, 0, -262145, 3, 0, -327680, 3, 0, -327679, 2, 0, -327678, 2, 0, -327677, 3, 0, -327676, 2, 0, -196613, 2, 0, -196612, 3, 0, -196611, 3, 0, -196610, 3, 0, -196609, 3, 0, -262144, 3, 0, -262143, 3, 0, -262142, 3, 0, -262141, 3, 0, -262140, 2, 0, -131077, 2, 0, -131076, 2, 0, -131075, 2, 0, -131074, 2, 0, -131073, 2, 0, -196608, 2, 0, -196607, 2, 0, -196606, 2, 0, -196605, 2, 0, -196604, 2, 0 )
+script = ExtResource( 7 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="levelupbar_water" type="TextureProgress" parent="LevelUpScheme" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -94.0
+margin_top = -233.0
+margin_right = 96.0
+margin_bottom = -184.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 2 )
+texture_over = null
+texture_progress = ExtResource( 8 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 9 )
+_sections_unfolded = [ "Textures" ]
+
+[connection signal="upgrade_water_building" from="." to="LevelUpScheme/levelupbar_water" method="_on_WaterBuilding_upgrade_water_building"]
+
 [connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
 
 [connection signal="building_complete" from="Building_UI/Building_ProgBar" to="BldgImg" method="_on_Building_ProgBar_building_complete"]
+
+[connection signal="upgrade_water_bldg_complete" from="LevelUpScheme/levelupbar_water" to="." method="_on_levelupbar_water_upgrade_water_bldg_complete"]
+
+[connection signal="upgrade_water_bldg_complete" from="LevelUpScheme/levelupbar_water" to="LevelUpScheme/level2_waterimg" method="_on_levelupbar_water_upgrade_water_bldg_complete"]
 
 

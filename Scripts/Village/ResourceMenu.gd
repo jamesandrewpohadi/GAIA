@@ -10,7 +10,6 @@ signal waterResourceCount
 signal oreResourceCount
 signal cementResourceCount
 
-
 var minus_resources = 10
 func _ready():
 	self.hide()
@@ -33,8 +32,6 @@ func _on_VillageUI_open_resource_menu():
 		child.popup()
 		for children in child.get_children():
 			children.show()
-	 # replace with function bod
-	pass
 
 
 
@@ -63,3 +60,4 @@ func _on_VillageResourcesCounter_update_foodResource(food):
 
 func _on_VillageResourcesCounter_update_cementResource(cement):
 	emit_signal("cementResourceCount", cement)
+

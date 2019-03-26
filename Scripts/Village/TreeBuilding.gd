@@ -6,10 +6,14 @@ extends Sprite
 var buildingDeployed = false
 var contaminationPoint = -6 # add into the contamination system later
 var spaceTaken = 2 # add space constraint later
+var treeBuildingLevel = 0
 
 signal buildingIsDeployed
 signal repelContamination
 signal updateSpaceTaken
+signal deduct_resources_for_tree_bldg
+signal upgrade_tree_building
+signal notify_max_level_achieved
 
 var timeCheck = 1
 var timeStart
@@ -27,17 +31,7 @@ func _ready():
 
 func _process(delta):
 	#Generates resource per the stipulated time
-	if buildingDeployed == true:
-		if timeSave == false:
-			timeStart = OS.get_system_time_secs()
-			timeSave = true
-				#resource_production()
-				#timeSave == false
-		if ((OS.get_system_time_secs() - timeStart) == timeCheck):
-			contamination_reduction()
-			timeSave = false
-	
-		
+	pass
 	
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
@@ -46,14 +40,39 @@ func _process(delta):
 
 func _on_Building_ProgBar_building_complete():
 	buildingDeployed = true
+	treeBuildingLevel = 1
 	emit_signal("buildingIsDeployed")
 	emit_signal("updateSpaceTaken",spaceTaken)
-	
-func contamination_reduction():
 	emit_signal("repelContamination",contaminationPoint) 
+	
 
 func _on_BuildingMenu_deploy_building_tree():
-	self.show()
-	for child in self.get_children():
-		for things in child.get_children():
-			things.show()  # replace with function bodypass # replace with function body
+	#When signal deploy_building is emitted by buildingmenu, i.e. building chosen , building appears on village
+	var current_ygg_level = get_node("../../").yggdrasilLevel
+	
+	if(treeBuildingLevel < current_ygg_level):
+		if(treeBuildingLevel == 0):
+			self.show()	
+			var checklevelupgradegraphics = self.get_child(2)
+			for child in self.get_children():
+				if child == checklevelupgradegraphics:
+					pass
+				else:				
+					for things in child.get_children():
+						things.show()  # replace with function bodypass # replace with function body
+		else:
+			upgrade()
+		emit_signal("deduct_resources_for_tree_bldg")
+	else:
+		emit_signal("notify_max_level_achieved") 
+				
+				
+func upgrade():
+	emit_signal("upgrade_tree_building")
+
+
+func _on_Levelupbar_Tree_upgrade_tree_bldg_complete():
+	treeBuildingLevel =2
+	contaminationPoint = contaminationPoint * treeBuildingLevel
+	emit_signal("updateSpaceTaken",spaceTaken)
+	emit_signal("contaminationAdd",contaminationPoint)
