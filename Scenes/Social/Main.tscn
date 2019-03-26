@@ -1,39 +1,34 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Social/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Social/Network.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Social/Village.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Village/VillageScreen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Social/Social.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Social/Chat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Social/Welcome.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Social/Notification.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Social/Database.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Village/VillageScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Social/Social.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Social/Chat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Social/Welcome.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Social/Notification.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Social/Database.tscn" type="PackedScene" id=8]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="Network" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="Village" parent="." index="1" instance=ExtResource( 3 )]
+[node name="VillageScreen" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="Social" parent="." index="2" instance=ExtResource( 4 )]
 
 visible = false
 
-[node name="VillageScreen" parent="." index="2" instance=ExtResource( 4 )]
-
-[node name="Social" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Chat" parent="." index="3" instance=ExtResource( 5 )]
 
 visible = false
 
-[node name="Chat" parent="." index="4" instance=ExtResource( 6 )]
+[node name="Welcome" parent="." index="4" instance=ExtResource( 6 )]
 
-visible = false
+[node name="Notification" parent="." index="5" instance=ExtResource( 7 )]
 
-[node name="Welcome" parent="." index="5" instance=ExtResource( 7 )]
-
-[node name="Notification" parent="." index="6" instance=ExtResource( 8 )]
-
-[node name="Database" parent="." index="7" instance=ExtResource( 9 )]
+[node name="Database" parent="." index="6" instance=ExtResource( 8 )]
 
 
