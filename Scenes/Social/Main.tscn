@@ -10,7 +10,7 @@
 [ext_resource path="res://Scenes/Social/Notification.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Social/Database.tscn" type="PackedScene" id=9]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
