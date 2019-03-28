@@ -12,6 +12,7 @@ func _on_Button_pressed():
 		main.chat.chats[int(id)] = ""
 	main.chat.recipient_id = int(id)
 	#main.chat.get_node("Messages").text = main.chat.chats[id]
+	main.chat.generateWishList(main.network.player_info[id]["name"])
 	main.chat.show()
 	#main.Panel2.show()
 	

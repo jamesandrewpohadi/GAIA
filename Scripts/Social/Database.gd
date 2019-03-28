@@ -17,9 +17,9 @@ func query(tree):
 	return res
 	
 func put(tree, data):
-	var response = request("https://gaia-f511d.firebaseio.com/" + tree + ".json", [], false,HTTPClient.METHOD_PUT, data)
-	#yield(self, "done")
-	#return res
+	var response = request("https://gaia-f511d.firebaseio.com/" + tree + ".json", [], false,HTTPClient.METHOD_PATCH, data)
+	yield(self, "done")
+	return res
 
 func _ready():
 	#query("users/gaia/GRO")

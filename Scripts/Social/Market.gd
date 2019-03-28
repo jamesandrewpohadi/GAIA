@@ -42,12 +42,12 @@ func setList(category):
 #				addGameItem(category + str(i), category, str(10), "Buy", $ItemList/ScrollContainer/VBoxContainer)
 
 func setShopList():
-	clearList()
+	clearShopList()
 	for category in ["Academy","Cement","Food","Ore","Water"]:
 		database.query("game/market/"+category.to_lower()+"/"+main.network.player_name)
 		yield(database, "done")
 		var data = database.res
-		addGameItem(category, main.network.player_name, str(data["amount"]), str(data["price"]), "Cancel", $ShopList/ScrollContainer/VBoxContainer)
+		addGameItem(category, main.network.player_name, str(data["amount"]), str(data["price"]), "Update", $ShopList/ScrollContainer/VBoxContainer)
 #	for i in range(5):
 #		addGameItem("Ore" + str(i), "Ore", str(10), "Cancel", $ShopList/ScrollContainer/VBoxContainer)
 #	for i in range(5):
@@ -57,13 +57,22 @@ func setShopList():
 
 func clearList():
 	for i in $ItemList/ScrollContainer/VBoxContainer.get_children():
+		i.hide()
 		i.queue_free()
 	#pass
+	
+
+func clearShopList():
+	for i in $ShopList/ScrollContainer/VBoxContainer.get_children():
+		i.hide()
+		i.queue_free()
 	
 func addGameItem(name, category, amount, price,button_text, node):
 	var gameItem = GameListItem.instance()
 	# todo: query from the firebase regarding the item information
 	gameItem.unit_price = int(price)/int(amount)
+	gameItem.amount = int(amount)
+	gameItem.price = price
 	gameItem.get_node("Name").text = name
 	gameItem.get_node("Category").text = category
 	gameItem.get_node("Amount").text = amount

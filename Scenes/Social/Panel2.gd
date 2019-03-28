@@ -8,9 +8,8 @@ var listIndex = 0
 
 func addItem(value):
 	var item = ListItem.instance()
-	listIndex+=1
-	item.get_node("number").text=str(listIndex)
-	item.get_node("itemName").text=value
+	item.get_node("Number").text=str(listIndex)
+	item.get_node("ItemName").text=value
 	$ScrollContainer/ItemList.add_child(item)
 	
 

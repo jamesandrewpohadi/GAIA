@@ -22,33 +22,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Button" type="Button" parent="Main" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1060.0
-margin_top = 20.0
-margin_right = 1260.0
-margin_bottom = 90.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Add Wish"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Main" index="1"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Main" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -76,8 +50,6 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1300.0
-margin_bottom = 650.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -313,7 +285,5 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect" ]
-
-[connection signal="pressed" from="Main/Button" to="." method="_on_Button_pressed"]
 
 
