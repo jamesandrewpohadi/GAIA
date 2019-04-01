@@ -272,7 +272,6 @@ _sections_unfolded = [ "Grow Direction", "Textures" ]
 
 [node name="WinMenu" type="Panel" parent="UI" index="7"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0

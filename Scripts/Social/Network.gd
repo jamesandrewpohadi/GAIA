@@ -22,6 +22,7 @@ func _on_Join(host, port, name):
 	get_tree().set_network_peer(peer)
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
+	player_info[player_id] = my_info
 
 func _on_Host(host, name):
 	peer = NetworkedMultiplayerENet.new()
@@ -29,6 +30,7 @@ func _on_Host(host, name):
 	get_tree().set_network_peer(peer)
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
+	player_info[player_id] = my_info
 	#main.welcome.hide()
 	#main.village.get_node("VillageCamera/CanvasLayer/VillageUI").show()
 	#main.village.is_village = true

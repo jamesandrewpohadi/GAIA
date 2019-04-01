@@ -24,7 +24,7 @@ func showWishList():
 		database.query("users/"+main.network.player_name+"/game/wish/"+category.to_lower())
 		yield(database, "done")
 		var data = database.res
-		addGameItem(category, database.res, "Update", $Main/ScrollContainer/VBoxContainer)
+		addGameItem(category, database.res, "Update", get_node("Main/ScrollContainer/VBoxContainer"))
 
 func _on_Button_pressed():
 	social.view.push_back(get_node("ItemCategories"))

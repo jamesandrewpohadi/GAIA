@@ -42,32 +42,26 @@ func _on_MessageInput_text_entered(message):
 	
 sync func display_message(id, sender_id, sender, message):
 	if get_tree().is_network_server():
-		print(sender+": "+ message)
+		#print(sender+": "+ message)
 		if (sender_id == network.player_id):
 			chats[int(recipient_id)] += '\nYou' + ' : ' + message
-			#rpc_id(id, "display_message", id, sender_id, sender, message)
 		else:
 			if (int(id) == int(network.player_id)):
 				if (!chats.has(int(sender_id))):
 					chats[int(sender_id)] = ""
 				chats[int(sender_id)] += '\n' + sender + ' : ' + message
-			#else:
-				#rpc_id(id, "display_message", id, sender_id, sender, message)
-				
-			#$Messages.text += '\n' + sender + ' : ' + message
 			
 	else:
-		print(sender+": "+ message)
+		#print(sender+": "+ message)
 		if (int(id) == int(network.player_id)):
-			print("other send")
+			print("other send 1")
 			if (!chats.has(int(sender_id))):
 				chats[int(sender_id)] = ""
 			chats[int(sender_id)] += '\n' + sender + ' : ' + message
-			#$Messages.text += '\n' + sender + ' : ' + message
 		elif (int(sender_id) == int(network.player_id)):
-			print("I send")
+			print("I send 1")
 			chats[int(recipient_id)] += '\nYou' + ' : ' + message
-	print(chats)
+	#print(chats)
 
 
 func _on_Back_pressed():

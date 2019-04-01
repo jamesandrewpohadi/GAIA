@@ -64,6 +64,7 @@ func _on_Back_pressed():
 
 func _on_Wish_pressed():
 	view.push_back(get_node("Wish"))
+	$Wish.showWishList()
 	$Wish.show()
 
 
