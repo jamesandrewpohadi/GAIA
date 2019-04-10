@@ -1,0 +1,198 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Village/AcademyBuilding.gd" type="Script" id=1]
+[ext_resource path="res://UIpack/UI/blue_button13.png" type="Texture" id=2]
+[ext_resource path="res://UIpack/UI/blue_button04.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Village/Building_ProgBar.gd" type="Script" id=4]
+[ext_resource path="res://Tileset/BuildingSprites.tres" type="TileSet" id=5]
+[ext_resource path="res://Scripts/Village/BldgImg.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Village/level2_academyimg.gd" type="Script" id=7]
+[ext_resource path="res://UIpack/UI/grey_button14.png" type="Texture" id=8]
+[ext_resource path="res://UIpack/UI/blue_button00.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Village/Levelupbar_academy.gd" type="Script" id=10]
+
+[node name="AcademyBuilding" type="Sprite"]
+
+position = Vector2( 535.987, 257.111 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Building_UI" type="Control" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -116.0
+margin_top = -117.0
+margin_right = 122.0
+margin_bottom = 101.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Building_ProgBar" type="TextureProgress" parent="Building_UI" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = 6.0
+margin_right = 212.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 2 )
+texture_over = null
+texture_progress = ExtResource( 3 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Building_Name" type="RichTextLabel" parent="Building_UI" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 67.0
+margin_top = 176.0
+margin_right = 220.0
+margin_bottom = 218.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Academy Building"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="BldgImg" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 18, 18 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -196617, 5, 0, -196616, 5, 0, -196615, 5, 0, -262137, 5, 0, -262136, 5, 0, -262135, 5, 0, -131081, 5, 0, -131080, 5, 0, -131079, 5, 0, -131078, 5, 0, -131077, 5, 0, -131076, 5, 0, -131075, 5, 0, -131074, 5, 0, -131073, 5, 0, -196608, 5, 0, -196607, 5, 0, -196606, 5, 0, -196605, 5, 0, -196604, 5, 0, -196603, 5, 0, -196602, 5, 0, -196601, 5, 0, -196600, 5, 0, -196599, 5, 0, -65544, 5, 0, -65543, 5, 0, -65542, 5, 0, -65541, 5, 0, -65540, 5, 0, -65539, 5, 0, -65538, 5, 0, -65537, 5, 0, -131072, 5, 0, -131071, 5, 0, -131070, 5, 0, -131069, 5, 0, -131068, 5, 0, -131067, 5, 0, -131066, 5, 0, -131065, 5, 0, -131064, 5, 0, -7, 5, 0, -6, 5, 0, -5, 5, 0, -4, 5, 0, -3, 5, 0, -2, 5, 0, -1, 5, 0, -65536, 5, 0, -65535, 5, 0, -65534, 5, 0, -65533, 5, 0, -65532, 5, 0, -65531, 5, 0, -65530, 5, 0, -65529, 5, 0, 65530, 5, 0, 65531, 5, 0, 65532, 5, 0, 65533, 5, 0, 65534, 5, 0, 65535, 5, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 131066, 5, 0, 131067, 5, 0, 131068, 5, 0, 131069, 5, 0, 131070, 5, 0, 131071, 5, 0, 65536, 5, 0, 65537, 5, 0, 65538, 5, 0, 65539, 5, 0, 65540, 5, 0, 65541, 5, 0, 65542, 5, 0, 196602, 5, 0, 196603, 5, 0, 196604, 5, 0, 196605, 5, 0, 196606, 5, 0, 196607, 5, 0, 131072, 5, 0, 131073, 5, 0, 131074, 5, 0, 131075, 5, 0, 131076, 5, 0, 131077, 5, 0, 131078, 5, 0, 262138, 5, 0, 262139, 5, 0, 196613, 5, 0, 196614, 5, 0 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="LevelupScheme" type="Control" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="level2_academyimg" type="TileMap" parent="LevelupScheme" index="0"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 18, 18 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -589833, 5, 0, -589832, 5, 0, -589831, 5, 0, -589830, 5, 0, -589829, 5, 0, -589828, 5, 0, -589827, 5, 0, -589826, 5, 0, -589825, 5, 0, -655360, 5, 0, -655359, 5, 0, -655358, 5, 0, -655357, 5, 0, -655356, 5, 0, -655355, 5, 0, -655354, 5, 0, -655353, 5, 0, -655352, 5, 0, -655351, 5, 0, -524297, 5, 0, -524296, 5, 0, -524295, 5, 0, -524294, 5, 0, -524293, 5, 0, -524292, 5, 0, -524291, 5, 0, -524290, 5, 0, -524289, 5, 0, -589824, 5, 0, -589823, 5, 0, -589822, 5, 0, -589821, 5, 0, -589820, 5, 0, -589819, 5, 0, -589818, 5, 0, -589817, 5, 0, -589816, 5, 0, -589815, 5, 0, -458761, 5, 0, -458760, 5, 0, -458759, 5, 0, -458758, 5, 0, -458757, 5, 0, -458756, 5, 0, -458755, 5, 0, -458754, 5, 0, -458753, 5, 0, -524288, 5, 0, -524287, 5, 0, -524286, 5, 0, -524285, 5, 0, -524284, 5, 0, -524283, 5, 0, -524282, 5, 0, -524281, 5, 0, -524280, 5, 0, -524279, 5, 0, -393225, 5, 0, -393224, 5, 0, -393223, 5, 0, -393222, 5, 0, -393221, 5, 0, -393220, 5, 0, -393219, 5, 0, -393218, 5, 0, -393217, 5, 0, -458752, 5, 0, -458751, 5, 0, -458750, 5, 0, -458749, 5, 0, -458748, 5, 0, -458747, 5, 0, -458746, 5, 0, -458745, 5, 0, -458744, 5, 0, -458743, 5, 0, -327689, 5, 0, -327688, 4, 0, -327687, 5, 0, -327686, 2, 0, -327685, 4, 0, -327684, 4, 0, -327683, 4, 0, -327682, 5, 0, -327681, 5, 0, -393216, 5, 0, -393215, 5, 0, -393214, 4, 0, -393213, 4, 0, -393212, 4, 0, -393211, 5, 0, -393210, 5, 0, -393209, 5, 0, -393208, 4, 0, -393207, 5, 0, -262153, 5, 0, -262152, 4, 0, -262151, 5, 0, -262150, 2, 0, -262149, 4, 0, -262148, 4, 0, -262147, 4, 0, -262146, 5, 0, -262145, 5, 0, -327680, 5, 0, -327679, 5, 0, -327678, 4, 0, -327677, 4, 0, -327676, 4, 0, -327675, 5, 0, -327674, 5, 0, -327673, 5, 0, -327672, 4, 0, -327671, 5, 0, -196615, 5, 0, -196614, 2, 0, -196613, 4, 0, -196612, 4, 0, -196611, 4, 0, -196610, 5, 0, -196609, 5, 0, -262144, 5, 0, -262143, 5, 0, -262142, 4, 0, -262141, 4, 0, -262140, 4, 0, -262139, 5, 0, -262138, 5, 0, -262137, 5, 0, -196606, 2, 0, -196605, 2, 0 )
+script = ExtResource( 7 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Levelupbar_academy" type="TextureProgress" parent="LevelupScheme" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -93.0
+margin_top = -231.0
+margin_right = 128.0
+margin_bottom = -191.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 8 )
+texture_over = null
+texture_progress = ExtResource( 9 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 10 )
+_sections_unfolded = [ "Textures" ]
+
+[connection signal="upgrade_academy_building" from="." to="LevelupScheme/Levelupbar_academy" method="_on_AcademyBuilding_upgrade_academy_building"]
+
+[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
+
+[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="BldgImg" method="_on_Building_ProgBar_building_complete"]
+
+[connection signal="upgrade_academy_bldg_complete" from="LevelupScheme/Levelupbar_academy" to="." method="_on_Levelupbar_academy_upgrade_academy_bldg_complete"]
+
+[connection signal="upgrade_academy_bldg_complete" from="LevelupScheme/Levelupbar_academy" to="LevelupScheme/level2_academyimg" method="_on_Levelupbar_academy_upgrade_academy_bldg_complete"]
+
+

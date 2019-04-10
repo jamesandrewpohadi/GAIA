@@ -1,0 +1,124 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Combat/Boss1.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Boss1/idle.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Boss1/hit1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Boss1/hit2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Boss1/slash1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Boss1/slash2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Boss1/slash3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Boss1/die.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Boss1/walk1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Boss1/walk2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Boss1/walk3.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Boss1/walk4.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "die",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9.12227, 11.3101 )
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 60.4958
+
+[node name="MobBoss1" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+SPEED = 150
+health = 5
+contact_distance = 50
+need_to_jump = 0.025
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+position = Vector2( 0, 0.371956 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
+
+position = Vector2( 7.74588, -4.18696 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 18 )
+collision_mask = 1
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="Area2D" type="Area2D" parent="." index="4"]
+
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+visible = false
+position = Vector2( 0.143986, 5.29981 )
+scale = Vector2( 1.27327, 1.27327 )
+shape = SubResource( 3 )
+
+[node name="JumpTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]
+
+

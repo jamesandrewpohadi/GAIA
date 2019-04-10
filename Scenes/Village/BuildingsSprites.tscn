@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Kenney_Roguelike_Pack/Spritesheet/roguelikeSheet_transparent.png" type="Texture" id=1]
+
+[sub_resource type="TileSet" id=1]
+
+_sections_unfolded = [ "Resource" ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = SubResource( 1 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Occluder" ]
+
+[node name="ground" type="Sprite" parent="TileMap" index="0"]
+
+position = Vector2( 520, 200 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 254, 18, 18 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="mangrovetree" type="Sprite" parent="TileMap" index="1"]
+
+position = Vector2( 540, 240 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 221, 170, 16, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="OreBuilding" type="Sprite" parent="TileMap" index="2"]
+
+editor/display_folded = true
+position = Vector2( 500, 230 )
+
+[node name="roof" type="Sprite" parent="TileMap/OreBuilding" index="0"]
+
+position = Vector2( -100, 10 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 459, 342, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="orebaselayer" type="Sprite" parent="TileMap/OreBuilding" index="1"]
+
+position = Vector2( -240, 60 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 459, 254, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="FoodBuilding" type="Sprite" parent="." index="1"]
+
+position = Vector2( 490, 310 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 662, 271, 18, 18 )
+_sections_unfolded = [ "Region" ]
+
+[node name="WaterBuilding" type="Sprite" parent="." index="2"]
+
+position = Vector2( 450, 280 )
+scale = Vector2( 1.125, 1.125 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="CementBuilding" type="Sprite" parent="." index="3"]
+
+position = Vector2( 520, 290 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 305, 356, 18, 18 )
+_sections_unfolded = [ "Region" ]
+
+[node name="AcademyBuilding" type="Sprite" parent="." index="4"]
+
+position = Vector2( 470, 230 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 798, 237, 18, 18 )
+_sections_unfolded = [ "Region" ]
+
+
