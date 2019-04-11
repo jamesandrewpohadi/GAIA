@@ -27,10 +27,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1168.0
-margin_top = 16.0
-margin_right = 1264.0
-margin_bottom = 64.0
+margin_left = 1080.0
+margin_top = 20.0
+margin_right = 1176.0
+margin_bottom = 68.0
+rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -45,6 +46,7 @@ group = null
 text = "Quit"
 flat = false
 align = 1
+_sections_unfolded = [ "Rect" ]
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="UI" index="1"]
 
@@ -53,11 +55,12 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 576.0
-margin_top = 304.0
-margin_right = 776.0
-margin_bottom = 374.0
+margin_left = 441.0
+margin_top = 208.0
+margin_right = 641.0
+margin_bottom = 278.0
 rect_min_size = Vector2( 200, 70 )
+rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -69,7 +72,7 @@ window_title = "Please Confirm..."
 resizable = false
 dialog_text = "You confirm want quit?"
 dialog_hide_on_ok = true
-_sections_unfolded = [ "Dialog", "Hint", "Popup" ]
+_sections_unfolded = [ "Dialog", "Hint", "Popup", "Rect" ]
 
 [node name="PopupDialog" type="Panel" parent="UI" index="2"]
 
@@ -284,7 +287,7 @@ __meta__ = {
 
 [node name="Mob1" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 778.109, 406.49 )
+position = Vector2( 1206.67, 404.439 )
 
 [node name="Mob2" parent="." index="3" instance=ExtResource( 4 )]
 
@@ -292,7 +295,7 @@ position = Vector2( 1423.76, 414.714 )
 
 [node name="Mob3" parent="." index="4" instance=ExtResource( 4 )]
 
-position = Vector2( 1072.84, 469.153 )
+position = Vector2( 1068.74, 477.355 )
 
 [node name="Mob4" parent="." index="5" instance=ExtResource( 4 )]
 
@@ -308,11 +311,11 @@ position = Vector2( 1587.14, 456.52 )
 
 [node name="Mob6" parent="." index="8" instance=ExtResource( 4 )]
 
-position = Vector2( 660.668, 419.307 )
+position = Vector2( 627.456, 426.409 )
 
 [node name="Mob7" parent="." index="9" instance=ExtResource( 4 )]
 
-position = Vector2( 1237.72, 400.669 )
+position = Vector2( 788.454, 426.268 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="10"]
 
@@ -351,7 +354,7 @@ __meta__ = {
 
 [node name="MobBoss1" parent="." index="11" instance=ExtResource( 6 )]
 
-position = Vector2( 1718.36, 419.04 )
+position = Vector2( 1766.29, 452.265 )
 scale = Vector2( 3, 3 )
 _sections_unfolded = [ "Transform" ]
 need_to_jump = 0.25

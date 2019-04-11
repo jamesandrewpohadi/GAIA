@@ -7,6 +7,7 @@ extends Node2D
 var networknode
 
 func _ready():
+	$MobBoss1.set_network_master(get_tree().get_network_unique_id())
 	set_network_master(get_tree().get_network_unique_id())
 	networknode = get_tree().get_root().get_node("Main/Network")
 	# Called when the node is added to the scene for the first time.
@@ -109,13 +110,11 @@ func _on_TryAgain_pressed():
 
 func _on_GoBack2_pressed():
 #	rpc("goodbye_combat",get_tree().get_network_unique_id())
-	self.hide()
+	hide()
+	queue_free()
 	for i in get_parent().get_children():
 		if "Village" in i.name:
 			i.show()
-	
-	
-	self.queue_free()
 
 
 func _on_TryAgain2_pressed():

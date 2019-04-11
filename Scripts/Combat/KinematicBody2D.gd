@@ -40,7 +40,6 @@ slave var puppet_pos = Vector2()
 slave var puppet_motion = Vector2()
 
 func _ready():
-	set_process_input(false)
 #	set_process_unhandled_input(false)
 	if(!is_network_master()):
 		for i in $UI.get_children():
@@ -53,7 +52,7 @@ func _ready():
 	add_child(timer)
 #	emit_signal("on_health_changed",health)
 #	set_process_input(true)
-	
+	print("Player " + str(get_tree().get_network_unique_id()) + " instantiation should be correct")
 	set_process(true)
 
 func on_timeout_complete():
@@ -97,13 +96,13 @@ func _process(delta):
 			if is_on_floor():
 				if (motion.x != 0):
 					if motion.x > 0:
-#						print("Run!")
+						print("Run!")
 						$AnimatedSprite.play("Run")
 						$AnimatedSprite.flip_h = false
 						if sign($Position2D.position.x)== -1:
 							$Position2D.position.x *= -1
 						if (Input.is_action_pressed("btn_up") && can_jump):
-#							print("jump!")
+							print("jump!")
 							motion.y -= up
 							can_jump=false
 							$AnimatedSprite.play("Jump")
@@ -114,13 +113,13 @@ func _process(delta):
 						if sign($Position2D.position.x)== 1:
 							$Position2D.position.x *= -1
 						if (Input.is_action_pressed("btn_up") && can_jump):
-#							print("jump!")
+							print("jump!")
 							motion.y -= up
 							can_jump=false
 							$AnimatedSprite.play("Jump")
 							timer.start()
 				elif (Input.is_action_pressed("btn_up") && can_jump):
-#					print("jump!")
+					print("jump!")
 					motion.y -= up
 					can_jump=false
 					$AnimatedSprite.play("Jump")
@@ -161,8 +160,8 @@ func _process(delta):
 #					AoiSlash.set_slash_direction(sign($Position2D.position.x))
 #					get_parent().add_child(AoiSlash)
 #					AoiSlash.position = $Position2D.global_position
-			rset("puppet_motion", motion)
-			rset("puppet_pos", position)
+			rset_unreliable("puppet_motion", motion)
+			rset_unreliable("puppet_pos", position)
 		elif (is_dead == true):
 			$AnimatedSprite.play("Dead")
 	else:

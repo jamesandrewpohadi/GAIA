@@ -37,6 +37,7 @@ func update_lobby():
 
 
 remote func _on_StartButton_pressed():
+	print(str(get_tree().get_network_unique_id())+" received onStartButton rpc")
 	if get_tree().is_network_server():
 		# Send my info to new player
 		for peer_id in networknode.players_incombat:
@@ -45,15 +46,15 @@ remote func _on_StartButton_pressed():
 	# Change scene
 	var world = load("res://Scenes/Combat/MultiStageOne.tscn").instance()
 	get_parent().add_child(world)
-	self.hide()
 
-	var player_scene = load("res://Scenes/Combat/Player.tscn")
+	var player_scene = preload("res://Scenes/Combat/Player.tscn")
 
 	for p_id in networknode.players_incombat:
+		
 		var player = player_scene.instance()
 
 		player.set_name(str("Player")+str(p_id)) # Use unique ID as node name
-		player.position=Vector2(50,500)
+		player.position=Vector2(50+rand_range(0,20),500+rand_range(0,20))
 		player.set_network_master(p_id) #set unique id as master
 
 #		if p_id == get_tree().get_network_unique_id():
@@ -64,6 +65,9 @@ remote func _on_StartButton_pressed():
 #			player.set_player_name(players[p_id])
 
 		world.add_child(player)
+		print("Player " + str(p_id) + " added in the game")
+	hide()
+	queue_free()
 
 #	if not get_tree().is_network_server():
 #		# Tell server we are ready to start

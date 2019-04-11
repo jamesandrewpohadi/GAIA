@@ -75,10 +75,10 @@ func isActive():
 	return currentPointerIDX != INACTIVE_IDX
 
 func extractPointerIdx(event):
-	var touch = event is InputEventScreenTouch 
-	var drag = event is InputEventScreenDrag 
-	var mouseButton = event is InputEventMouseButton 
-	var mouseMove = event is InputEventMouseMotion 
+	var touch = event is InputEventScreenTouch && get_parent().get_rect().has_point(event.position)
+	var drag = event is InputEventScreenDrag && get_parent().get_rect().has_point(event.position)
+	var mouseButton = event is InputEventMouseButton && get_parent().get_rect().has_point(event.position)
+	var mouseMove = event is InputEventMouseMotion && get_parent().get_rect().has_point(event.position)
 	
 	#print(event)
 	if touch or drag:
