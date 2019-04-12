@@ -27,7 +27,7 @@ func setList(category):
 				database.query("game/market/"+category.to_lower()+"/"+main.network.player_name)
 				yield(database, "done")
 				var data = database.res
-				addGameItem(category, main.network.name, str(data["amount"]), str(data["price"]), "Cancel", $ShopList/ScrollContainer/VBoxContainer)
+				addGameItem(category, main.network.name, str(data["amount"]), str(data["price"]), "Cancel", $ShopList/ScrollContainer/VBoxContainer,"sell")
 		"buy":
 			database.query("game/market/"+category.to_lower())
 			yield(database, "done")
@@ -37,17 +37,17 @@ func setList(category):
 			if (!data.empty()):
 				for i in data.keys():
 					if (i!=main.network.player_name):
-						addGameItem(i, category, str(data[i]["amount"]), str(data[i]["price"]), "Buy", $ItemList/ScrollContainer/VBoxContainer)
+						addGameItem(i, category, str(data[i]["amount"]), str(data[i]["price"]), "Buy", $ItemList/ScrollContainer/VBoxContainer,"buy")
 #			for i in range(10):
 #				addGameItem(category + str(i), category, str(10), "Buy", $ItemList/ScrollContainer/VBoxContainer)
 
 func setShopList():
 	clearShopList()
-	for category in ["Academy","Cement","Food","Ore","Water"]:
+	for category in ["Cement","Food","Ore","Water"]:
 		database.query("game/market/"+category.to_lower()+"/"+main.network.player_name)
 		yield(database, "done")
 		var data = database.res
-		addGameItem(category, main.network.player_name, str(data["amount"]), str(data["price"]), "Update", $ShopList/ScrollContainer/VBoxContainer)
+		addGameItem(category, main.network.player_name, str(data["amount"]), str(data["price"]), "Update", $ShopList/ScrollContainer/VBoxContainer, "sell")
 #	for i in range(5):
 #		addGameItem("Ore" + str(i), "Ore", str(10), "Cancel", $ShopList/ScrollContainer/VBoxContainer)
 #	for i in range(5):
@@ -67,10 +67,13 @@ func clearShopList():
 		i.hide()
 		i.queue_free()
 	
-func addGameItem(name, category, amount, price,button_text, node):
+func addGameItem(name, category, amount, price,button_text, node, status):
 	var gameItem = GameListItem.instance()
 	# todo: query from the firebase regarding the item information
-	gameItem.unit_price = int(price)/int(amount)
+	if (int(amount) <=0 && status != "sell"):
+		return null
+	if (status != "sell"):
+		gameItem.unit_price = int(price)/int(amount)
 	gameItem.amount = int(amount)
 	gameItem.price = price
 	gameItem.get_node("Name").text = name

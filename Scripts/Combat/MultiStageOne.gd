@@ -9,6 +9,10 @@ var networknode
 func _ready():
 	set_network_master(get_tree().get_network_unique_id())
 	networknode = get_tree().get_root().get_node("Main/Network")
+	for i in self.get_children():
+		if "Boss" in i.name:
+			i.set_network_master(1)
+			i.health = i.health * networknode.players_incombat.size() * networknode.players_incombat.size()
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
@@ -25,32 +29,38 @@ func _on_Button_pressed():
 
 
 func _on_ConfirmationDialog_confirmed():
+	queue_free()
+	hide()
 	rpc("goodbye_combat",get_tree().get_network_unique_id())
-	self.hide()
+
 	for i in get_parent().get_children():
 		if "Village" in i.name:
 			i.show()
 	
 	
-	self.queue_free()
+
 
 
 func _on_GoBack_pressed():
+#	queue_free()
+#	hide()
 	rpc("goodbye_combat",get_tree().get_network_unique_id())
-	self.hide()
+
 	for i in get_parent().get_children():
 		if "Village" in i.name:
 			i.show()
 	
-	
-	self.queue_free()
-	
 sync func goodbye_combat(player_id):
-	networknode.players_incombat.erase(player_id)
+	if(player_id==1):
+		networknode.rpc("lobbynotingame")
+	networknode.rpc("erase_player_incombat",player_id)
+	print(networknode.players_incombat)
 	if(get_tree().get_network_unique_id()!=player_id):
 		for i in self.get_children():
 			if str(player_id) in i.name:
 				i.queue_free()
+	else:
+		queue_free()
 		
 	
 sync func try_again():
@@ -58,6 +68,7 @@ sync func try_again():
 	networknode._player_lobby_entered(get_tree().get_network_unique_id())
 	var stageOneMulti = load('res://Scenes/Combat/GameLobby.tscn').instance()
 	get_tree().get_root().get_node("Main").add_child(stageOneMulti)
+	networknode.lobbyingame = false
 	self.queue_free()
 	
 func _on_TryAgain_pressed():
@@ -98,18 +109,17 @@ func _on_TryAgain_pressed():
 #	get_tree().reload_current_scene()
 
 func _on_GoBack2_pressed():
+#	queue_free()
+	hide()
 	rpc("goodbye_combat",get_tree().get_network_unique_id())
-	self.hide()
+
 	for i in get_parent().get_children():
 		if "Village" in i.name:
 			i.show()
-	
-	
-	self.queue_free()
 
 
 func _on_TryAgain2_pressed():
 	hide()
 	rpc("try_again")
-	queue_free()
+#	queue_free()
 	pass

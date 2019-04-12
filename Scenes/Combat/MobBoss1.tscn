@@ -7,11 +7,11 @@
 [ext_resource path="res://Sprites/Boss1/slash1.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Boss1/slash2.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Boss1/slash3.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Boss1/walk1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Boss1/walk2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Boss1/walk3.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Boss1/walk4.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Boss1/die.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Boss1/die.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Boss1/walk1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Boss1/walk2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Boss1/walk3.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Boss1/walk4.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -31,14 +31,14 @@ animations = [ {
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "die",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 } ]
 
@@ -52,7 +52,7 @@ extents = Vector2( 9.12227, 11.3101 )
 custom_solver_bias = 0.0
 radius = 60.4958
 
-[node name="MobBoss1" type="KinematicBody2D" index="0"]
+[node name="MobBoss1" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -90,7 +90,7 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Area2D" type="Area2D" parent="." index="4"]
+[node name="AggroArea2D" type="Area2D" parent="." index="4"]
 
 visible = false
 input_pickable = true
@@ -101,7 +101,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="AggroCollisionShape2D" type="CollisionShape2D" parent="AggroArea2D" index="0"]
 
 visible = false
 position = Vector2( 0.143986, 5.29981 )
@@ -117,7 +117,7 @@ autostart = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="AggroArea2D" to="." method="_on_Area2D_body_entered"]
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]
 

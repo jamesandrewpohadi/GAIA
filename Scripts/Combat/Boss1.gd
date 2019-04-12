@@ -22,16 +22,21 @@ export var contact_distance = 50
 
 export var need_to_jump = 0.25
 
+
 var canjump = true
 
 var player 
+var playerref
 
 signal on_boss_dead()
 
 slave var puppet_pos = Vector2()
 slave var puppet_motion = Vector2()
 
+var networknode
+
 func _ready():
+	networknode =  get_tree().get_root().get_node("Main/Network")
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	set_physics_process(true)
@@ -55,7 +60,7 @@ func _physics_process(delta):
 #	position = puppet_pos
 #	motion = puppet_motion
 	if (is_network_master()):
-		if is_dead == false && aggro == true:
+		if is_dead == false && aggro == true && check_player_exists():
 			var direction2 = (player.global_position - global_position).normalized()
 		#	var x_distance_to_player = global_position.x - player.global_position.x
 		#	var y_distance_to_player = global_position.y - player.global_position.y
@@ -92,15 +97,17 @@ func _physics_process(delta):
 					$JumpTimer.start()
 					motion.y -= 500
 	#				print("Boss Jump to avoid fall")
-				
 			if get_slide_count() > 0:
 				for i in range(get_slide_count()):
 					if "Player" in get_slide_collision(i).collider.name:
-						get_slide_collision(i).collider.dead()
+						var id = get_slide_collision(i).collider.get_network_master()
+						get_slide_collision(i).collider.rpc_id(id,"dead")
 			
 			if(player.is_dead==true):
 				player = null
-				rpc("set_aggression",false)
+				for i in networknode.players_incombat:
+					if i!=get_tree().get_network_unique_id():
+						rpc_id(i,"set_aggression",false)
 				
 	
 			
@@ -129,9 +136,13 @@ func _physics_process(delta):
 			if get_slide_count() > 0:
 				for i in range(get_slide_count()):
 					if "Player" in get_slide_collision(i).collider.name:
-						get_slide_collision(i).collider.dead()
-		rset_unreliable("puppet_motion", motion)
-		rset_unreliable("puppet_pos", position)
+						var id = get_slide_collision(i).collider.get_network_master()
+						get_slide_collision(i).collider.rpc_id(id,"dead")
+		if(get_tree().get_network_unique_id() in networknode.players_incombat):
+			for i in networknode.players_incombat:
+				if i!=get_tree().get_network_unique_id():
+					rset_unreliable_id(i,"puppet_motion", motion)
+					rset_unreliable_id(i,"puppet_pos", position)
 	else:
 		position = puppet_pos
 		motion = puppet_motion
@@ -145,13 +156,13 @@ func _physics_process(delta):
 		if motion.x < 0:
 			$AnimatedSprite.play("walk")
 			$AnimatedSprite.flip_h = true
-			if sign($Position2D.position.x)== 1:
-				$Position2D.position.x *= -1
+#			if sign($Position2D.position.x)== 1:
+#				$Position2D.position.x *= -1
 		if motion.x > 0:
 			$AnimatedSprite.play("walk")
 			$AnimatedSprite.flip_h = false
-			if sign($Position2D.position.x)== -1:
-				$Position2D.position.x *= -1
+#			if sign($Position2D.position.x)== -1:
+#				$Position2D.position.x *= -1
 
 		if is_dead:
 			$AnimatedSprite.play("die")
@@ -161,8 +172,20 @@ func _physics_process(delta):
 		puppet_pos = position # To avoid jitter
 		
 		
-sync func set_aggression(boolean):
-	if boolean == true:
+func players_within_range():
+	for i in get_parent().get_children():
+		if (("Player" in i.name) && $AggroArea2D.overlaps_body(i)):
+			for i in networknode.players_incombat && i.is_dead==false:
+				rpc_id(i,"set_aggression",true,i)
+			set_aggression(true,i)
+
+
+sync func set_aggression(boolean,aggroplayer=null):
+	if aggroplayer!= null:
+		if "Player" in aggroplayer.name:
+			playerref = weakref(aggroplayer)
+			player = aggroplayer
+	if boolean == true :
 		self.aggro = true
 	elif boolean == false:
 		self.aggro = false
@@ -176,12 +199,28 @@ sync func _on_Timer_timeout():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
+func check_player_exists():
+	if player==null:
+			return false
+	elif(!playerref.get_ref()):
+		return false
+	else:
+		if "Player" in player.name && player.is_dead==false:
+			return true
+		else:
+			set_aggression(false)
+			for i in networknode.players_incombat:
+				rpc_id(i,"set_aggression",false)
+			return false
 
 
 func _on_Area2D_body_entered(body):
 	if ("Player" in body.name):
 		player = body
-		rpc("set_aggression",true)
+		playerref = weakref(body)
+		set_aggression(true,body)
+		for i in networknode.players_incombat:
+			rpc_id(i,"set_aggression",true,body)
 	pass # replace with function body
 
 

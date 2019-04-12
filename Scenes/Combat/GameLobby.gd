@@ -37,6 +37,7 @@ func update_lobby():
 
 
 remote func _on_StartButton_pressed():
+	networknode.lobbyingame = true
 	print(str(get_tree().get_network_unique_id())+" received onStartButton rpc")
 	if get_tree().is_network_server():
 		# Send my info to new player
@@ -48,12 +49,14 @@ remote func _on_StartButton_pressed():
 	get_parent().add_child(world)
 
 	var player_scene = preload("res://Scenes/Combat/Player.tscn")
-
+	
 	for p_id in networknode.players_incombat:
 		
 		var player = player_scene.instance()
-
+		
+		
 		player.set_name(str("Player")+str(p_id)) # Use unique ID as node name
+		
 		player.position=Vector2(50+rand_range(0,20),500+rand_range(0,20))
 		player.set_network_master(p_id) #set unique id as master
 
@@ -66,6 +69,7 @@ remote func _on_StartButton_pressed():
 
 		world.add_child(player)
 		print("Player " + str(p_id) + " added in the game")
+	
 	hide()
 	queue_free()
 
@@ -88,7 +92,8 @@ func _on_ExitButton_pressed():
 	pass # replace with function body
 	
 sync func _goodbye_lobby(player_id):
-	networknode.players_incombat.erase(player_id)
+	networknode.rpc("erase_player_incombat",player_id)
+	print(networknode.players_incombat)
 	if(get_tree().get_network_unique_id()!=player_id):
 		update_lobby()
 	

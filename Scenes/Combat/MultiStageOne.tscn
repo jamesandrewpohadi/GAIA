@@ -355,6 +355,7 @@ __meta__ = {
 position = Vector2( 1642.83, 449.25 )
 scale = Vector2( 3, 3 )
 _sections_unfolded = [ "Transform" ]
+SPEED = 200
 need_to_jump = 0.25
 
 [node name="Mob9" parent="." index="12" instance=ExtResource( 7 )]

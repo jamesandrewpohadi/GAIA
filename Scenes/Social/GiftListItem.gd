@@ -20,6 +20,8 @@ func _on_Button_pressed():
 	database.query("users/"+r_name+"/game/resources/"+$ItemName.text.to_lower())
 	yield(database,"done")
 	var new_amount = database.res + int($GiftAmount.text)
+	if (new_amount<=0):
+		return null
 	database.put("users/"+r_name+"/game/resources",'{"'+$ItemName.text.to_lower()+'":'+str(new_amount)+'}')
 	yield(database,"done")
 	database.query("users/"+main.network.player_name+"/game/resources/"+$ItemName.text.to_lower())

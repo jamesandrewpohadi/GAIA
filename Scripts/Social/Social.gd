@@ -3,34 +3,47 @@ onready var main = get_parent()
 const GlobalListItem = preload("res://Scenes/Social/GlobalListItem.tscn")
 const FriendListItem = preload("res://Scenes/Social/FriendListItem.tscn")
 onready var view = [get_node(".")]
+var database
 
 func _ready():
 	$Interact/Friends.hide()
-	#for i in range(20):
-	#	addGlobal(i, "Global " + str(i))
-	#	addFriend(i, "Friend " + str(i))
-	#print(main.network.player_info)
-	#for peer_id in main.network.player_info:
-	#	addGlobal(peer_id, main.network.player_info[peer_id]["name"])
-
-func update():
+	database = load("res://Scenes/Social/Database.tscn").instance()
+	add_child(database)
+	
 	for child in $Interact/Global/List.get_children():
 		child.hide()
 		child.queue_free()
+	database.query("users")
+	yield(database,"done")
+	print("test")
+	print(database.res.keys())
+	var i = 0
+	for player in database.res.keys():
+		i+= 1
+		addGlobal(player, i, database.res[player]["game"]["contamination"])
+
+func update():
+	for child in $Interact/Friends/List.get_children():
+		child.hide()
+		child.queue_free()
+	
 	for peer_id in main.network.player_info:
-		addGlobal(peer_id, main.network.player_info[peer_id]["name"])
+		if (peer_id != main.network.player_id):
+			addFriend(peer_id, main.network.player_info[peer_id]["name"])
+	
 		
 
-func addGlobal(id, name):
+func addGlobal(name, rank, contamination):
 	var global = GlobalListItem.instance()
 	global.get_node("Label").text = name
-	global.get_node("Button").text = "Add Friend"
+	global.get_node("Button").hide()
+	global.get_node("Rank").text = str(rank)
+	global.get_node("Desc").text = "contamination: " + str(contamination)
 	#friend.get_node("ContaLevel").text = contaLevel
 	#friend.get_node("YggLevel").text = yggLevel
 	#friend.get_node("HeroLevel").text = heroLevel
 	#friend.get_node("Rank").text = rank
 	global.ref = get_node(".")
-	global.id = id
 	$Interact/Global/List.add_child(global)
 	
 func addFriend(id, name):

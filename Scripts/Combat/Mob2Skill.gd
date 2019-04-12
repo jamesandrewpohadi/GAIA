@@ -33,7 +33,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 
-sync func _on_Mob2Skill_body_entered(body):
+func _on_Mob2Skill_body_entered(body):
 	if "Player" in body.name:
 		body.rpc("dead")
 	queue_free()

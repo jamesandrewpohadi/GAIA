@@ -11,15 +11,19 @@ var direction = 1
 
 var aggro = false
 
+var player
+var playerref
+
 var canshoot = true
 
 const MOB2SKILL = preload("res://Scenes/Combat/Mob2Skill.tscn")
 
-var player 
+var networknode
 
 
 
 func _ready():
+	networknode = get_tree().get_root().get_node("Main/Network")
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
@@ -33,12 +37,13 @@ sync func dead():
 	
 func _physics_process(delta):
 	if is_dead == false && aggro == false:
+		players_within_range()
 		motion = move_and_slide(motion,FLOOR)
 		motion.y += GRAVITY
 		$AnimatedSprite.play("Idle")
 		
 		
-	if is_dead==false && aggro == true:
+	if is_dead==false && aggro == true && check_player_exists() :
 #		print("Mob2 aggro")
 		var direction2 = (player.global_position - global_position).normalized()
 		motion = move_and_slide(motion,FLOOR)
@@ -64,11 +69,26 @@ func _physics_process(delta):
 					get_slide_collision(i).collider.dead()
 					
 
-			
+func players_within_range():
+	for i in get_parent().get_children():
+		if (("Player" in i.name) && $AggroArea2D.overlaps_body(i)):
+			player = i
+			playerref = weakref(i)
+			aggro = true
 
 #func _on_VisibilityNotifier2D_screen_entered():
 #	aggro = true
-
+func check_player_exists():
+	if(!playerref.get_ref()):
+		return false
+	else:
+		if player==null:
+			return false
+		elif "Player" in player.name:
+			return true
+		else:
+			aggro = false
+			return false
 
 func _on_DeadTimer_timeout():
 		queue_free()
@@ -85,5 +105,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_Area2D_body_entered(body):
 	if ("Player" in body.name):
 		player = body
+		playerref = weakref(body)
 		aggro = true
 	pass # replace with function body

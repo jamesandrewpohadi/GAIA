@@ -97,23 +97,48 @@ speed = 200
 shotlimit = 3
 health = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="NameTag" type="Label" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -55.0
+margin_top = 31.0
+margin_right = 36.0
+margin_bottom = 45.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "player"
+align = 1
+valign = 1
+percent_visible = 10.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 0, -1.88847 )
 scale = Vector2( 0.383697, 1.19253 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 
 position = Vector2( -2, 0 )
 scale = Vector2( 4.26666, 2.90909 )
 frames = SubResource( 2 )
 animation = "Jump"
-frame = 1
+frame = 3
 playing = true
 
-[node name="UI" type="CanvasLayer" parent="." index="2"]
+[node name="UI" type="CanvasLayer" parent="." index="3"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -285,12 +310,12 @@ passby_press = false
 action = ""
 visibility_mode = 0
 
-[node name="Position2D" type="Position2D" parent="." index="3"]
+[node name="Position2D" type="Position2D" parent="." index="4"]
 
 position = Vector2( 60, 6.50001 )
 scale = Vector2( 2.1, 1.85 )
 
-[node name="PlayerCam" type="Camera2D" parent="." index="4"]
+[node name="PlayerCam" type="Camera2D" parent="." index="5"]
 
 anchor_mode = 1
 rotating = false
@@ -317,28 +342,28 @@ editor_draw_drag_margin = false
 script = ExtResource( 32 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Transform" ]
 
-[node name="Timer" type="Timer" parent="." index="5"]
+[node name="Timer" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="ShotTimer" type="Timer" parent="." index="6"]
+[node name="ShotTimer" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = false
 autostart = false
 
-[node name="InvicibilityTime" type="Timer" parent="." index="7"]
+[node name="InvicibilityTime" type="Timer" parent="." index="8"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = false
 autostart = false
 
-[node name="SlashTimer" type="Timer" parent="." index="8"]
+[node name="SlashTimer" type="Timer" parent="." index="9"]
 
 process_mode = 1
 wait_time = 1.0

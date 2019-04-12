@@ -26,6 +26,10 @@ func sell():
 	database.query("users/" + $Category.text + "/game/resources/"+$Name.text.to_lower())
 	yield(database,"done")
 	var update = database.res - difference
+	if (update<0):
+		$EditAmount.text = amount
+		$Amount.text = amount
+		return null
 	print(update)
 	database.put("users/" + $Category.text + "/game/resources/",'{"'+$Name.text.to_lower()+'":'+str(update)+'}')
 	yield(database,"done")
@@ -38,13 +42,20 @@ func sell():
 	
 func buy():
 	var amount_left = int($Amount.text)-int($EditAmount.text)
+	database.query("users/" + main.network.player_name + "/game/currency")
+	yield(database,"done")
+	var update = database.res - int($Price.text)
+	if (update<0):
+		return null
+	database.put("users/" + main.network.player_name + "/game",'{"currency":'+str(update)+'}')
+	
 	#update sellers market
 	database.put("game/market/"+$Category.text.to_lower()+"/"+$Name.text,'{"amount":'+str(amount_left)+',"price":'+str(amount_left*unit_price)+'}')
 	yield(database,"done")
 	#update my resources
 	database.query("users/" + main.network.player_name + "/game/resources/"+$Category.text.to_lower())
 	yield(database,"done")
-	var update = database.res + int($EditAmount.text)
+	update = database.res + int($EditAmount.text)
 	print(main.network.player_name)
 	database.put("users/" + main.network.player_name + "/game/resources/",'{"'+$Category.text.to_lower()+'":'+str(update)+'}')
 	yield(database,"done")
@@ -55,10 +66,7 @@ func buy():
 	database.put("users/" + $Name.text + "/game",'{"currency":'+str(update)+'}')
 	yield(database,"done")
 	#update my money
-	database.query("users/" + main.network.player_name + "/game/currency")
-	yield(database,"done")
-	update = database.res - int($Price.text)
-	database.put("users/" + main.network.player_name + "/game",'{"currency":'+str(update)+'}')
+	
 	yield(database,"done")
 	if (amount_left == 0):
 		hide()

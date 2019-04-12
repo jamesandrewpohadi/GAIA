@@ -12,12 +12,17 @@ onready var player_info = {}
 onready var my_info={}
 
 onready var players_incombat = {}
+var lobbyingame = false
 
 
 func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
 	get_tree().connect("network_peer_connected", self, "_player_connected")
+		
+sync func lobbynotingame():
+	lobbyingame = false
+	
 
 func _on_Join(host, port, name):
 	print("on join")
@@ -48,6 +53,10 @@ func _player_connected(id):
 	print('\n ' + str(id) + ' has joined')
 	
 func _player_disconnected(id):
+	if player_info.has(str(id)):
+		player_info.erase(str(id))
+	if players_incombat.has(id):
+		players_incombat.erase(id)
 	#$Display.text += '\n ' + str(id) + ' has left'
 	print('\n ' + str(id) + ' has left')
 	
@@ -108,7 +117,10 @@ remote func _inform_lobby(newlobby_id):
 		lobbynode.update_lobby()
 	print(players_incombat)
 	
-
+sync func erase_player_incombat(player_id):
+	if(players_incombat.has(player_id)):
+		players_incombat.erase(player_id)
+	
 
 sync func check_exist(name, id):
 	if (id != int(player_id)):

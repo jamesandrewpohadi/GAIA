@@ -9,6 +9,7 @@ signal on_lobby_entered
 var networknode
 
 func _ready():
+	networknode = get_tree().get_root().get_node("Main/Network")
 	dungeonMenu = get_node("DungeonMenu")
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -52,12 +53,15 @@ func _on_Exit_pressed():
 
 
 func _on_CoOpButton_pressed():
-	player_id = get_tree().get_network_unique_id()
-	networknode = get_tree().get_root().get_node("Main/Network")
-	networknode._player_lobby_entered(player_id)
-	dungeonMenu.hide()
-	hide()
-	var stageOneMulti = load('res://Scenes/Combat/GameLobby.tscn').instance()
-	get_tree().get_root().get_node("Main").add_child(stageOneMulti)
-	queue_free()
-	pass # replace with function body
+	if(networknode.lobbyingame==true):
+		get_node("DungeonMenu/AcceptDialog").popup()
+	else:
+		player_id = get_tree().get_network_unique_id()
+		networknode = get_tree().get_root().get_node("Main/Network")
+		networknode._player_lobby_entered(player_id)
+		dungeonMenu.hide()
+		hide()
+		var stageOneMulti = load('res://Scenes/Combat/GameLobby.tscn').instance()
+		get_tree().get_root().get_node("Main").add_child(stageOneMulti)
+		queue_free()
+		pass # replace with function body

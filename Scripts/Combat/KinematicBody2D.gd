@@ -39,6 +39,11 @@ const HADOUKEN = preload("res://Scenes/Combat/hadouken.tscn")
 slave var puppet_pos = Vector2()
 slave var puppet_motion = Vector2()
 
+slave var puppet_isdead = false
+slave var puppet_health = health
+
+var networknode 
+
 func _ready():
 #	set_process_unhandled_input(false)
 	if(!is_network_master()):
@@ -54,6 +59,12 @@ func _ready():
 #	set_process_input(true)
 	print("Player " + str(get_tree().get_network_unique_id()) + " instantiation should be correct")
 	set_process(true)
+	networknode = get_tree().get_root().get_node("Main/Network")
+	
+	var p_id = get_network_master()
+	var playerinfo = networknode.player_info[str(p_id)]
+	var playername = playerinfo["name"]
+	get_node("NameTag").set_text(playername)
 
 func on_timeout_complete():
 	can_jump = true
@@ -139,7 +150,13 @@ func _process(delta):
 					$AnimatedSprite.play("Fall")
 			
 			if Input.is_action_just_pressed("ui_focus_next"):
-				rpc("_on_WaterGunButton_pressed")
+				if(get_tree().get_network_unique_id() in networknode.players_incombat):
+					for i in networknode.players_incombat:
+						if i!=get_tree().get_network_unique_id():
+							rpc_id(i,"_on_WaterGunButton_pressed")
+					_on_WaterGunButton_pressed()
+				else:
+					_on_WaterGunButton_pressed()
 #				if(shotlimit>0 && can_shoot==true):
 #					can_shoot = false;
 #					shotlimit -= 1;
@@ -151,7 +168,13 @@ func _process(delta):
 #					Hadouken.position = $Position2D.global_position
 	
 			if Input.is_action_just_pressed("ui_slash"):
-				rpc("_on_TouchScreenButton_pressed")
+				if(get_tree().get_network_unique_id() in networknode.players_incombat):
+					for i in networknode.players_incombat:
+						if(i != get_tree().get_network_unique_id()):
+							rpc_id(i,"_on_TouchScreenButton_pressed")
+					_on_TouchScreenButton_pressed()
+				else:
+					_on_TouchScreenButton_pressed()
 #				if(can_slash == true):
 #					can_slash = false;
 #					$SlashTimer.start()
@@ -160,8 +183,11 @@ func _process(delta):
 #					AoiSlash.set_slash_direction(sign($Position2D.position.x))
 #					get_parent().add_child(AoiSlash)
 #					AoiSlash.position = $Position2D.global_position
-			rset_unreliable("puppet_motion", motion)
-			rset_unreliable("puppet_pos", position)
+			if(get_tree().get_network_unique_id() in networknode.players_incombat):
+				for i in networknode.players_incombat:
+					if(i != get_tree().get_network_unique_id()):
+						rset_unreliable_id(i,"puppet_motion", motion)
+						rset_unreliable_id(i,"puppet_pos", position)
 		elif (is_dead == true):
 			$AnimatedSprite.play("Dead")
 	else:
@@ -187,6 +213,7 @@ func _process(delta):
 
 		if is_dead:
 			$AnimatedSprite.play("Dead")
+			motion = Vector2(0,0)
 			
 		motion = move_and_slide(motion,UP)
 			
@@ -208,23 +235,33 @@ func _on_ShotTimer_timeout():
 	pass # replace with function body
 
 sync func dead():
-	if( health > 0 && !invincible):
-		invincible = true
-		$AnimatedSprite.play("Hit")
-		health -= 1
-#		emit_signal("on_health_changed",health)
-		$UI/Healthbar.on_Player_on_health_changed(health)
-		$InvicibilityTime.start()
-		
-	if(health <= 0):
-	#	$AnimatedSprite.play("Dead")
-		$AnimatedSprite.play("Dead")
-		is_dead = true
-		var motion = Vector2(0,0)
-		
+	if(is_network_master()):
+		if( health > 0 && !invincible):
+			invincible = true
+			$AnimatedSprite.play("Hit")
+			health -= 1
+	#		emit_signal("on_health_changed",health)
+			$UI/Healthbar.on_Player_on_health_changed(health)
+			$InvicibilityTime.start()
+			
+		if(health <= 0):
+		#	$AnimatedSprite.play("Dead")
+			$AnimatedSprite.play("Dead")
+			is_dead = true
+			motion = Vector2(0,0)
+			$CollisionShape2D.disabled = true
+			$Timer.start()
+		if(get_tree().get_network_unique_id() in networknode.players_incombat):
+			for i in networknode.players_incombat:
+				rpc_id(i,"UpdateHealthAndLife",health,is_dead)
+
+remote func UpdateHealthAndLife(healtharg,is_deadarg):
+	is_dead = is_deadarg
+	health = healtharg
+	if(is_dead==true):
 		$CollisionShape2D.disabled = true
 		$Timer.start()
-	
+
 func _on_Timer_timeout():
 	var playerlivecount = 0
 	for nodes in get_parent().get_children():

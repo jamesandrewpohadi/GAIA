@@ -69,9 +69,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 435.0
+margin_left = 333.0
 margin_top = 15.0
-margin_right = 635.0
+margin_right = 533.0
 margin_bottom = 85.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -92,9 +92,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 732.0
+margin_left = 682.0
 margin_top = 15.0
-margin_right = 832.0
+margin_right = 782.0
 margin_bottom = 85.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -109,15 +109,38 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts", "custom_styles" ]
 
-[node name="Price" type="Label" parent="." index="4"]
+[node name="AmountDesc" type="Label" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 866.0
+margin_left = 572.0
 margin_top = 15.0
-margin_right = 966.0
+margin_right = 672.0
+margin_bottom = 85.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "qty:"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts", "custom_styles" ]
+
+[node name="Price" type="Label" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 897.0
+margin_top = 15.0
+margin_right = 997.0
 margin_bottom = 85.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -132,15 +155,38 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="EditAmount" type="LineEdit" parent="." index="5"]
+[node name="PriceDesc" type="Label" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 661.0
+margin_left = 790.0
+margin_top = 15.0
+margin_right = 890.0
+margin_bottom = 85.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "price:"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="EditAmount" type="LineEdit" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 609.0
 margin_top = 38.0
-margin_right = 719.0
+margin_right = 667.0
 margin_bottom = 62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -156,15 +202,15 @@ caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
 
-[node name="EditPrice" type="LineEdit" parent="." index="6"]
+[node name="EditPrice" type="LineEdit" parent="." index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 799.0
+margin_left = 832.0
 margin_top = 37.0
-margin_right = 857.0
+margin_right = 890.0
 margin_bottom = 61.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -180,7 +226,7 @@ caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
 
-[node name="Button" type="Button" parent="." index="7"]
+[node name="Button" type="Button" parent="." index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
