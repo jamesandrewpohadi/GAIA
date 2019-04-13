@@ -153,10 +153,10 @@ func _process(delta):
 				if(get_tree().get_network_unique_id() in networknode.players_incombat):
 					for i in networknode.players_incombat:
 						if i!=get_tree().get_network_unique_id():
-							rpc_id(i,"_on_WaterGunButton_pressed")
-					_on_WaterGunButton_pressed()
+							rpc_id(i,"WaterGunSkill")
+					WaterGunSkill()
 				else:
-					_on_WaterGunButton_pressed()
+					WaterGunSkill()
 #				if(shotlimit>0 && can_shoot==true):
 #					can_shoot = false;
 #					shotlimit -= 1;
@@ -171,10 +171,10 @@ func _process(delta):
 				if(get_tree().get_network_unique_id() in networknode.players_incombat):
 					for i in networknode.players_incombat:
 						if(i != get_tree().get_network_unique_id()):
-							rpc_id(i,"_on_TouchScreenButton_pressed")
-					_on_TouchScreenButton_pressed()
+							rpc_id(i,"AoiSlashu")
+					AoiSlashu()
 				else:
-					_on_TouchScreenButton_pressed()
+					AoiSlashu()
 #				if(can_slash == true):
 #					can_slash = false;
 #					$SlashTimer.start()
@@ -292,6 +292,12 @@ func _on_InvicibilityTime_timeout():
 	pass # replace with function body
 
 sync func _on_WaterGunButton_pressed():
+	if get_tree().get_network_unique_id() in networknode.players_incombat:
+		for i in networknode.players_incombat:
+			rpc_id(i,"WaterGunSkill")
+	WaterGunSkill()
+
+remote func WaterGunSkill():
 	if(is_dead==false):
 		if(shotlimit>0 && can_shoot==true):
 			can_shoot = false;
@@ -304,13 +310,19 @@ sync func _on_WaterGunButton_pressed():
 			Hadouken.position = $Position2D.global_position
 	
 	pass # replace with function body
-
+	
 func _on_SlashTimer_timeout():
 	can_slash = true
 	pass # replace with function body
 
 
 sync func _on_TouchScreenButton_pressed():
+	if get_tree().get_network_unique_id() in networknode.players_incombat:
+		for i in networknode.players_incombat:
+			rpc_id(i,"AoiSlashu")
+	AoiSlashu()
+
+remote func AoiSlashu():
 	if(is_dead==false):
 		if(can_slash == true):
 			can_slash = false;

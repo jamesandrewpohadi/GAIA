@@ -12,7 +12,7 @@ func _ready():
 	for i in self.get_children():
 		if "Boss" in i.name:
 			i.set_network_master(1)
-			i.health = i.health * networknode.players_incombat.size() * networknode.players_incombat.size()
+			i.health = i.health * networknode.players_incombat.size()
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass

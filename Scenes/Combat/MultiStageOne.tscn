@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Combat/MobBoss1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Combat/Mob2.tscn" type="PackedScene" id=7]
 
-[node name="MultiStageOne" type="Node2D"]
+[node name="MultiStageOne" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
