@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Social/TextureRect.gd" type="Script" id=1]
 [ext_resource path="res://Fontpack/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
@@ -38,14 +38,6 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 [sub_resource type="DynamicFont" id=5]
 
 size = 30
-use_mipmaps = true
-use_filter = false
-font_data = ExtResource( 2 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[sub_resource type="DynamicFont" id=6]
-
-size = 30
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
@@ -66,7 +58,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Hint", "Material", "Rect", "Theme", "Visibility" ]
+_sections_unfolded = [ "Hint", "Material", "Theme", "Visibility" ]
 
 [node name="Host" type="Button" parent="." index="0"]
 
@@ -180,35 +172,7 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Placeholder", "custom_fonts" ]
 
-[node name="InputPort" type="LineEdit" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 728.0
-margin_top = 272.0
-margin_right = 858.0
-margin_bottom = 322.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 5 )
-text = "5000"
-focus_mode = 2
-context_menu_enabled = true
-placeholder_text = "Port Number"
-placeholder_alpha = 0.6
-caret_blink = true
-caret_blink_speed = 0.65
-caret_position = 0
-_sections_unfolded = [ "Placeholder", "Rect", "custom_fonts" ]
-
-[node name="Join" type="Button" parent="." index="5"]
+[node name="Join" type="Button" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -225,7 +189,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -235,8 +199,34 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
+[node name="Broadcast" type="Button" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 781.0
+margin_top = 265.0
+margin_right = 998.0
+margin_bottom = 337.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+
 [connection signal="pressed" from="Host" to="." method="_on_Host_pressed"]
 
 [connection signal="pressed" from="Join" to="." method="_on_Join_pressed"]
+
+[connection signal="pressed" from="Broadcast" to="." method="_on_Broadcast_pressed"]
 
 

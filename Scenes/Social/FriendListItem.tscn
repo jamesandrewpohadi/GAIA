@@ -5,6 +5,7 @@
 
 [node name="ListItem" instance=ExtResource( 1 )]
 
+color = Color( 0.119019, 0.298538, 0.40625, 1 )
 script = ExtResource( 2 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -47,7 +47,7 @@ func setShopList():
 		database.query("game/market/"+category.to_lower()+"/"+main.network.player_name)
 		yield(database, "done")
 		var data = database.res
-		addGameItem(category, main.network.player_name, str(data["amount"]), str(data["price"]), "Update", $ShopList/ScrollContainer/VBoxContainer, "sell")
+		addGameItem(category, "", str(data["amount"]), str(data["price"]), "Update", $ShopList/ScrollContainer/VBoxContainer, "sell")
 #	for i in range(5):
 #		addGameItem("Ore" + str(i), "Ore", str(10), "Cancel", $ShopList/ScrollContainer/VBoxContainer)
 #	for i in range(5):

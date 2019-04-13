@@ -27,7 +27,7 @@ sync func lobbynotingame():
 func _on_Join(host, port, name):
 	print("on join")
 	peer = NetworkedMultiplayerENet.new()
-	peer.create_client(host, int(port))
+	peer.create_client(host, 5000)
 	get_tree().set_network_peer(peer)
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
@@ -35,7 +35,7 @@ func _on_Join(host, port, name):
 
 func _on_Host(host, name):
 	peer = NetworkedMultiplayerENet.new()
-	peer.create_server(int(port),5)
+	peer.create_server(5000,5)
 	get_tree().set_network_peer(peer)
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
@@ -63,13 +63,19 @@ func _player_disconnected(id):
 func _connected_ok():
 	print("you have connected to a server")
 	rpc('register_player', int(player_id), my_info)
-	main.welcome.hide()
-	#main.village.is_village = true
-	main.village.get_node("VillageCamera/CanvasLayer/VillageUI").show()
+	
 	
 func retry(player_name, id):
 	rpc('check_exist', player_name, int(id))
 	main.welcome.hide()
+	
+remote func login_fail():
+	var notif = load("res://Scenes/Social/Notification.tscn").instance()
+	notif.respond(main.welcome,"Player exist","Player with name "+player_name+" already in the game.","Retry")
+	
+remote func login_succeed():
+	main.welcome.hide()
+	main.village.get_node("VillageCamera/CanvasLayer/VillageUI").show()
 	
 remote func register_player(id, info):
 	# Store the info
@@ -77,11 +83,18 @@ remote func register_player(id, info):
 	# If I'm the server, let the new guy know about existing players
 	if get_tree().is_network_server():
 		# Send my info to new player
-		rpc_id(id, "register_player", 1, my_info)
+		for peer_id in player_info:
+			if (player_info[peer_id]["name"] == info["name"]):
+				rpc_id(id,"login_fail")
+				return
+		rpc_id(id, "register_player", 1, my_info)	
+		rpc_id(id, "login_succeed")
+		print("client succeeed")
 		# Send the info of existing players
 		for peer_id in player_info:
 			rpc_id(id, "register_player", peer_id, player_info[peer_id])
 			rpc_id(int(peer_id), "register_player", id, info)
+		
 	player_info[str(id)] = info
 	print(player_info)
 	updatePeers()

@@ -1,14 +1,63 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Social/Social.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Social/Market.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Social/Wish.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fontpack/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Social/Market.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Social/Wish.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Social" type="Node2D"]
 
 script = ExtResource( 1 )
 
-[node name="Main" type="Panel" parent="." index="0"]
+[node name="Main" type="ColorRect" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -22,6 +71,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+color = Color( 0.2, 0.0823529, 0.239216, 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Wish" type="Button" parent="Main" index="0"]
@@ -31,9 +81,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 866.0
-margin_top = 338.0
+margin_top = 265.0
 margin_right = 1066.0
-margin_bottom = 538.0
+margin_bottom = 465.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -41,6 +91,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -48,7 +99,7 @@ group = null
 text = "Wish"
 flat = false
 align = 1
-_sections_unfolded = [ "Anchor", "Rect" ]
+_sections_unfolded = [ "Anchor", "Rect", "custom_fonts" ]
 
 [node name="Market" type="Button" parent="Main" index="1"]
 
@@ -56,10 +107,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 554.0
-margin_top = 342.0
-margin_right = 754.0
-margin_bottom = 542.0
+margin_left = 572.0
+margin_top = 269.0
+margin_right = 772.0
+margin_bottom = 469.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -67,6 +118,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -74,7 +126,7 @@ group = null
 text = "Market"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Interact" type="Button" parent="Main" index="2"]
 
@@ -83,9 +135,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 261.0
-margin_top = 344.0
-margin_right = 461.0
-margin_bottom = 544.0
+margin_top = 271.0
+margin_right = 477.0
+margin_bottom = 471.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -93,6 +145,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -100,9 +153,9 @@ group = null
 text = "Interact"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "Textures" ]
+_sections_unfolded = [ "Rect", "Textures", "custom_fonts" ]
 
-[node name="Interact" type="Panel" parent="." index="1"]
+[node name="Interact" type="ColorRect" parent="." index="1"]
 
 visible = false
 anchor_left = 0.0
@@ -117,6 +170,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+color = Color( 0.137398, 0.183594, 0.122635, 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="ButtonFriends" type="Button" parent="Interact" index="0"]
@@ -136,6 +190,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -143,7 +198,7 @@ group = null
 text = "Friend"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="ButtonGlobal" type="Button" parent="Interact" index="1"]
 
@@ -161,6 +216,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -168,7 +224,7 @@ group = null
 text = "Global"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Global" type="ScrollContainer" parent="Interact" index="2"]
 
@@ -244,11 +300,11 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Market" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Market" parent="." index="2" instance=ExtResource( 3 )]
 
 visible = false
 
-[node name="Wish" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Wish" parent="." index="3" instance=ExtResource( 4 )]
 
 visible = false
 
@@ -269,6 +325,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 6 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -276,7 +333,7 @@ group = null
 text = "Back"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [connection signal="pressed" from="Main/Wish" to="." method="_on_Wish_pressed"]
 

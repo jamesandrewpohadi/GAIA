@@ -4,20 +4,27 @@ onready var main = get_parent()
 onready var player_name = $InputName.text
 onready var password = $Password.text
 onready var host = $InputHost.text
-onready var port = $InputPort.text
+onready var PORT_SERVER = 1507
+onready var PORT_CLIENT = 1509
+onready var socketUDP = PacketPeerUDP.new()
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 
 func _ready():
-	#$InputHost.text = str(IP.get_local_addresses())
+	print(IP.get_local_addresses())
+	if (socketUDP.listen(PORT_SERVER) != OK):
+		printt("Error listening on port: " + str(PORT_SERVER) + " in server: " + "127.0.0.1")
+	else:
+		printt("Listening on port: " + str(PORT_SERVER) + " in server: " + "127.0.0.1")
+	$InputHost.text = str(IP.resolve_hostname("localhost",1))
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	if socketUDP.get_available_packet_count() > 0:
+		var array_bytes = socketUDP.get_packet()
+		print("msg server: " + array_bytes.get_string_from_ascii())
 
 func _on_Host_pressed():
 	player_name = $InputName.text
@@ -47,6 +54,7 @@ func _on_Host_pressed():
 			main.network.player_name = player_name
 			main.network._on_Host(host, player_name)
 			main.welcome.hide()
+			
 			
 			#main.database.login(player_name, password)
 
@@ -78,10 +86,15 @@ func _on_Join_pressed():
 		elif ("registered" in res):
 			print("succeed")
 			main.network.player_name = player_name
-			if (main.network.peer == null):
-				main.network._on_Join($InputHost.text, $InputPort.text, player_name)
-			else:
-				main.network.retry(player_name, main.network.player_id)
+			main.network._on_Join($InputHost.text, 5000, player_name)
 				
 	
 	
+
+
+func _on_Broadcast_pressed():
+	print(socketUDP.set_dest_address("10.12.255.255", PORT_SERVER))
+	var stg = "hi server!"
+	var pac = stg.to_ascii()
+	socketUDP.put_packet(pac)
+	print("send!")

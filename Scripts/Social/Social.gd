@@ -9,7 +9,7 @@ func _ready():
 	$Interact/Friends.hide()
 	database = load("res://Scenes/Social/Database.tscn").instance()
 	add_child(database)
-	
+	get_node("Interact/ButtonGlobal").grab_click_focus()
 	for child in $Interact/Global/List.get_children():
 		child.hide()
 		child.queue_free()

@@ -1,12 +1,61 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Social/Market.gd" type="Script" id=1]
+[ext_resource path="res://Fontpack/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 45
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 45
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 45
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 45
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
 
 [node name="Market" type="Node2D"]
 
 script = ExtResource( 1 )
 
-[node name="Main" type="Panel" parent="." index="0"]
+[node name="Main" type="ColorRect" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -20,6 +69,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+color = Color( 0.124588, 0.177098, 0.277344, 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Sell" type="Button" parent="Main" index="0"]
@@ -28,10 +78,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 340.0
-margin_top = 305.0
-margin_right = 540.0
-margin_bottom = 505.0
+margin_left = 351.0
+margin_top = 257.0
+margin_right = 551.0
+margin_bottom = 457.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -39,6 +89,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -46,7 +97,7 @@ group = null
 text = "Sell"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Buy" type="Button" parent="Main" index="1"]
 
@@ -54,10 +105,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 764.0
-margin_top = 310.0
-margin_right = 964.0
-margin_bottom = 510.0
+margin_left = 740.0
+margin_top = 258.0
+margin_right = 940.0
+margin_bottom = 458.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -65,6 +116,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 7 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -72,9 +124,9 @@ group = null
 text = "Buy"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="ShopList" type="Panel" parent="." index="1"]
+[node name="ShopList" type="ColorRect" parent="." index="1"]
 
 visible = false
 anchor_left = 0.0
@@ -89,6 +141,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+color = Color( 0.121569, 0.176471, 0.27451, 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ShopList" index="0"]
@@ -131,7 +184,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Items" type="Panel" parent="." index="2"]
+[node name="Items" type="ColorRect" parent="." index="2"]
 
 visible = false
 anchor_left = 0.0
@@ -146,6 +199,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+color = Color( 0.121569, 0.176471, 0.27451, 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Ores" type="Button" parent="Items" index="0"]
@@ -165,6 +219,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -172,7 +227,7 @@ group = null
 text = "Ores"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Foods" type="Button" parent="Items" index="1"]
 
@@ -191,6 +246,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -198,7 +254,7 @@ group = null
 text = "Foods"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Water" type="Button" parent="Items" index="2"]
 
@@ -217,6 +273,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -224,7 +281,7 @@ group = null
 text = "Water"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Cements" type="Button" parent="Items" index="3"]
 
@@ -234,7 +291,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 345.0
 margin_top = 154.0
-margin_right = 545.0
+margin_right = 559.0
 margin_bottom = 354.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -243,6 +300,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 6 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -250,36 +308,9 @@ group = null
 text = "Cement"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="Academies" type="Button" parent="Items" index="4"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 469.0
-margin_top = 176.0
-margin_right = 669.0
-margin_bottom = 376.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Academies"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
-
-[node name="ItemList" type="Panel" parent="." index="3"]
+[node name="ItemList" type="ColorRect" parent="." index="3"]
 
 visible = false
 anchor_left = 0.0
@@ -294,6 +325,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+color = Color( 0.121569, 0.176471, 0.27451, 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ItemList" index="0"]
@@ -347,7 +379,5 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="pressed" from="Items/Water" to="." method="_on_Water_pressed"]
 
 [connection signal="pressed" from="Items/Cements" to="." method="_on_Cements_pressed"]
-
-[connection signal="pressed" from="Items/Academies" to="." method="_on_Academies_pressed"]
 
 
