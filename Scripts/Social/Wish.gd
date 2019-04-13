@@ -20,7 +20,7 @@ func showWishList():
 	for child in get_node("Main/ScrollContainer/VBoxContainer").get_children():
 		child.hide()
 		child.queue_free()
-	for category in ["Academy","Cement","Food","Ore","Water"]:
+	for category in ["Cement","Food","Ore","Water"]:
 		database.query("users/"+main.network.player_name+"/game/wish/"+category.to_lower())
 		yield(database, "done")
 		var data = database.res
