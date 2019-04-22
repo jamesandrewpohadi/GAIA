@@ -4,10 +4,10 @@ extends Node
 # var a = 2
 # var b = "textvar"
 var villagerLevel = 0;
-var villagerHappinessLevel = 5
+var villagerHappinessLevel
 var villagerMood = ["Happy","Sick"]
 signal updateVillagerMenu
-var currentContaminationLevel = 0
+var currentContaminationLevel
 var villageStatus = [villagerLevel,villagerHappinessLevel,villagerMood[0]]
 
 func _ready():
@@ -27,7 +27,7 @@ func _on_AcademyBuilding_updateVillagerStatus(upLevel):
 
 func checkVillagerHappinessLevel():
 	villagerHappinessLevel = -currentContaminationLevel
-	if (villagerHappinessLevel <-2):
+	if (villagerHappinessLevel <0):
 		villageStatus = [villagerLevel,villagerHappinessLevel,villagerMood[1]]
 	else:
 		villageStatus = [villagerLevel,villagerHappinessLevel,villagerMood[0]]

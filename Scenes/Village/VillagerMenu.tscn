@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Village/VillagerMenu.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Village/VillagerMenuWindow.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/Village/villagerLevel.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Village/villagerHappinessLevel.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Village/villagerStatus.gd" type="Script" id=5]
+[ext_resource path="res://Fontpack/fontres/new_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/Village/villagerLevel.gd" type="Script" id=4]
+[ext_resource path="res://UIpack/UI/red_button11.png" type="Texture" id=5]
+[ext_resource path="res://UIpack/UI/green_button01.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Village/villagerHappinessLevel.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Village/villagerStatus.gd" type="Script" id=8]
 
 [node name="VillagerMenu" type="Control"]
 
@@ -23,7 +26,6 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="VillagerMenuWindow" type="WindowDialog" parent="." index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -43,137 +45,196 @@ window_title = "Villager"
 resizable = false
 script = ExtResource( 2 )
 
-[node name="Villager Level" type="Label" parent="VillagerMenuWindow" index="1"]
+[node name="villagerLevel" type="RichTextLabel" parent="VillagerMenuWindow" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 90.0
-margin_top = 60.0
-margin_right = 224.0
-margin_bottom = 121.0
+margin_left = 663.0
+margin_top = 63.0
+margin_right = 747.0
+margin_bottom = 138.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
+rect_clip_content = true
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Villager Level"
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
 percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="villagerLevel" type="Label" parent="VillagerMenuWindow/Villager Level" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 106.0
-margin_right = 162.0
-margin_bottom = 25.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script = ExtResource( 3 )
-
-[node name="Villager Happiness Level" type="Label" parent="VillagerMenuWindow" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 89.0
-margin_top = 121.0
-margin_right = 245.0
-margin_bottom = 178.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Villager Happiness Level"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="villagerHappinessLevel" type="Label" parent="VillagerMenuWindow/Villager Happiness Level" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 190.0
-margin_top = 1.0
-margin_right = 230.0
-margin_bottom = 15.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
 script = ExtResource( 4 )
+_sections_unfolded = [ "custom_fonts" ]
 
-[node name="Villager Status" type="Label" parent="VillagerMenuWindow" index="3"]
+[node name="Villager Level" type="RichTextLabel" parent="VillagerMenuWindow" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 94.0
-margin_top = 188.0
-margin_right = 240.0
-margin_bottom = 243.0
+margin_left = 45.0
+margin_top = 83.0
+margin_right = 476.0
+margin_bottom = 144.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
+rect_clip_content = true
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Villager Level"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="villagerHappinessLevel" type="TextureProgress" parent="VillagerMenuWindow" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 634.0
+margin_top = 189.0
+margin_right = 824.0
+margin_bottom = 314.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 5 )
+texture_over = null
+texture_progress = ExtResource( 6 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 7 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Villager Happiness Level" type="RichTextLabel" parent="VillagerMenuWindow" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 45.0
+margin_top = 197.0
+margin_right = 603.0
+margin_bottom = 254.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Villager Happiness Level"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="villagerStatus" type="RichTextLabel" parent="VillagerMenuWindow" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 607.0
+margin_top = 301.0
+margin_right = 816.0
+margin_bottom = 388.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 8 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Villager Status" type="RichTextLabel" parent="VillagerMenuWindow" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 45.0
+margin_top = 316.0
+margin_right = 339.0
+margin_bottom = 420.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
 text = "Villager Status"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="villagerStatus" type="Label" parent="VillagerMenuWindow/Villager Status" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 136.0
-margin_top = 7.0
-margin_right = 176.0
-margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script = ExtResource( 5 )
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="open_villager_menu" from="." to="VillagerMenuWindow" method="_on_VillagerMenu_open_villager_menu"]
 
-[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/Villager Happiness Level/villagerHappinessLevel" method="_on_VillagerMenu_update_villager_menu"]
+[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerLevel" method="_on_VillagerMenu_update_villager_menu"]
 
-[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/Villager Level/villagerLevel" method="_on_VillagerMenu_update_villager_menu"]
+[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerStatus" method="_on_VillagerMenu_update_villager_menu"]
 
-[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/Villager Status/villagerStatus" method="_on_VillagerMenu_update_villager_menu"]
+[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerHappinessLevel" method="_on_VillagerMenu_update_villager_menu"]
 
 

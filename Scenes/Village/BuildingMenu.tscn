@@ -1,20 +1,20 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Village/BuildingMenu.gd" type="Script" id=1]
-[ext_resource path="res://UIpack/UI/blue_button01.png" type="Texture" id=2]
-[ext_resource path="res://UIpack/UI/blue_button00.png" type="Texture" id=3]
-[ext_resource path="res://UIpack/UI/yellow_button07.png" type="Texture" id=4]
-[ext_resource path="res://UIpack/UI/red_button04.png" type="Texture" id=5]
-[ext_resource path="res://UIpack/UI/red_button08.png" type="Texture" id=6]
-[ext_resource path="res://UIpack/UI/green_button07.png" type="Texture" id=7]
+[ext_resource path="res://Fontpack/fontres/new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UIpack/UI/blue_button01.png" type="Texture" id=3]
+[ext_resource path="res://UIpack/UI/blue_button00.png" type="Texture" id=4]
+[ext_resource path="res://UIpack/UI/yellow_button07.png" type="Texture" id=5]
+[ext_resource path="res://UIpack/UI/red_button04.png" type="Texture" id=6]
+[ext_resource path="res://UIpack/UI/red_button08.png" type="Texture" id=7]
+[ext_resource path="res://UIpack/UI/green_button07.png" type="Texture" id=8]
 
-[node name="BuildingMenu" type="Node2D"]
+[node name="BuildingMenu" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="Building_Menu" type="WindowDialog" parent="." index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -40,16 +40,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 195.0
-margin_top = 44.0
-margin_right = 370.0
-margin_bottom = 84.0
+margin_left = 159.0
+margin_top = 17.0
+margin_right = 457.0
+margin_bottom = 78.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -61,13 +62,14 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Food_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="2"]
 
-position = Vector2( 83.9749, 24.3543 )
+position = Vector2( 20.817, 28.7864 )
 scale = Vector2( 0.497331, 1.96286 )
-normal = ExtResource( 2 )
-pressed = ExtResource( 3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -78,10 +80,10 @@ visibility_mode = 0
 
 [node name="Water_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="3"]
 
-position = Vector2( 87.9523, 158.628 )
+position = Vector2( 27.0105, 176.357 )
 scale = Vector2( 0.469237, 1.84763 )
-normal = ExtResource( 2 )
-pressed = ExtResource( 3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -96,16 +98,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 201.0
-margin_top = 185.0
-margin_right = 342.0
-margin_bottom = 225.0
+margin_left = 159.0
+margin_top = 167.0
+margin_right = 466.0
+margin_bottom = 244.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -117,12 +120,13 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Ore_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="5"]
 
-position = Vector2( 179.76, 378.699 )
+position = Vector2( 123.25, 414.156 )
 scale = Vector2( -1.87621, -1.72129 )
-normal = ExtResource( 4 )
+normal = ExtResource( 5 )
 pressed = null
 bitmask = null
 shape = null
@@ -138,16 +142,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 200.0
-margin_top = 317.0
-margin_right = 321.0
-margin_bottom = 357.0
+margin_left = 169.0
+margin_top = 322.0
+margin_right = 443.0
+margin_bottom = 362.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -159,12 +164,13 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Cement_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="7"]
 
-position = Vector2( 590.779, 111.345 )
+position = Vector2( 555.322, 106.913 )
 scale = Vector2( -1.92015, -1.7605 )
-normal = ExtResource( 5 )
+normal = ExtResource( 6 )
 pressed = null
 bitmask = null
 shape = null
@@ -180,10 +186,128 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 607.0
-margin_top = 32.0
-margin_right = 756.0
-margin_bottom = 72.0
+margin_left = 577.0
+margin_top = 16.0
+margin_right = 884.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Cement  Building"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Academy_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="9"]
+
+position = Vector2( 559.935, 256.568 )
+scale = Vector2( -2.03606, -1.82968 )
+normal = ExtResource( 7 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Academy_Building_Label" type="RichTextLabel" parent="Building_Menu" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 570.0
+margin_top = 163.0
+margin_right = 912.0
+margin_bottom = 240.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Academy Building"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Tree_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="11"]
+
+position = Vector2( 565.174, 324.271 )
+scale = Vector2( -2.17337, 1.93932 )
+normal = ExtResource( 8 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Tree_Building_Label" type="RichTextLabel" parent="Building_Menu" index="12"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 584.0
+margin_top = 320.0
+margin_right = 903.0
+margin_bottom = 396.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Mangrove Trees"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ResourceDescriptor" type="RichTextLabel" parent="Building_Menu" index="13"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 164.0
+margin_top = 62.0
+margin_right = 398.0
+margin_bottom = 128.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -196,81 +320,151 @@ visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "Cement  Building"
+text = "Required Resources: Food 20 , Water 20, Cement 10, Space 2"
 scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 
-[node name="Academy_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="9"]
-
-position = Vector2( 593.176, 243.272 )
-scale = Vector2( -2.03606, -1.82968 )
-normal = ExtResource( 6 )
-pressed = null
-bitmask = null
-shape = null
-shape_centered = true
-shape_visible = true
-passby_press = false
-action = ""
-visibility_mode = 0
-
-[node name="Academy_Building_Label" type="Label" parent="Building_Menu" index="10"]
+[node name="ResourceDescriptor2" type="RichTextLabel" parent="Building_Menu" index="14"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 611.0
-margin_top = 171.0
-margin_right = 726.0
-margin_bottom = 187.0
+margin_left = 172.0
+margin_top = 208.0
+margin_right = 406.0
+margin_bottom = 275.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
+rect_clip_content = true
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Academy Building"
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
 percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+meta_underlined = true
+tab_size = 4
+text = "Required Resources: Food 10 , Cement 10, Space 2"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
 
-[node name="Tree_Building_Button" type="TouchScreenButton" parent="Building_Menu" index="11"]
-
-position = Vector2( 597.307, 287.845 )
-scale = Vector2( -2.17337, 1.82342 )
-normal = ExtResource( 7 )
-pressed = null
-bitmask = null
-shape = null
-shape_centered = true
-shape_visible = true
-passby_press = false
-action = ""
-visibility_mode = 0
-
-[node name="Tree_Building_Label" type="Label" parent="Building_Menu" index="12"]
+[node name="ResourceDescriptor3" type="RichTextLabel" parent="Building_Menu" index="15"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 610.0
-margin_top = 300.0
-margin_right = 734.0
-margin_bottom = 331.0
+margin_left = 584.0
+margin_top = 60.0
+margin_right = 885.0
+margin_bottom = 138.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
+rect_clip_content = true
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Mangrove Trees"
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
 percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+meta_underlined = true
+tab_size = 4
+text = "Required Resources: Food 10 , Water 10, Cement 10, Space 2"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="ResourceDescriptor4" type="RichTextLabel" parent="Building_Menu" index="16"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 605.0
+margin_top = 210.0
+margin_right = 868.0
+margin_bottom = 294.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Required Resources: Food 50 , Water 50, Cement 30, Ore 20 ,Space 8"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="ResourceDescriptor5" type="RichTextLabel" parent="Building_Menu" index="17"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 172.0
+margin_top = 363.0
+margin_right = 404.0
+margin_bottom = 428.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Required Resources: Food 50 , Water 50, Cement 30, Ore 20 ,Space 8"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="ResourceDescriptor6" type="RichTextLabel" parent="Building_Menu" index="18"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 617.0
+margin_top = 374.0
+margin_right = 851.0
+margin_bottom = 440.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Required Resources: Space 2"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
 
 [connection signal="pressed" from="Building_Menu/Food_Building_Button" to="." method="_on_Food_Building_Button_pressed"]
 

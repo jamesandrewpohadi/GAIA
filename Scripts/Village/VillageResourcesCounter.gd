@@ -22,7 +22,7 @@ var upgradeReq = 50
 #	pass
 func _ready():
 	
-	emit_signal("update_waterResource",waterResource)
+	emit_signal("update_waterResource", waterResource)
 	emit_signal("update_foodResource", foodResource)
 	emit_signal("update_cementResource", cementResource)
 	emit_signal("update_oreResource", oreResource)

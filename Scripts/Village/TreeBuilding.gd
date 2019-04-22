@@ -52,6 +52,7 @@ func _on_BuildingMenu_deploy_building_tree():
 	
 	if(treeBuildingLevel < current_ygg_level):
 		if(treeBuildingLevel == 0):
+			emit_signal("deduct_resources_for_tree_bldg")
 			self.show()	
 			var checklevelupgradegraphics = self.get_child(2)
 			for child in self.get_children():
@@ -61,8 +62,9 @@ func _on_BuildingMenu_deploy_building_tree():
 					for things in child.get_children():
 						things.show()  # replace with function bodypass # replace with function body
 		else:
+			emit_signal("deduct_resources_for_tree_bldg")
 			upgrade()
-		emit_signal("deduct_resources_for_tree_bldg")
+
 	else:
 		emit_signal("notify_max_level_achieved") 
 				
@@ -72,7 +74,7 @@ func upgrade():
 
 
 func _on_Levelupbar_Tree_upgrade_tree_bldg_complete():
-	treeBuildingLevel =2
+	treeBuildingLevel = 2
 	contaminationPoint = contaminationPoint * treeBuildingLevel
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("contaminationAdd",contaminationPoint)

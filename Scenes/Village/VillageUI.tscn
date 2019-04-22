@@ -1,16 +1,22 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Village/VillageUI.gd" type="Script" id=1]
-[ext_resource path="res://kenny_iso_td/iso_td/towerDefense_001_0.png" type="Texture" id=2]
-[ext_resource path="res://kenny_iso_td/iso_td/towerDefense_001_1.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Village/Build.gd" type="Script" id=4]
-[ext_resource path="res://kenny_iso_td/iso_td/towerDefense_119_1.png" type="Texture" id=5]
-[ext_resource path="res://kenny_iso_td/iso_td/towerDefense_119_3.png" type="Texture" id=6]
-[ext_resource path="res://kenny_iso_td/iso_td/towerDefense_004_0.png" type="Texture" id=7]
-[ext_resource path="res://kenny_iso_td/iso_td/towerDefense_004_2.png" type="Texture" id=8]
-[ext_resource path="res://Kenney_Roguelike_Pack/villager m1 modern.png" type="Texture" id=9]
+[ext_resource path="res://Kenney_Roguelike_Pack/smallhammer.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Village/Build.gd" type="Script" id=3]
+[ext_resource path="res://Kenney_Roguelike_Pack/clipart2406635.png" type="Texture" id=4]
+[ext_resource path="res://Kenney_Roguelike_Pack/tree.png" type="Texture" id=5]
+[ext_resource path="res://Kenney_Roguelike_Pack/villager m1 modern.png" type="Texture" id=6]
+[ext_resource path="res://Fontpack/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=7]
 
-[node name="VillageUI" type="Node2D"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 30
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="VillageUI" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -35,8 +41,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Build" type="TouchScreenButton" parent="HBoxContainer" index="0"]
 
+position = Vector2( 14.5359, 104.07 )
+scale = Vector2( 8.60249, 8.60249 )
 normal = ExtResource( 2 )
-pressed = ExtResource( 3 )
+pressed = null
 bitmask = null
 shape = null
 shape_centered = true
@@ -44,15 +52,15 @@ shape_visible = true
 passby_press = false
 action = ""
 visibility_mode = 0
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Resources" type="TouchScreenButton" parent="HBoxContainer" index="1"]
 
-position = Vector2( 165.145, 16.1869 )
-scale = Vector2( 0.791624, 0.791623 )
-normal = ExtResource( 5 )
-pressed = ExtResource( 6 )
+position = Vector2( 194.099, 78.9928 )
+scale = Vector2( 0.23459, 0.23459 )
+normal = ExtResource( 4 )
+pressed = null
 bitmask = null
 shape = null
 shape_centered = true
@@ -63,10 +71,10 @@ visibility_mode = 0
 
 [node name="Yggdrasil_button" type="TouchScreenButton" parent="HBoxContainer" index="2"]
 
-position = Vector2( 322.769, 17.3597 )
-scale = Vector2( 0.786821, 0.786821 )
-normal = ExtResource( 7 )
-pressed = ExtResource( 8 )
+position = Vector2( 414.877, 82.6625 )
+scale = Vector2( 0.790825, 0.790825 )
+normal = ExtResource( 5 )
+pressed = null
 bitmask = null
 shape = null
 shape_centered = true
@@ -77,10 +85,10 @@ visibility_mode = 0
 
 [node name="Villager_button" type="TouchScreenButton" parent="HBoxContainer" index="3"]
 
-position = Vector2( 467.646, 4.655 )
-scale = Vector2( 0.199095, 0.199095 )
-normal = ExtResource( 9 )
-pressed = ExtResource( 9 )
+position = Vector2( 636.25, 121.682 )
+scale = Vector2( 0.245962, 0.245962 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 6 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -88,6 +96,130 @@ shape_visible = true
 passby_press = false
 action = ""
 visibility_mode = 0
+
+[node name="Villagers" type="RichTextLabel" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 619.0
+margin_top = 721.0
+margin_right = 814.0
+margin_bottom = 771.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Villagers"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Yggdrasil" type="RichTextLabel" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 405.0
+margin_top = 720.0
+margin_right = 621.0
+margin_bottom = 770.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Yggdrasil"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Resources" type="RichTextLabel" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 186.0
+margin_top = 720.0
+margin_right = 402.0
+margin_bottom = 770.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Resources"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Build" type="RichTextLabel" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 44.0
+margin_top = 718.0
+margin_right = 211.0
+margin_bottom = 783.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Build"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="pressed" from="HBoxContainer/Build" to="." method="_on_Build_pressed"]
 

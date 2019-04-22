@@ -72,6 +72,7 @@ func _on_BuildingMenu_deploy_building_water():
 	
 	if(waterBuildingLevel < current_ygg_level):
 		if(waterBuildingLevel == 0):
+			emit_signal("deduct_resources_for_water_bldg")
 			self.show()	
 			var checklevelupgradegraphics = self.get_child(2)
 			for child in self.get_children():
@@ -81,8 +82,8 @@ func _on_BuildingMenu_deploy_building_water():
 					for things in child.get_children():
 						things.show()  # replace with function bodypass # replace with function body
 		else:
+			emit_signal("deduct_resources_for_water_bldg")
 			upgrade()
-		emit_signal("deduct_resources_for_water_bldg")
 	else:
 		emit_signal("notify_max_level_achieved") 
 				

@@ -51,6 +51,7 @@ func _on_BuildingMenu_deploy_building_academy():
 	
 	if(academyBuildingLevel < current_ygg_level):
 		if(academyBuildingLevel == 0):
+			emit_signal("deduct_resources_for_academy_bldg")
 			self.show()	
 			var checklevelupgradegraphics = self.get_child(2)
 			for child in self.get_children():
@@ -60,8 +61,9 @@ func _on_BuildingMenu_deploy_building_academy():
 					for things in child.get_children():
 						things.show()  # replace with function bodypass # replace with function body
 		else:
+			emit_signal("deduct_resources_for_academy_bldg")
 			upgrade()
-		emit_signal("deduct_resources_for_academy_bldg")
+
 	else:
 		emit_signal("notify_max_level_achieved") 
 

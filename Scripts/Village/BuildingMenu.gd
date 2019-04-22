@@ -79,7 +79,7 @@ func _on_Water_Building_Button_pressed():
 				stuff.hide()
 
 func _on_Ore_Building_Button_pressed():
-	if(current_cement_resource < 40 or current_food_resource < 50 or current_water_resource < 50 or current_ore_resource < 20 or current_space_available):
+	if(current_cement_resource < 40 or current_food_resource < 50 or current_water_resource < 50 or current_ore_resource < 20 or current_space_available<8):
 		emit_signal("insufficient_resources")
 	else:		
 		emit_signal("deploy_building_ore")
