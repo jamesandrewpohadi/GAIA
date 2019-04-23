@@ -153,7 +153,6 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="VillageCamera" type="Camera2D" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 514.472, 301.651 )
 anchor_mode = 1
 rotating = false

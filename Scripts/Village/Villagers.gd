@@ -38,7 +38,7 @@ func _on_VillageScreen_update_villager_status(contaminationlevel):
 
 func _on_VillageScreen_firebase_update_villagers(villagerArray):
 	villagerLevel = villagerArray[0]
-	villagerHappinessLevel = villagerArray[1]
+	currentContaminationLevel = villagerArray[1]
+	checkVillagerHappinessLevel()
 	emit_signal("updateVillagerMenu", villageStatus)
-	print("Villager Array: ", villagerArray)
 	

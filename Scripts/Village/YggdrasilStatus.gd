@@ -12,7 +12,7 @@ signal reject_upgrade_request
 signal notify_upgrade_success
 signal notify_max_level_achieved
 signal update_village_system
-
+var firebaseUpdating = false
 var yggdrasilStatus
 
 func _ready():
@@ -98,4 +98,3 @@ func _on_VillageScreen_firebase_update_yggdrasil(yggdrasilArray):
 	yggdrasilLevel = yggdrasilArray[0]
 	contaminationLevel = yggdrasilArray[1]
 	spaceinVillage = yggdrasilArray[2]
-	print("Yggdrasil Array: ", yggdrasilArray)

@@ -231,10 +231,10 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="open_villager_menu" from="." to="VillagerMenuWindow" method="_on_VillagerMenu_open_villager_menu"]
 
+[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerHappinessLevel" method="_on_VillagerMenu_update_villager_menu"]
+
 [connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerLevel" method="_on_VillagerMenu_update_villager_menu"]
 
 [connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerStatus" method="_on_VillagerMenu_update_villager_menu"]
-
-[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerHappinessLevel" method="_on_VillagerMenu_update_villager_menu"]
 
 
