@@ -95,3 +95,7 @@ func _on_Levelupbar_ore_upgrade_ore_bldg_complete():
 	oreResourceGenerated = oreResourceGenerated * oreBuildingLevel
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("contaminationAdd",contaminationPoint)
+
+
+func _on_VillageScreen_firebase_update_oreBldg(oreBldglvl):
+	oreBuildingLevel = oreBldglvl

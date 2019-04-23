@@ -98,3 +98,7 @@ func _on_levelupbar_water_upgrade_water_bldg_complete():
 	waterResourceGenerated = waterResourceGenerated * waterBuildingLevel
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("contaminationAdd",contaminationPoint)
+
+
+func _on_VillageScreen_firebase_update_waterBldg(waterBldglvl):
+	waterBuildingLevel = waterBldglvl

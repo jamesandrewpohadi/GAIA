@@ -25,7 +25,7 @@
 [ext_resource path="res://Scripts/Village/UpgradeSuccess.gd" type="Script" id=23]
 [ext_resource path="res://Scripts/Village/MaxLevelAchievedPopup.gd" type="Script" id=24]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 
 size = 50
 use_mipmaps = false
@@ -33,7 +33,7 @@ use_filter = false
 font_data = ExtResource( 14 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 
 size = 30
 use_mipmaps = false
@@ -41,7 +41,7 @@ use_filter = true
 font_data = ExtResource( 16 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 30
 use_mipmaps = false
@@ -136,7 +136,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -153,6 +153,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="VillageCamera" type="Camera2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 514.472, 301.651 )
 anchor_mode = 1
 rotating = false
@@ -213,7 +214,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -240,7 +241,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -386,6 +387,22 @@ text = "Max Level Achieved! Unable to upgrade further"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[connection signal="firebase_update_acadBldg" from="." to="Wrapper/AcademyBuilding" method="_on_VillageScreen_firebase_update_acadBldg"]
+
+[connection signal="firebase_update_cementBldg" from="." to="Wrapper/CementBuilding" method="_on_VillageScreen_firebase_update_cementBldg"]
+
+[connection signal="firebase_update_foodBldg" from="." to="Wrapper/FoodBuilding" method="_on_VillageScreen_firebase_update_foodBldg"]
+
+[connection signal="firebase_update_oreBldg" from="." to="Wrapper/OreBuilding" method="_on_VillageScreen_firebase_update_oreBldg"]
+
+[connection signal="firebase_update_resources" from="." to="Wrapper/VillageResourcesCounter" method="_on_VillageScreen_firebase_update_resources"]
+
+[connection signal="firebase_update_villagers" from="." to="Wrapper/Villagers" method="_on_VillageScreen_firebase_update_villagers"]
+
+[connection signal="firebase_update_waterBldg" from="." to="Wrapper/WaterBuilding" method="_on_VillageScreen_firebase_update_waterBldg"]
+
+[connection signal="firebase_update_yggdrasil" from="." to="Wrapper/YggdrasilStatus" method="_on_VillageScreen_firebase_update_yggdrasil"]
 
 [connection signal="update_space_constraints_in_bldg_menu" from="." to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageScreen_update_space_constraints_in_bldg_menu"]
 

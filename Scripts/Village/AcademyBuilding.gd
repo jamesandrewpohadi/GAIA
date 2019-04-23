@@ -78,3 +78,7 @@ func _on_Levelupbar_academy_upgrade_academy_bldg_complete():
 	emit_signal("updateVillagerStatus",upVillagerLevel)
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("contaminationAdd",contaminationPoint)
+
+
+func _on_VillageScreen_firebase_update_acadBldg(acadBldglvl):
+	academyBuildingLevel = acadBldglvl

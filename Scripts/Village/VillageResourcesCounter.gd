@@ -21,7 +21,6 @@ var upgradeReq = 50
 #	# Update game logic here.
 #	pass
 func _ready():
-	
 	emit_signal("update_waterResource", waterResource)
 	emit_signal("update_foodResource", foodResource)
 	emit_signal("update_cementResource", cementResource)
@@ -106,6 +105,19 @@ func _on_AcademyBuilding_deduct_resources_for_academy_bldg():
 	foodResource -= 50
 	waterResource -= 50
 	oreResource -= 20
+	emit_signal("update_waterResource",waterResource)
+	emit_signal("update_foodResource",foodResource)
+	emit_signal("update_cementResource",cementResource)
+	emit_signal("update_oreResource",oreResource)
+	
+
+
+func _on_VillageScreen_firebase_update_resources(resourceArray):
+	cementResource = resourceArray[0]
+	foodResource = resourceArray[1]
+	oreResource = resourceArray[2]
+	waterResource = resourceArray[3]
+	print("Resource Array: ",resourceArray)
 	emit_signal("update_waterResource",waterResource)
 	emit_signal("update_foodResource",foodResource)
 	emit_signal("update_cementResource",cementResource)

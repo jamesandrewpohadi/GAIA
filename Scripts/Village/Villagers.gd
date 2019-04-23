@@ -7,7 +7,7 @@ var villagerLevel = 0;
 var villagerHappinessLevel
 var villagerMood = ["Happy","Sick"]
 signal updateVillagerMenu
-var currentContaminationLevel
+var currentContaminationLevel = 0
 var villageStatus = [villagerLevel,villagerHappinessLevel,villagerMood[0]]
 
 func _ready():
@@ -34,3 +34,11 @@ func checkVillagerHappinessLevel():
 
 func _on_VillageScreen_update_villager_status(contaminationlevel):
 	currentContaminationLevel = contaminationlevel
+
+
+func _on_VillageScreen_firebase_update_villagers(villagerArray):
+	villagerLevel = villagerArray[0]
+	villagerHappinessLevel = villagerArray[1]
+	emit_signal("updateVillagerMenu", villageStatus)
+	print("Villager Array: ", villagerArray)
+	

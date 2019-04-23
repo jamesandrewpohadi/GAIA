@@ -92,3 +92,10 @@ func _on_VillageResourcesCounter_response_to_upgrade_request(ans):
 		
 	else:
 		emit_signal("reject_upgrade_request")
+
+
+func _on_VillageScreen_firebase_update_yggdrasil(yggdrasilArray):
+	yggdrasilLevel = yggdrasilArray[0]
+	contaminationLevel = yggdrasilArray[1]
+	spaceinVillage = yggdrasilArray[2]
+	print("Yggdrasil Array: ", yggdrasilArray)

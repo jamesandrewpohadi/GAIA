@@ -94,3 +94,7 @@ func _on_Levelupbar_cement_upgrade_cement_bldg_complete():
 	cementResourceGenerated = cementResourceGenerated * cementBuildingLevel
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("contaminationAdd",contaminationPoint)
+
+
+func _on_VillageScreen_firebase_update_cementBldg(cementBldglvl):
+	cementBuildingLevel = cementBldglvl

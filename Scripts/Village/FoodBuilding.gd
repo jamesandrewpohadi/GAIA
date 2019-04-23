@@ -94,3 +94,7 @@ func _on_Levelupbar_food_upgrade_food_bldg_complete():
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("contaminationAdd",contaminationPoint)
 
+
+
+func _on_VillageScreen_firebase_update_foodBldg(foodBldglvl):
+	foodBuildingLevel = foodBldglvl

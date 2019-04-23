@@ -13,7 +13,7 @@ onready var my_info={}
 
 onready var players_incombat = {}
 var lobbyingame = false
-
+signal login_success
 
 func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_ok")
@@ -32,7 +32,8 @@ func _on_Join(host, port, name):
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
 	player_info[player_id] = my_info
-
+	emit_signal("login_success", player_name)
+	
 func _on_Host(host, name):
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_server(5000,5)
@@ -40,6 +41,7 @@ func _on_Host(host, name):
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
 	player_info[player_id] = my_info
+	emit_signal("login_success", player_name)
 	#main.welcome.hide()
 	#main.village.get_node("VillageCamera/CanvasLayer/VillageUI").show()
 	#main.village.is_village = true
