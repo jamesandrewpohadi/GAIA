@@ -2,16 +2,16 @@
 
 [ext_resource path="res://Scripts/Combat/Boss1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Boss1/idle.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Boss1/die.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Boss1/walk1.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Boss1/walk2.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Boss1/walk3.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Boss1/walk4.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Boss1/slash1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Boss1/slash2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Boss1/slash3.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Boss1/hit1.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Boss1/hit2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Boss1/hit1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Boss1/hit2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Boss1/walk1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Boss1/walk2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Boss1/walk3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Boss1/walk4.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Boss1/die.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Boss1/slash1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Boss1/slash2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Boss1/slash3.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -21,24 +21,24 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "die",
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "attack",
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "die",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": false,
-"name": "hit",
+"name": "attack",
 "speed": 5.0
 } ]
 
@@ -52,7 +52,7 @@ extents = Vector2( 9.12227, 11.3101 )
 custom_solver_bias = 0.0
 radius = 60.4958
 
-[node name="MobBoss1" type="KinematicBody2D" index="0"]
+[node name="MobBoss1" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1

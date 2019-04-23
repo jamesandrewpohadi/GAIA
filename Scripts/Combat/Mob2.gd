@@ -18,6 +18,8 @@ var canshoot = true
 
 const MOB2SKILL = preload("res://Scenes/Combat/Mob2Skill.tscn")
 
+const mobDropScene = preload("res://Scenes/Combat/MonsterDrop.tscn")
+
 var networknode
 
 
@@ -29,11 +31,18 @@ func _ready():
 	pass
 
 sync func dead():
-	is_dead = true
-	motion = Vector2(0,0)
-	$AnimatedSprite.play("Dead")
-	$CollisionShape2D.disabled = true
-	$DeadTimer.start()
+	if(is_dead == false):
+		is_dead = true
+		for nodes in get_parent().get_children():
+			if "Player" in nodes.name:
+				nodes.gain_experience(20)
+		var mobDrop = mobDropScene.instance()
+		mobDrop.position = self.global_position
+		get_parent().add_child(mobDrop)
+		motion = Vector2(0,0)
+		$AnimatedSprite.play("Dead")
+		$CollisionShape2D.disabled = true
+		$DeadTimer.start()
 	
 func _physics_process(delta):
 	if is_dead == false && aggro == false:

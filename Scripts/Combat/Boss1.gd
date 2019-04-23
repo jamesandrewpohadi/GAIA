@@ -48,6 +48,9 @@ sync func dead():
 		health-=1
 	if(health==0):
 		is_dead = true
+		for nodes in get_parent().get_children():
+			if "Player" in nodes.name:
+				nodes.gain_experience(50)
 		motion = Vector2(0,0)
 		$AnimatedSprite.play("die")
 		$CollisionShape2D.disabled = true
@@ -112,7 +115,7 @@ func _physics_process(delta):
 	
 			
 		if is_dead == false && aggro == false:
-
+			motion = move_and_slide(motion,FLOOR)
 			
 			motion.x = SPEED * direction
 			
@@ -124,7 +127,6 @@ func _physics_process(delta):
 			$AnimatedSprite.play("walk")
 			
 			motion.y += GRAVITY
-			motion = move_and_slide(motion,FLOOR)
 			
 			if is_on_wall() && is_on_floor():
 				direction = direction * -1

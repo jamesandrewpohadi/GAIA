@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scripts/Combat/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/PlayerSprite/Idle.png" type="Texture" id=2]
@@ -6,32 +6,37 @@
 [ext_resource path="res://Sprites/PlayerSprite/Run2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/PlayerSprite/Run3.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/PlayerSprite/Run4.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/PlayerSprite/Jump1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/PlayerSprite/Jump2.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/PlayerSprite/Jump3.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/PlayerSprite/Jump4.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/PlayerSprite/Hit1.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/PlayerSprite/Hit2.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/PlayerSprite/Dead1.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/PlayerSprite/Dead2.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/PlayerSprite/Slash2.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/PlayerSprite/Slash1.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/PlayerSprite/Slash3.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/PlayerSprite/Slash2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/PlayerSprite/Slash1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/PlayerSprite/Slash3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/PlayerSprite/Dead1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/PlayerSprite/Dead2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/PlayerSprite/Jump1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/PlayerSprite/Jump2.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/PlayerSprite/Jump3.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/PlayerSprite/Jump4.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/PlayerSprite/Hit1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/PlayerSprite/Hit2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=21]
 [ext_resource path="res://analog/analog.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Sprites/UITextures/Asset 1.png" type="Texture" id=23]
 [ext_resource path="res://Scripts/Combat/TextureProgress.gd" type="Script" id=24]
-[ext_resource path="res://Scenes/Combat/AreaTouchRight.gd" type="Script" id=25]
-[ext_resource path="res://Sprites/UITextures/jumpbutton.png" type="Texture" id=26]
-[ext_resource path="res://analog/small_circle.png" type="Texture" id=27]
-[ext_resource path="res://Scenes/Combat/WaterGunControl.gd" type="Script" id=28]
-[ext_resource path="res://Sprites/UITextures/Asset 3.png" type="Texture" id=29]
-[ext_resource path="res://Scenes/Combat/BlueSlashControl.gd" type="Script" id=30]
-[ext_resource path="res://Sprites/UITextures/SlashButton.png" type="Texture" id=31]
-[ext_resource path="res://Scenes/Combat/Camera2D.gd" type="Script" id=32]
+[ext_resource path="res://Sprites/UITextures/jumpbutton.png" type="Texture" id=25]
+[ext_resource path="res://analog/small_circle.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/UITextures/Asset 3.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/UITextures/SlashButton.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/UITextures/bar_background.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/UITextures/bar_fill.png" type="Texture" id=30]
+[ext_resource path="res://Scenes/Combat/TextureProgress.gd" type="Script" id=31]
+[ext_resource path="res://Fontpack/Fonts/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=32]
+[ext_resource path="res://Sprites/UITextures/text_experience.png" type="Texture" id=33]
+[ext_resource path="res://Scenes/Combat/Loot.gd" type="Script" id=34]
+[ext_resource path="res://Sprites/Drops/mobdrop.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Drops/BossDrop3x@3x.png" type="Texture" id=36]
+[ext_resource path="res://Scenes/Combat/Camera2D.gd" type="Script" id=37]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -51,38 +56,46 @@ animations = [ {
 "name": "Run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "Jump",
-"speed": 5.0
+"name": "Slash",
+"speed": 4.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "Hit",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Dead",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
-"name": "Punch",
+"name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": false,
 "name": "Fall",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
-"name": "Slash",
-"speed": 4.0
+"name": "Hit",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Punch",
+"speed": 5.0
 } ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[sub_resource type="DynamicFont" id=3]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 32 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
+
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 208, 168 )
 scale = Vector2( 0.5, 0.75 )
@@ -96,6 +109,7 @@ _sections_unfolded = [ "Collision", "Z Index", "collision" ]
 speed = 200
 shotlimit = 3
 health = 3
+level = 1
 
 [node name="NameTag" type="Label" parent="." index="0"]
 
@@ -137,6 +151,7 @@ frames = SubResource( 2 )
 animation = "Jump"
 frame = 3
 playing = true
+_sections_unfolded = [ "Visibility" ]
 
 [node name="UI" type="CanvasLayer" parent="." index="3"]
 
@@ -184,6 +199,7 @@ margin_top = 18.0
 margin_right = 377.0
 margin_bottom = 278.0
 grow_horizontal = 0
+rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -204,7 +220,7 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 24 )
-_sections_unfolded = [ "Grow Direction", "Textures" ]
+_sections_unfolded = [ "Grow Direction", "Rect", "Textures" ]
 
 [node name="JumpButtonControl" type="Control" parent="UI" index="2"]
 
@@ -222,15 +238,14 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 25 )
 _sections_unfolded = [ "Mouse" ]
 
 [node name="JumpButton" type="TouchScreenButton" parent="UI/JumpButtonControl" index="0"]
 
 position = Vector2( 9.98254, 5.34009 )
 scale = Vector2( 1.43354, 1.32688 )
-normal = ExtResource( 26 )
-pressed = ExtResource( 27 )
+normal = ExtResource( 25 )
+pressed = ExtResource( 26 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -259,15 +274,14 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 28 )
 _sections_unfolded = [ "Mouse" ]
 
 [node name="WaterGunButton" type="TouchScreenButton" parent="UI/WaterGunControl" index="0"]
 
 position = Vector2( -1.06372, 5.58307 )
 scale = Vector2( 1.41474, 1.3 )
-normal = ExtResource( 29 )
-pressed = ExtResource( 29 )
+normal = ExtResource( 27 )
+pressed = ExtResource( 27 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -293,14 +307,13 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 30 )
 _sections_unfolded = [ "Mouse" ]
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="UI/BlueSlashControl" index="0"]
 
 position = Vector2( 16.881, 10.5034 )
 scale = Vector2( 1.37908, 1.37908 )
-normal = ExtResource( 31 )
+normal = ExtResource( 28 )
 pressed = null
 bitmask = null
 shape = null
@@ -309,6 +322,215 @@ shape_visible = true
 passby_press = false
 action = ""
 visibility_mode = 0
+
+[node name="EXPBar" type="TextureProgress" parent="UI" index="5"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -365.0
+margin_top = -85.0
+margin_right = 496.0
+margin_bottom = -16.0
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 29 )
+texture_over = null
+texture_progress = ExtResource( 30 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 31 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="LevelText" type="Label" parent="UI/EXPBar" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = -90.0
+margin_right = 146.0
+margin_bottom = -23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Level 1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="TextureRect" type="TextureRect" parent="UI/EXPBar" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = -40.0
+margin_right = 349.0
+rect_scale = Vector2( 0.6, 0.6 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 33 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Tween" type="Tween" parent="UI/EXPBar" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Loot" type="Container" parent="UI" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_top = 408.0
+margin_right = 4.0
+margin_bottom = 408.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 34 )
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LootHeader" type="Label" parent="UI/Loot" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = -15.0
+margin_right = 53.0
+margin_bottom = -1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Loots"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="MobDropIcon" type="TextureRect" parent="UI/Loot" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 41.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 35 )
+stretch_mode = 0
+
+[node name="MonsterDropText" type="Label" parent="UI/Loot" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 29.0
+margin_top = 5.0
+margin_right = 69.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="BossDropIcon" type="TextureRect" parent="UI/Loot" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -3.0
+margin_top = 22.0
+margin_right = 37.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 36 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="BossDropText" type="Label" parent="UI/Loot" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 29.0
+margin_top = 33.0
+margin_right = 69.0
+margin_bottom = 47.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="Position2D" type="Position2D" parent="." index="4"]
 
@@ -332,14 +554,14 @@ smoothing_enabled = true
 smoothing_speed = 8.0
 offset_v = 0.0
 offset_h = 0.0
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = true
 editor_draw_drag_margin = false
-script = ExtResource( 32 )
+script = ExtResource( 37 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Transform" ]
 
 [node name="Timer" type="Timer" parent="." index="6"]
@@ -359,7 +581,7 @@ autostart = false
 [node name="InvicibilityTime" type="Timer" parent="." index="8"]
 
 process_mode = 1
-wait_time = 0.5
+wait_time = 1.0
 one_shot = false
 autostart = false
 
@@ -369,6 +591,10 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[connection signal="experience_gained" from="." to="UI/EXPBar" method="_on_Player_experience_gained"]
+
+[connection signal="on_loot" from="." to="UI/Loot" method="_on_Player_on_loot"]
 
 [connection signal="gui_input" from="UI/JumpButtonControl" to="UI/JumpButtonControl" method="_on_JumpButtonControl_gui_input"]
 

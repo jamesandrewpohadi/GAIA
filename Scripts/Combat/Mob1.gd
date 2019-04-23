@@ -14,17 +14,26 @@ var is_dead = false
 
 var direction = -1
 
+const mobDropScene = preload("res://Scenes/Combat/MonsterDrop.tscn")
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
 
 sync func dead():
-	is_dead = true
-	motion = Vector2(0,0)
-	$AnimatedSprite.play("die")
-	$CollisionShape2D.disabled = true
-	$Timer.start()
+	if(is_dead == false):
+		is_dead = true
+		for nodes in get_parent().get_children():
+			if "Player" in nodes.name:
+				nodes.gain_experience(10)
+		var mobDrop = mobDropScene.instance()
+		mobDrop.position = self.global_position
+		get_parent().add_child(mobDrop)
+		motion = Vector2(0,0)
+		$AnimatedSprite.play("die")
+		$CollisionShape2D.disabled = true
+		$Timer.start()
 	
 func _physics_process(delta):
 	if is_dead == false:

@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Combat/StageOne.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Combat/WinMenu.gd" type="Script" id=2]
 [ext_resource path="res://Tileset/groundTileset.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/Combat/Mob1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://env/Picture6.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Combat/MobBoss1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Combat/Mob2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Combat/MonsterDrop.tscn" type="PackedScene" id=5]
+[ext_resource path="res://env/Picture6.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Combat/MobBoss1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Combat/Mob2.tscn" type="PackedScene" id=8]
 
 [node name="StageOne" type="Node2D"]
 
@@ -175,10 +176,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 325.0
-margin_top = 158.0
-margin_right = 946.0
-margin_bottom = 536.0
+margin_left = 344.0
+margin_top = 1.0
+margin_right = 965.0
+margin_bottom = 379.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -317,7 +318,11 @@ position = Vector2( 627.456, 426.409 )
 
 position = Vector2( 788.454, 426.268 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="10"]
+[node name="MonsterDrop" parent="." index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 385.09, 482.447 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="11"]
 
 layer = -1
 offset = Vector2( 0, 0 )
@@ -346,24 +351,24 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
 position = Vector2( 958.792, 546.484 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="MobBoss1" parent="." index="11" instance=ExtResource( 6 )]
+[node name="MobBoss1" parent="." index="12" instance=ExtResource( 7 )]
 
 position = Vector2( 1766.29, 452.265 )
 scale = Vector2( 3, 3 )
 _sections_unfolded = [ "Transform" ]
 need_to_jump = 0.25
 
-[node name="Mob9" parent="." index="12" instance=ExtResource( 7 )]
+[node name="Mob9" parent="." index="13" instance=ExtResource( 8 )]
 
 position = Vector2( 997.858, 367.791 )
 
-[node name="Mob10" parent="." index="13" instance=ExtResource( 7 )]
+[node name="Mob10" parent="." index="14" instance=ExtResource( 8 )]
 
 position = Vector2( 228.724, 446.984 )
 

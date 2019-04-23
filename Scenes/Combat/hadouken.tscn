@@ -36,12 +36,14 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Visibility" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 scale = Vector2( 0.551667, 0.551667 )
 frames = SubResource( 1 )
 animation = "HADOUKEN"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
