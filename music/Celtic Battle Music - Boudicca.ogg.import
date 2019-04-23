@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Celtic Battle Music - Boudicca.ogg-c1136682a2b4bbc2006559eefe4e049d.oggstr"
+
+[deps]
+
+source_file="res://music/Celtic Battle Music - Boudicca.ogg"
+dest_files=[ "res://.import/Celtic Battle Music - Boudicca.ogg-c1136682a2b4bbc2006559eefe4e049d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

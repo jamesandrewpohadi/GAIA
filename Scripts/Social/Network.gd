@@ -40,6 +40,7 @@ func _on_Host(host, name):
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
 	player_info[player_id] = my_info
+	main.get_node("Village").play()
 	#main.welcome.hide()
 	#main.village.get_node("VillageCamera/CanvasLayer/VillageUI").show()
 	#main.village.is_village = true
@@ -63,6 +64,7 @@ func _player_disconnected(id):
 func _connected_ok():
 	print("you have connected to a server")
 	rpc('register_player', int(player_id), my_info)
+	main.village.get_node("Village").play()
 	
 	
 func retry(player_name, id):
@@ -79,7 +81,6 @@ remote func login_succeed():
 	
 remote func register_player(id, info):
 	# Store the info
-	
 	# If I'm the server, let the new guy know about existing players
 	if get_tree().is_network_server():
 		# Send my info to new player

@@ -41,6 +41,7 @@ slave var puppet_motion = Vector2()
 
 slave var puppet_isdead = false
 slave var puppet_health = health
+onready var main = get_tree().get_root().get_node("Main")
 
 var networknode 
 
@@ -270,6 +271,8 @@ func _on_Timer_timeout():
 				playerlivecount +=1
 	if (playerlivecount==0):
 		get_parent().get_node('UI/PopupDialog').show()
+		main.get_node("Sad").play()
+		main.get_node("Combat").stop()
 
 func analog_force_change(inForce, inStick):
 	if(inStick.get_name()=="AnalogRight") or (inStick.get_name()=="AnalogLeft"):

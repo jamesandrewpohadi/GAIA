@@ -75,6 +75,8 @@ func _on_Back_pressed():
 		var curr_node = view.pop_back()
 		curr_node.hide()
 	else:
+		main.get_node("Village").play()
+		main.get_node("Market").stop()
 		hide()
 
 
