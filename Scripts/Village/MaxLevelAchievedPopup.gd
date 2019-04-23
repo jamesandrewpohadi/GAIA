@@ -40,3 +40,7 @@ func _on_AcademyBuilding_notify_max_level_achieved():
 
 func _on_TreeBuilding_notify_max_level_achieved():
 	self.popup() 
+
+
+func _on_VillageResourcesCounter_max_level_reached():
+	self.popup()

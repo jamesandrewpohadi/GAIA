@@ -26,6 +26,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="VillagerMenuWindow" type="WindowDialog" parent="." index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -231,10 +232,10 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="open_villager_menu" from="." to="VillagerMenuWindow" method="_on_VillagerMenu_open_villager_menu"]
 
-[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerHappinessLevel" method="_on_VillagerMenu_update_villager_menu"]
+[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerStatus" method="_on_VillagerMenu_update_villager_menu"]
 
 [connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerLevel" method="_on_VillagerMenu_update_villager_menu"]
 
-[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerStatus" method="_on_VillagerMenu_update_villager_menu"]
+[connection signal="update_villager_menu" from="." to="VillagerMenuWindow/villagerHappinessLevel" method="_on_VillagerMenu_update_villager_menu"]
 
 

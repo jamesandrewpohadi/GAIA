@@ -199,12 +199,12 @@ _sections_unfolded = [ "Textures" ]
 
 [connection signal="upgrade_cement_building" from="." to="LevelupScheme/Levelupbar_cement" method="_on_CementBuilding_upgrade_cement_building"]
 
-[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
-
 [connection signal="building_complete" from="Building_UI/Building_ProgBar" to="BldgImg" method="_on_Building_ProgBar_building_complete"]
 
-[connection signal="upgrade_cement_bldg_complete" from="LevelupScheme/Levelupbar_cement" to="." method="_on_Levelupbar_cement_upgrade_cement_bldg_complete"]
+[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
 
 [connection signal="upgrade_cement_bldg_complete" from="LevelupScheme/Levelupbar_cement" to="LevelupScheme/level2_cementimg" method="_on_Levelupbar_cement_upgrade_cement_bldg_complete"]
+
+[connection signal="upgrade_cement_bldg_complete" from="LevelupScheme/Levelupbar_cement" to="." method="_on_Levelupbar_cement_upgrade_cement_bldg_complete"]
 
 

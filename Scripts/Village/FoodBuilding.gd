@@ -8,7 +8,7 @@ var foodResourceGenerated = 1
 var contaminationPoint = 1 # add into the contamination system later
 var spaceTaken = 2 # add space constraint later
 var foodBuildingLevel = 0
-
+var isUpdated = false
 
 signal contaminationAdd
 signal resourceCount 
@@ -16,6 +16,7 @@ signal updateSpaceTaken
 signal deduct_resources_for_food_bldg
 signal upgrade_food_building
 signal notify_max_level_achieved
+signal buildingIsDeployed
 
 var timeCheck = 1
 var timeStart
@@ -43,13 +44,38 @@ func _process(delta):
 			resource_production();
 			timeSave = false
 	
+	if foodBuildingLevel == 1:
+		if isUpdated == false:
+			level_one()
+			isUpdated = true
+	if foodBuildingLevel == 2:
+		if isUpdated == false:
+			level_two()
+			isUpdated = true
 		
 	
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
 
-
+func level_one():
+	print("food level one")
+	buildingDeployed = true
+	emit_signal("buildingIsDeployed")
+	self.show()
+	$BldgImg.visible = true
+	$Building_UI.visible = true
+	$Building_UI/Building_Name.visible = true
+	
+func level_two():
+	buildingDeployed = true
+	emit_signal("buildingIsDeployed")
+	self.show()
+	$BldgImg.visible = true
+	$Building_UI/Building_Name.visible = true
+	self.get_node("LevelUpScheme").show()
+	self.get_node("LevelUpScheme/level2_foodimg").show()
+	
 func _on_Building_ProgBar_building_complete():
 	buildingDeployed = true
 	foodBuildingLevel = 1
@@ -65,8 +91,8 @@ func _on_BuildingMenu_deploy_building_food():
 	var current_ygg_level = get_node("../../").yggdrasilLevel
 	
 	if(foodBuildingLevel < current_ygg_level):
+		emit_signal("deduct_resources_for_food_bldg")
 		if(foodBuildingLevel == 0):
-			emit_signal("deduct_resources_for_food_bldg")
 			self.show()	
 			var checklevelupgradegraphics = self.get_child(2)
 			for child in self.get_children():
@@ -76,7 +102,6 @@ func _on_BuildingMenu_deploy_building_food():
 					for things in child.get_children():
 						things.show()  # replace with function bodypass # replace with function body
 		else:
-			emit_signal("deduct_resources_for_food_bldg")
 			upgrade()
 			
 
@@ -98,3 +123,4 @@ func _on_Levelupbar_food_upgrade_food_bldg_complete():
 
 func _on_VillageScreen_firebase_update_foodBldg(foodBldglvl):
 	foodBuildingLevel = foodBldglvl
+	

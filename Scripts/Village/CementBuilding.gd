@@ -20,6 +20,7 @@ signal notify_max_level_achieved
 var timeCheck = 1
 var timeStart
 var timeSave = false
+var isUpdated = false
 
 func _ready():
 	#Upon initialization, hide the building because it's already placed there
@@ -42,14 +43,39 @@ func _process(delta):
 		if ((OS.get_system_time_secs() - timeStart) == timeCheck):
 			resource_production();
 			timeSave = false
-	
+			
+	if cementBuildingLevel == 1:
+		if isUpdated == false:
+			level_one()
+			isUpdated = true
+	if cementBuildingLevel == 2:
+		if isUpdated == false:
+			level_two()
+			isUpdated = true
+				
 		
 	
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
 
-
+func level_one():
+	buildingDeployed = true
+	emit_signal("buildingIsDeployed")
+	self.show()
+	$BldgImg.visible = true
+	$Building_UI.visible = true
+	$Building_UI/Building_Name.visible = true
+	
+func level_two():
+	buildingDeployed = true
+	emit_signal("buildingIsDeployed")
+	self.show()
+	$BldgImg.visible = true
+	$Building_UI/Building_Name.visible = true
+	self.get_node("LevelupScheme").show()
+	self.get_node("LevelupScheme/level2_cementimg").show()
+	
 func _on_Building_ProgBar_building_complete():
 	buildingDeployed = true
 	cementBuildingLevel = 1
@@ -67,8 +93,8 @@ func _on_BuildingMenu_deploy_building_cement():
 	var current_ygg_level = get_node("../../").yggdrasilLevel
 	
 	if(cementBuildingLevel < current_ygg_level):
+		emit_signal("deduct_resources_for_cement_bldg")
 		if(cementBuildingLevel == 0):
-			emit_signal("deduct_resources_for_cement_bldg")
 			self.show()	
 			var checklevelupgradegraphics = self.get_child(2)
 			for child in self.get_children():
@@ -78,7 +104,6 @@ func _on_BuildingMenu_deploy_building_cement():
 					for things in child.get_children():
 						things.show()  # replace with function bodypass # replace with function body
 		else:
-			emit_signal("deduct_resources_for_cement_bldg")
 			upgrade()
 
 	else:

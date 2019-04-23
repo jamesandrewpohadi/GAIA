@@ -8,7 +8,7 @@
 [ext_resource path="res://UIpack/UI/blue_button07.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Village/yggdrasilLevelLabel.gd" type="Script" id=7]
 
-[node name="YggdrasilMenu" type="Control" index="0"]
+[node name="YggdrasilMenu" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -169,8 +169,8 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="UpgradeButton" type="TouchScreenButton" parent="YggdrasilMenuWindow" index="5"]
 
-position = Vector2( 203.733, 285.971 )
-scale = Vector2( 5.31403, 2.37503 )
+position = Vector2( 40.4441, 284.743 )
+scale = Vector2( 4.6155, 2.37503 )
 normal = ExtResource( 6 )
 pressed = ExtResource( 6 )
 bitmask = null
@@ -187,10 +187,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 257.0
-margin_top = 323.0
-margin_right = 442.0
-margin_bottom = 363.0
+margin_left = 83.0
+margin_top = 317.0
+margin_right = 268.0
+margin_bottom = 357.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -266,6 +266,36 @@ percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
 text = "Yggdrasil Level:"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Resources Requirement" type="RichTextLabel" parent="YggdrasilMenuWindow" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 320.0
+margin_top = 280.0
+margin_right = 661.0
+margin_bottom = 408.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Upgrade Requirements: 100 of each resource"
 scroll_active = true
 scroll_following = false
 selection_enabled = false

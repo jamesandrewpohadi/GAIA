@@ -9,12 +9,13 @@
 [ext_resource path="res://UIpack/UI/red_button08.png" type="Texture" id=7]
 [ext_resource path="res://UIpack/UI/green_button07.png" type="Texture" id=8]
 
-[node name="BuildingMenu" type="Node2D" index="0"]
+[node name="BuildingMenu" type="Node2D"]
 
 script = ExtResource( 1 )
 
 [node name="Building_Menu" type="WindowDialog" parent="." index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

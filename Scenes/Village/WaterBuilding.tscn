@@ -19,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
 
-[node name="WaterBuilding" type="Sprite" index="0"]
+[node name="WaterBuilding" type="Sprite"]
 
 position = Vector2( 535.987, 257.111 )
 script = ExtResource( 1 )

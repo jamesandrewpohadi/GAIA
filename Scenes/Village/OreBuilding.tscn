@@ -199,12 +199,12 @@ _sections_unfolded = [ "Textures" ]
 
 [connection signal="upgrade_ore_building" from="." to="LevelupScheme/Levelupbar_ore" method="_on_OreBuilding_upgrade_ore_building"]
 
-[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
-
 [connection signal="building_complete" from="Building_UI/Building_ProgBar" to="BldgImg" method="_on_Building_ProgBar_building_complete"]
 
-[connection signal="upgrade_ore_bldg_complete" from="LevelupScheme/Levelupbar_ore" to="." method="_on_Levelupbar_ore_upgrade_ore_bldg_complete"]
+[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
 
 [connection signal="upgrade_ore_bldg_complete" from="LevelupScheme/Levelupbar_ore" to="LevelupScheme/level2_oreimg" method="_on_Levelupbar_ore_upgrade_ore_bldg_complete"]
+
+[connection signal="upgrade_ore_bldg_complete" from="LevelupScheme/Levelupbar_ore" to="." method="_on_Levelupbar_ore_upgrade_ore_bldg_complete"]
 
 

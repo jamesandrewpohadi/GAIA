@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/Village/VillageScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Village/Wrapper.gd" type="Script" id=2]
@@ -13,32 +13,35 @@
 [ext_resource path="res://Scripts/Village/YggdrasilStatus.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/Village/TreeBuilding.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/Village/VillageResourcesCounter.gd" type="Script" id=13]
-[ext_resource path="res://Fontpack/Fonts/Kenney Rocket Square.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://Scripts/Village/VillageCamera.gd" type="Script" id=15]
-[ext_resource path="res://Fontpack/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://Scenes/Village/VillageUI.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Village/BuildingMenu.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Village/ResourceMenu.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Village/YggdrasilMenu.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Village/VillagerMenu.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scripts/Village/InsufficientResourceMessage.gd" type="Script" id=22]
-[ext_resource path="res://Scripts/Village/UpgradeSuccess.gd" type="Script" id=23]
-[ext_resource path="res://Scripts/Village/MaxLevelAchievedPopup.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/Village/VillageCamera.gd" type="Script" id=14]
+[ext_resource path="res://Fontpack/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Scenes/Village/VillageUI.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Village/BuildingMenu.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Village/ResourceMenu.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Village/YggdrasilMenu.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Village/VillagerMenu.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripts/Village/InsufficientResourceMessage.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/Village/UpgradeSuccess.gd" type="Script" id=22]
+[ext_resource path="res://Scripts/Village/MaxLevelAchievedPopup.gd" type="Script" id=23]
+[ext_resource path="res://Fontpack/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=24]
+[ext_resource path="res://Kenney_Roguelike_Pack/saveImage.png" type="Texture" id=25]
+[ext_resource path="res://Kenney_Roguelike_Pack/saveImagePressed.png" type="Texture" id=26]
+[ext_resource path="res://Fontpack/Fonts/Kenney Rocket Square.ttf" type="DynamicFontData" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 50
+size = 30
 use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 14 )
+use_filter = true
+font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
 
 size = 30
 use_mipmaps = false
-use_filter = true
-font_data = ExtResource( 16 )
+use_filter = false
+font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -46,7 +49,15 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 16 )
+font_data = ExtResource( 24 )
+_sections_unfolded = [ "Font" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 27 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="VillageScreen" type="Node2D" index="0"]
@@ -120,37 +131,6 @@ position = Vector2( 1154.43, 519.494 )
 
 script = ExtResource( 13 )
 
-[node name="VillageText" type="RichTextLabel" parent="Wrapper" index="11"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -132.0
-margin_top = -76.0
-margin_right = 470.0
-margin_bottom = 77.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 1 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = "VILLAGE"
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
-
 [node name="VillageCamera" type="Camera2D" parent="." index="1"]
 
 position = Vector2( 514.472, 301.651 )
@@ -176,7 +156,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = ExtResource( 15 )
+script = ExtResource( 14 )
 
 [node name="CanvasLayer" type="Control" parent="VillageCamera" index="0"]
 
@@ -213,7 +193,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -240,7 +220,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -250,15 +230,15 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="VillageUI" parent="VillageCamera/CanvasLayer" index="2" instance=ExtResource( 17 )]
+[node name="VillageUI" parent="VillageCamera/CanvasLayer" index="2" instance=ExtResource( 16 )]
 
-[node name="BuildingMenu" parent="VillageCamera/CanvasLayer" index="3" instance=ExtResource( 18 )]
+[node name="BuildingMenu" parent="VillageCamera/CanvasLayer" index="3" instance=ExtResource( 17 )]
 
-[node name="ResourceMenu" parent="VillageCamera/CanvasLayer" index="4" instance=ExtResource( 19 )]
+[node name="ResourceMenu" parent="VillageCamera/CanvasLayer" index="4" instance=ExtResource( 18 )]
 
-[node name="YggdrasilMenu" parent="VillageCamera/CanvasLayer" index="5" instance=ExtResource( 20 )]
+[node name="YggdrasilMenu" parent="VillageCamera/CanvasLayer" index="5" instance=ExtResource( 19 )]
 
-[node name="VillagerMenu" parent="VillageCamera/CanvasLayer" index="6" instance=ExtResource( 21 )]
+[node name="VillagerMenu" parent="VillageCamera/CanvasLayer" index="6" instance=ExtResource( 20 )]
 
 [node name="InsufficientResourceMessage" type="PopupDialog" parent="VillageCamera/CanvasLayer" index="7"]
 
@@ -278,7 +258,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 22 )
+script = ExtResource( 21 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="insufficientResourcesLabel" type="Label" parent="VillageCamera/CanvasLayer/InsufficientResourceMessage" index="0"]
@@ -321,7 +301,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 23 )
+script = ExtResource( 22 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="upgradeSuccessLabel" type="Label" parent="VillageCamera/CanvasLayer/UpgradeSuccess" index="0"]
@@ -363,7 +343,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 24 )
+script = ExtResource( 23 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="maxlevelachieved" type="Label" parent="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" index="0"]
@@ -387,6 +367,86 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="RichTextLabel" type="RichTextLabel" parent="VillageCamera/CanvasLayer" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 823.528
+margin_top = 719.349
+margin_right = 1233.53
+margin_bottom = 759.349
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Click to Save"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Size Flags", "Theme", "custom_colors", "custom_fonts" ]
+
+[node name="SaveButton" type="TouchScreenButton" parent="VillageCamera/CanvasLayer" index="11"]
+
+position = Vector2( 891.184, 633.541 )
+scale = Vector2( 2.61299, 2.74613 )
+normal = ExtResource( 25 )
+pressed = ExtResource( 26 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="VillageText" type="RichTextLabel" parent="VillageCamera/CanvasLayer" index="12"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.47198
+margin_top = -0.651001
+margin_right = 600.528
+margin_bottom = 152.349
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "VILLAGE"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[connection signal="build_request" from="." to="Wrapper/FoodBuilding" method="_on_VillageScreen_build_request"]
+
+[connection signal="build_request" from="." to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageScreen_build_request"]
+
 [connection signal="firebase_update_acadBldg" from="." to="Wrapper/AcademyBuilding" method="_on_VillageScreen_firebase_update_acadBldg"]
 
 [connection signal="firebase_update_cementBldg" from="." to="Wrapper/CementBuilding" method="_on_VillageScreen_firebase_update_cementBldg"]
@@ -396,6 +456,8 @@ max_lines_visible = -1
 [connection signal="firebase_update_oreBldg" from="." to="Wrapper/OreBuilding" method="_on_VillageScreen_firebase_update_oreBldg"]
 
 [connection signal="firebase_update_resources" from="." to="Wrapper/VillageResourcesCounter" method="_on_VillageScreen_firebase_update_resources"]
+
+[connection signal="firebase_update_treeBldg" from="." to="Wrapper/TreeBuilding" method="_on_VillageScreen_firebase_update_treeBldg"]
 
 [connection signal="firebase_update_villagers" from="." to="Wrapper/Villagers" method="_on_VillageScreen_firebase_update_villagers"]
 
@@ -465,11 +527,17 @@ max_lines_visible = -1
 
 [connection signal="notify_upgrade_success" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/UpgradeSuccess" method="_on_YggdrasilStatus_notify_upgrade_success"]
 
+[connection signal="notify_upgrade_success" from="Wrapper/YggdrasilStatus" to="." method="_on_YggdrasilStatus_notify_upgrade_success"]
+
 [connection signal="reject_upgrade_request" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/InsufficientResourceMessage" method="_on_YggdrasilStatus_reject_upgrade_request"]
+
+[connection signal="update_bldgmenu_space" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_YggdrasilStatus_update_bldgmenu_space"]
 
 [connection signal="update_village_system" from="Wrapper/YggdrasilStatus" to="." method="_on_YggdrasilStatus_update_village_system"]
 
 [connection signal="update_yggdrasil_menu" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/YggdrasilMenu" method="_on_YggdrasilStatus_update_yggdrasil_menu"]
+
+[connection signal="update_yggdrasil_menu_space" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_YggdrasilStatus_update_yggdrasil_menu_space"]
 
 [connection signal="notify_max_level_achieved" from="Wrapper/TreeBuilding" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_TreeBuilding_notify_max_level_achieved"]
 
@@ -477,7 +545,11 @@ max_lines_visible = -1
 
 [connection signal="updateSpaceTaken" from="Wrapper/TreeBuilding" to="Wrapper/YggdrasilStatus" method="_on_TreeBuilding_updateSpaceTaken"]
 
+[connection signal="max_level_reached" from="Wrapper/VillageResourcesCounter" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_VillageResourcesCounter_max_level_reached"]
+
 [connection signal="response_to_upgrade_request" from="Wrapper/VillageResourcesCounter" to="Wrapper/YggdrasilStatus" method="_on_VillageResourcesCounter_response_to_upgrade_request"]
+
+[connection signal="update_bldgmenu_resources" from="Wrapper/VillageResourcesCounter" to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageResourcesCounter_update_bldgmenu_resources"]
 
 [connection signal="update_cementResource" from="Wrapper/VillageResourcesCounter" to="VillageCamera/CanvasLayer/ResourceMenu" method="_on_VillageResourcesCounter_update_cementResource"]
 
@@ -499,6 +571,8 @@ max_lines_visible = -1
 
 [connection signal="open_yggdrasil_menu" from="VillageCamera/CanvasLayer/VillageUI" to="VillageCamera/CanvasLayer/YggdrasilMenu" method="_on_VillageUI_open_yggdrasil_menu"]
 
+[connection signal="check_resources" from="VillageCamera/CanvasLayer/BuildingMenu" to="." method="_on_BuildingMenu_check_resources"]
+
 [connection signal="deploy_building_academy" from="VillageCamera/CanvasLayer/BuildingMenu" to="Wrapper/AcademyBuilding" method="_on_BuildingMenu_deploy_building_academy"]
 
 [connection signal="deploy_building_cement" from="VillageCamera/CanvasLayer/BuildingMenu" to="Wrapper/CementBuilding" method="_on_BuildingMenu_deploy_building_cement"]
@@ -514,5 +588,7 @@ max_lines_visible = -1
 [connection signal="insufficient_resources" from="VillageCamera/CanvasLayer/BuildingMenu" to="VillageCamera/CanvasLayer/InsufficientResourceMessage" method="_on_BuildingMenu_insufficient_resources"]
 
 [connection signal="request_to_upgrade_yggdrasil" from="VillageCamera/CanvasLayer/YggdrasilMenu" to="Wrapper/VillageResourcesCounter" method="_on_YggdrasilMenu_request_to_upgrade_yggdrasil"]
+
+[connection signal="pressed" from="VillageCamera/CanvasLayer/SaveButton" to="." method="_on_SaveButton_pressed"]
 
 

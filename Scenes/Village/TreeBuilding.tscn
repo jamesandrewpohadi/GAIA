@@ -18,7 +18,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="TreeBuilding" type="Sprite" index="0"]
+[node name="TreeBuilding" type="Sprite"]
 
 position = Vector2( 535.987, 257.111 )
 script = ExtResource( 1 )
@@ -201,12 +201,12 @@ _sections_unfolded = [ "Textures" ]
 
 [connection signal="upgrade_tree_building" from="." to="LevelupScheme/Levelupbar_Tree" method="_on_TreeBuilding_upgrade_tree_building"]
 
-[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
-
 [connection signal="building_complete" from="Building_UI/Building_ProgBar" to="BldgImg" method="_on_Building_ProgBar_building_complete"]
 
-[connection signal="upgrade_tree_bldg_complete" from="LevelupScheme/Levelupbar_Tree" to="." method="_on_Levelupbar_Tree_upgrade_tree_bldg_complete"]
+[connection signal="building_complete" from="Building_UI/Building_ProgBar" to="." method="_on_Building_ProgBar_building_complete"]
 
 [connection signal="upgrade_tree_bldg_complete" from="LevelupScheme/Levelupbar_Tree" to="LevelupScheme/level2_treeimg" method="_on_Levelupbar_Tree_upgrade_tree_bldg_complete"]
+
+[connection signal="upgrade_tree_bldg_complete" from="LevelupScheme/Levelupbar_Tree" to="." method="_on_Levelupbar_Tree_upgrade_tree_bldg_complete"]
 
 
