@@ -3,7 +3,7 @@ extends Sprite
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var waterBuildingLevel = 0
+var waterBuildingLevel 
 var buildingDeployed = false
 var contaminationPoint = 1 
 var spaceTaken = 2 
@@ -16,9 +16,11 @@ signal updateSpaceTaken
 signal notify_max_level_achieved
 signal deduct_resources_for_water_bldg
 signal upgrade_water_building
+var buildingDeploying
 var timeCheck = 1
 var timeStart
 var timeSave = false
+var isUpdated = false
 
 func _ready():
 	#Upon initialization, hide the building because it's already placed there
@@ -42,19 +44,46 @@ func _process(delta):
 			resource_production();
 			timeSave = false
 	
-		
+	if waterBuildingLevel == 1:
+		if isUpdated == false:
+			level_one()
+			isUpdated = true
+	if waterBuildingLevel == 2:
+		if isUpdated == false:
+			level_two()
+			isUpdated = true
+			
 	
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
 
-
+func level_one():
+	print("water level one")
+	buildingDeployed = true
+	emit_signal("buildingIsDeployed")
+	self.show()
+	$BldgImg.visible = true
+	$Building_UI.visible = true
+	$Building_UI/Building_Name.visible = true
+	
+func level_two():
+	buildingDeployed = true
+	emit_signal("buildingIsDeployed")
+	self.show()
+	$BldgImg.visible = true
+	$Building_UI/Building_Name.visible = true
+	self.get_node("LevelUpScheme").show()
+	self.get_node("LevelUpScheme/level2_waterimg").show()
+	
+	
 func _on_Building_ProgBar_building_complete():
 	buildingDeployed = true
 	emit_signal("buildingIsDeployed")
-	emit_signal("updateSpaceTaken",spaceTaken)
-	emit_signal("contaminationAdd",contaminationPoint)
 	waterBuildingLevel += 1
+	$BldgImg.visible = true
+	$BldgImg.is_visible_in_tree()
+	buildingDeploying = false
 
 
 
@@ -71,21 +100,27 @@ func _on_BuildingMenu_deploy_building_water():
 	var current_ygg_level = get_node("../../").yggdrasilLevel
 	
 	if(waterBuildingLevel < current_ygg_level):
-		if(waterBuildingLevel == 0):
-			self.show()	
-			var checklevelupgradegraphics = self.get_child(2)
-			for child in self.get_children():
-				if child == checklevelupgradegraphics:
-					pass
-				else:				
-					for things in child.get_children():
-						things.show()  # replace with function bodypass # replace with function body
+		if buildingDeploying == true:
+			pass
 		else:
-			upgrade()
-		emit_signal("deduct_resources_for_water_bldg")
+			buildingDeploying = true
+			emit_signal("deduct_resources_for_water_bldg")
+			emit_signal("updateSpaceTaken",spaceTaken)
+			emit_signal("contaminationAdd",contaminationPoint)
+			if (waterBuildingLevel == 0):
+				self.show()	
+				var checklevelupgradegraphics = self.get_child(2)
+				for child in self.get_children():
+					if child == checklevelupgradegraphics:
+						pass
+					else:				
+						for things in child.get_children():
+							things.show()  
+			else:
+				upgrade()
 	else:
 		emit_signal("notify_max_level_achieved") 
-				
+		
 	
 func upgrade():
 	emit_signal("upgrade_water_building")
@@ -97,3 +132,8 @@ func _on_levelupbar_water_upgrade_water_bldg_complete():
 	waterResourceGenerated = waterResourceGenerated * waterBuildingLevel
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("contaminationAdd",contaminationPoint)
+	buildingDeployed = false
+
+
+func _on_VillageScreen_firebase_update_waterBldg(waterBldglvl):
+	waterBuildingLevel = waterBldglvl

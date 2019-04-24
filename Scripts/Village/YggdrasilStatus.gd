@@ -12,13 +12,14 @@ signal reject_upgrade_request
 signal notify_upgrade_success
 signal notify_max_level_achieved
 signal update_village_system
-
+signal update_bldgmenu_space
+var firebaseUpdating = false
 var yggdrasilStatus
 
 func _ready():
 	yggdrasilStatus = [contaminationLevel,yggdrasilLevel,spaceinVillage]
 	emit_signal("update_yggdrasil_menu",yggdrasilStatus)	
-	emit_signal("update_yggdrasil_menu_space",spaceinVillage)
+	#emit_signal("update_yggdrasil_menu_space",spaceinVillage)
 
 func _process(delta):
 	yggdrasilStatus = [contaminationLevel,yggdrasilLevel,spaceinVillage]
@@ -92,3 +93,10 @@ func _on_VillageResourcesCounter_response_to_upgrade_request(ans):
 		
 	else:
 		emit_signal("reject_upgrade_request")
+
+
+func _on_VillageScreen_firebase_update_yggdrasil(yggdrasilArray):
+	yggdrasilLevel = yggdrasilArray[0]
+	contaminationLevel = yggdrasilArray[1]
+	spaceinVillage = yggdrasilArray[2]
+	emit_signal("update_bldgmenu_space",spaceinVillage)

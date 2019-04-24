@@ -12,8 +12,10 @@ signal update_waterResource
 signal update_cementResource
 signal update_foodResource
 signal response_to_upgrade_request
-
-var upgradeReq = 50
+signal update_bldgmenu_resources
+signal max_level_reached
+var isLoggedin = false
+var upgradeReq = 100
 
 
 #func _process(delta):
@@ -21,8 +23,7 @@ var upgradeReq = 50
 #	# Update game logic here.
 #	pass
 func _ready():
-	
-	emit_signal("update_waterResource",waterResource)
+	emit_signal("update_waterResource", waterResource)
 	emit_signal("update_foodResource", foodResource)
 	emit_signal("update_cementResource", cementResource)
 	emit_signal("update_oreResource", oreResource)
@@ -53,15 +54,19 @@ func _on_YggdrasilMenu_request_to_upgrade_yggdrasil():
 	if(oreResource < upgradeReq or foodResource < upgradeReq or cementResource < upgradeReq or waterResource<upgradeReq):
 		emit_signal("response_to_upgrade_request",false)
 	else:
-		oreResource -= upgradeReq
-		waterResource -= upgradeReq
-		foodResource -= upgradeReq
-		cementResource -= upgradeReq
-		emit_signal("update_waterResource",waterResource)
-		emit_signal("update_foodResource", foodResource)
-		emit_signal("update_cementResource", cementResource)
-		emit_signal("update_oreResource", oreResource)
-		emit_signal("response_to_upgrade_request", true)
+		if(self.get_parent().get_parent().yggdrasilLevel >= 2):
+			emit_signal("max_level_reached")
+		else:
+			oreResource -= upgradeReq
+			waterResource -= upgradeReq
+			foodResource -= upgradeReq
+			cementResource -= upgradeReq
+			print("minus resource for upgrade")
+			emit_signal("update_waterResource",waterResource)
+			emit_signal("update_foodResource", foodResource)
+			emit_signal("update_cementResource", cementResource)
+			emit_signal("update_oreResource", oreResource)
+			emit_signal("response_to_upgrade_request", true)
 
 
 
@@ -111,3 +116,17 @@ func _on_AcademyBuilding_deduct_resources_for_academy_bldg():
 	emit_signal("update_cementResource",cementResource)
 	emit_signal("update_oreResource",oreResource)
 	
+
+
+func _on_VillageScreen_firebase_update_resources(resourceArray):
+	cementResource = resourceArray[0]
+	foodResource = resourceArray[1]
+	oreResource = resourceArray[2]
+	waterResource = resourceArray[3]
+	emit_signal("update_waterResource",waterResource)
+	emit_signal("update_foodResource",foodResource)
+	emit_signal("update_cementResource",cementResource)
+	emit_signal("update_oreResource",oreResource)
+	emit_signal("update_bldgmenu_resources",resourceArray)
+
+

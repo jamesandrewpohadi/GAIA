@@ -1,4 +1,5 @@
-extends Label
+extends TextureProgress
+
 
 # class member variables go here, for example:
 # var a = 2
@@ -16,6 +17,6 @@ func _ready():
 
 
 func _on_VillagerMenu_update_villager_menu(villagerStatus):
-	self.text = str(villagerStatus[1])
+	self.value = 50 +  (villagerStatus[1] * 10)
 	self.update()
 

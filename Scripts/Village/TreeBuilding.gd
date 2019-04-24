@@ -18,6 +18,7 @@ signal notify_max_level_achieved
 var timeCheck = 1
 var timeStart
 var timeSave = false
+var isUpdated = false
 
 func _ready():
 	#Upon initialization, hide the building because it's already placed there
@@ -31,13 +32,32 @@ func _ready():
 
 func _process(delta):
 	#Generates resource per the stipulated time
-	pass
+	if treeBuildingLevel == 1:
+		if isUpdated == false:
+			level_one()
+			isUpdated = true
+	if treeBuildingLevel == 2:
+		if isUpdated == false:
+			level_two()
+			isUpdated = true
+
+func level_one():
+	buildingDeployed = true
+	emit_signal("buildingIsDeployed")
+	self.show()
+	$BldgImg.visible = true
+	$Building_UI.visible = true
+	$Building_UI/Building_Name.visible = true
 	
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
-
+func level_two():
+	buildingDeployed = true
+	emit_signal("buildingIsDeployed")
+	self.show()
+	$BldgImg.visible = true
+	$Building_UI/Building_Name.visible = true
+	self.get_node("LevelupScheme").show()
+	self.get_node("LevelupScheme/level2_treeimg").show()
+	
 func _on_Building_ProgBar_building_complete():
 	buildingDeployed = true
 	treeBuildingLevel = 1
@@ -51,6 +71,7 @@ func _on_BuildingMenu_deploy_building_tree():
 	var current_ygg_level = get_node("../../").yggdrasilLevel
 	
 	if(treeBuildingLevel < current_ygg_level):
+		emit_signal("deduct_resources_for_tree_bldg")
 		if(treeBuildingLevel == 0):
 			self.show()	
 			var checklevelupgradegraphics = self.get_child(2)
@@ -62,7 +83,7 @@ func _on_BuildingMenu_deploy_building_tree():
 						things.show()  # replace with function bodypass # replace with function body
 		else:
 			upgrade()
-		emit_signal("deduct_resources_for_tree_bldg")
+
 	else:
 		emit_signal("notify_max_level_achieved") 
 				
@@ -72,7 +93,11 @@ func upgrade():
 
 
 func _on_Levelupbar_Tree_upgrade_tree_bldg_complete():
-	treeBuildingLevel =2
+	treeBuildingLevel = 2
 	contaminationPoint = contaminationPoint * treeBuildingLevel
 	emit_signal("updateSpaceTaken",spaceTaken)
-	emit_signal("contaminationAdd",contaminationPoint)
+	emit_signal("repelContamination",contaminationPoint)
+
+
+func _on_VillageScreen_firebase_update_treeBldg(treebldglvl):
+	treeBuildingLevel = treebldglvl
