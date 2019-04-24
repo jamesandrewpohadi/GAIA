@@ -14,6 +14,7 @@ signal update_foodResource
 signal response_to_upgrade_request
 signal update_bldgmenu_resources
 signal max_level_reached
+signal updateVillageScreen
 var isLoggedin = false
 var upgradeReq = 100
 
@@ -130,3 +131,7 @@ func _on_VillageScreen_firebase_update_resources(resourceArray):
 	emit_signal("update_bldgmenu_resources",resourceArray)
 
 
+
+
+func _on_VillageScreen_update_village_screen():
+	emit_signal("updateVillageScreen",[cementResource,foodResource,oreResource,waterResource])

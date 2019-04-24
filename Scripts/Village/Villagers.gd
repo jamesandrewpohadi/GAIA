@@ -7,8 +7,10 @@ var villagerLevel = 0;
 var villagerHappinessLevel
 var villagerMood = ["Happy","Sick"]
 signal updateVillagerMenu
+signal updateVillageScreen
 var currentContaminationLevel = 0
 var villageStatus = [villagerLevel,villagerHappinessLevel,villagerMood[0]]
+
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -42,3 +44,7 @@ func _on_VillageScreen_firebase_update_villagers(villagerArray):
 	checkVillagerHappinessLevel()
 	emit_signal("updateVillagerMenu", villageStatus)
 	
+
+
+func _on_VillageScreen_update_village_screen():
+	emit_signal("updateVillageScreen",villagerLevel)
