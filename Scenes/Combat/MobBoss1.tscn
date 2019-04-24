@@ -4,11 +4,11 @@
 [ext_resource path="res://Sprites/Boss1/idle.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Boss1/hit1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Boss1/hit2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Boss1/walk1.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Boss1/walk2.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Boss1/walk3.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Boss1/walk4.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Boss1/die.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Boss1/die.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Boss1/walk1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Boss1/walk2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Boss1/walk3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Boss1/walk4.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Boss1/slash1.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Boss1/slash2.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Boss1/slash3.png" type="Texture" id=12]
@@ -26,14 +26,14 @@ animations = [ {
 "name": "hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "die",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
@@ -52,7 +52,7 @@ extents = Vector2( 9.12227, 11.3101 )
 custom_solver_bias = 0.0
 radius = 60.4958
 
-[node name="MobBoss1" type="KinematicBody2D"]
+[node name="MobBoss1" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1

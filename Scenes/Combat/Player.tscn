@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scripts/Combat/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/PlayerSprite/Idle.png" type="Texture" id=2]
@@ -16,27 +16,25 @@
 [ext_resource path="res://Sprites/PlayerSprite/Jump3.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/PlayerSprite/Jump4.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/PlayerSprite/Hit1.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/PlayerSprite/Hit2.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=21]
-[ext_resource path="res://analog/analog.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Sprites/UITextures/Asset 1.png" type="Texture" id=23]
-[ext_resource path="res://Scripts/Combat/TextureProgress.gd" type="Script" id=24]
-[ext_resource path="res://Sprites/UITextures/jumpbutton.png" type="Texture" id=25]
-[ext_resource path="res://analog/small_circle.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/UITextures/Asset 3.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/UITextures/SlashButton.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/UITextures/bar_background.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/UITextures/bar_fill.png" type="Texture" id=30]
-[ext_resource path="res://Scenes/Combat/TextureProgress.gd" type="Script" id=31]
-[ext_resource path="res://Fontpack/Fonts/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=32]
-[ext_resource path="res://Sprites/UITextures/text_experience.png" type="Texture" id=33]
-[ext_resource path="res://Scenes/Combat/Loot.gd" type="Script" id=34]
-[ext_resource path="res://Sprites/Drops/mobdrop.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Drops/BossDrop3x@3x.png" type="Texture" id=36]
-[ext_resource path="res://Scenes/Combat/Camera2D.gd" type="Script" id=37]
+[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=19]
+[ext_resource path="res://analog/analog.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Sprites/UITextures/Asset 1.png" type="Texture" id=21]
+[ext_resource path="res://Scripts/Combat/TextureProgress.gd" type="Script" id=22]
+[ext_resource path="res://Sprites/UITextures/jumpbutton.png" type="Texture" id=23]
+[ext_resource path="res://analog/small_circle.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/UITextures/Asset 3.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/UITextures/SlashButton.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/UITextures/bar_background.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/UITextures/bar_fill.png" type="Texture" id=28]
+[ext_resource path="res://Scenes/Combat/TextureProgress.gd" type="Script" id=29]
+[ext_resource path="res://Fontpack/Fonts/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=30]
+[ext_resource path="res://Sprites/UITextures/text_experience.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/Combat/Loot.gd" type="Script" id=32]
+[ext_resource path="res://Sprites/Drops/mobdrop.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Drops/BossDrop3x@3x.png" type="Texture" id=34]
+[ext_resource path="res://Scenes/Combat/Camera2D.gd" type="Script" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -81,15 +79,10 @@ animations = [ {
 "name": "Hit",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "Punch",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "Hit",
-"speed": 3.0
 } ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -97,10 +90,10 @@ animations = [ {
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 32 )
+font_data = ExtResource( 30 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 208, 168 )
 scale = Vector2( 0.5, 0.75 )
@@ -154,7 +147,7 @@ position = Vector2( -2, 0 )
 scale = Vector2( 4.26666, 2.90909 )
 frames = SubResource( 2 )
 animation = "Jump"
-frame = 3
+frame = 1
 playing = true
 _sections_unfolded = [ "Visibility" ]
 
@@ -184,7 +177,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Mouse" ]
 
-[node name="AnalogLeft" parent="UI/AreaAnalogLeft" index="0" instance=ExtResource( 22 )]
+[node name="AnalogLeft" parent="UI/AreaAnalogLeft" index="0" instance=ExtResource( 20 )]
 
 position = Vector2( 181.803, 257.372 )
 scale = Vector2( 1.31532, 1.32084 )
@@ -220,11 +213,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 23 )
+texture_progress = ExtResource( 21 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 24 )
+script = ExtResource( 22 )
 _sections_unfolded = [ "Grow Direction", "Rect", "Textures" ]
 
 [node name="JumpButtonControl" type="Control" parent="UI" index="2"]
@@ -249,8 +242,8 @@ _sections_unfolded = [ "Mouse" ]
 
 position = Vector2( 9.98254, 5.34009 )
 scale = Vector2( 1.43354, 1.32688 )
-normal = ExtResource( 25 )
-pressed = ExtResource( 26 )
+normal = ExtResource( 23 )
+pressed = ExtResource( 24 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -285,8 +278,8 @@ _sections_unfolded = [ "Mouse" ]
 
 position = Vector2( -1.06372, 5.58307 )
 scale = Vector2( 1.41474, 1.3 )
-normal = ExtResource( 27 )
-pressed = ExtResource( 27 )
+normal = ExtResource( 25 )
+pressed = ExtResource( 25 )
 bitmask = null
 shape = null
 shape_centered = true
@@ -318,7 +311,7 @@ _sections_unfolded = [ "Mouse" ]
 
 position = Vector2( 16.881, 10.5034 )
 scale = Vector2( 1.37908, 1.37908 )
-normal = ExtResource( 28 )
+normal = ExtResource( 26 )
 pressed = null
 bitmask = null
 shape = null
@@ -352,13 +345,13 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 29 )
+texture_under = ExtResource( 27 )
 texture_over = null
-texture_progress = ExtResource( 30 )
+texture_progress = ExtResource( 28 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 31 )
+script = ExtResource( 29 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="LevelText" type="Label" parent="UI/EXPBar" index="0"]
@@ -400,7 +393,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
@@ -430,7 +423,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 34 )
+script = ExtResource( 32 )
 _sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_group_": true
@@ -472,7 +465,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 35 )
+texture = ExtResource( 33 )
 stretch_mode = 0
 
 [node name="MonsterDropText" type="Label" parent="UI/Loot" index="2"]
@@ -512,7 +505,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 36 )
+texture = ExtResource( 34 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
@@ -559,15 +552,15 @@ smoothing_enabled = true
 smoothing_speed = 8.0
 offset_v = 0.0
 offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 editor_draw_screen = true
 editor_draw_limits = true
 editor_draw_drag_margin = false
-script = ExtResource( 37 )
-_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Transform" ]
+script = ExtResource( 35 )
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform" ]
 
 [node name="Timer" type="Timer" parent="." index="6"]
 
