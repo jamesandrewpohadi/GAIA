@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/Combat/MobBoss1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Combat/Mob2.tscn" type="PackedScene" id=8]
 
-[node name="StageOne" type="Node2D"]
+[node name="StageOne" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -77,7 +77,6 @@ _sections_unfolded = [ "Dialog", "Hint", "Popup", "Rect" ]
 
 [node name="PopupDialog" type="Panel" parent="UI" index="2"]
 
-editor/display_folded = true
 visible = false
 show_behind_parent = true
 anchor_left = 0.0

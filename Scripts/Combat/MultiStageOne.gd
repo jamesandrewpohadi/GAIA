@@ -3,7 +3,7 @@ extends Node2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-
+onready var main = get_tree().get_root().get_node("Main")
 var networknode
 
 func _ready():
@@ -60,10 +60,12 @@ func _on_GoBack_pressed():
 #	queue_free()
 #	hide()
 	rpc("goodbye_combat",get_tree().get_network_unique_id())
-
-	for i in get_parent().get_children():
-		if "Village" in i.name:
-			i.show()
+	main.get_node("Village").play()
+	main.get_node("Combat").stop()
+	main.village.show()
+#	for i in get_parent().get_children():
+#		if "Village" in i.name:
+#			i.show()
 	
 sync func goodbye_combat(player_id):
 	if(player_id==1):
@@ -90,6 +92,8 @@ sync func try_again():
 	self.queue_free()
 	
 func _on_TryAgain_pressed():
+	main.get_node("Combat").play()
+	main.get_node("Sad").stop()
 	hide()
 	rpc("try_again")
 	pass
@@ -99,10 +103,12 @@ func _on_GoBack2_pressed():
 #	queue_free()
 	hide()
 	rpc("goodbye_combat",get_tree().get_network_unique_id())
-
-	for i in get_parent().get_children():
-		if "Village" in i.name:
-			i.show()
+	main.get_node("Village").play()
+	main.get_node("Combat").stop()
+	main.village.show()
+#	for i in get_parent().get_children():
+#		if "Village" in i.name:
+#			i.show()
 
 
 func _on_TryAgain2_pressed():

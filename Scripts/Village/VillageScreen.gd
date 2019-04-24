@@ -144,12 +144,16 @@ func _on_VillageUI_open_resource_menu():
 
 func _on_Combat_pressed():
 	firebase_update()
+	main.get_node("Village").stop()
+	main.get_node("Combat").play()
 	var map = load('res://Scenes/Combat/MapScreen.tscn').instance()
 	hide()
 	get_parent().add_child(map)
 
 
 func _on_Social_pressed():
+	main.get_node("Village").stop()
+	main.get_node("Market").play()
 	main.social.show()
 
 
