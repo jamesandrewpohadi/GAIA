@@ -9,6 +9,7 @@ var contaminationPoint = 1 # add into the contamination system later
 var spaceTaken = 2 # add space constraint later
 var foodBuildingLevel = 0
 var isUpdated = false
+var buildingDeploying = false
 
 signal contaminationAdd
 signal resourceCount 
@@ -17,6 +18,7 @@ signal deduct_resources_for_food_bldg
 signal upgrade_food_building
 signal notify_max_level_achieved
 signal buildingIsDeployed
+signal updateVillageScreen
 
 var timeCheck = 1
 var timeStart
@@ -79,8 +81,7 @@ func level_two():
 func _on_Building_ProgBar_building_complete():
 	buildingDeployed = true
 	foodBuildingLevel = 1
-	emit_signal("updateSpaceTaken",spaceTaken)
-	emit_signal("contaminationAdd",contaminationPoint)
+	buildingDeploying = false
 	
 func resource_production():
 	emit_signal("resourceCount", foodResourceGenerated)
@@ -91,20 +92,24 @@ func _on_BuildingMenu_deploy_building_food():
 	var current_ygg_level = get_node("../../").yggdrasilLevel
 	
 	if(foodBuildingLevel < current_ygg_level):
-		emit_signal("deduct_resources_for_food_bldg")
-		if(foodBuildingLevel == 0):
-			self.show()	
-			var checklevelupgradegraphics = self.get_child(2)
-			for child in self.get_children():
-				if child == checklevelupgradegraphics:
-					pass
-				else:				
-					for things in child.get_children():
-						things.show()  # replace with function bodypass # replace with function body
+		if buildingDeploying == true:
+			pass
 		else:
-			upgrade()
-			
-
+			buildingDeploying = true
+			emit_signal("deduct_resources_for_food_bldg")
+			emit_signal("updateSpaceTaken",spaceTaken)
+			emit_signal("contaminationAdd",contaminationPoint)
+			if (foodBuildingLevel == 0):
+				self.show()	
+				var checklevelupgradegraphics = self.get_child(2)
+				for child in self.get_children():
+					if child == checklevelupgradegraphics:
+						pass
+					else:				
+						for things in child.get_children():
+							things.show()  
+			else:
+				upgrade()
 	else:
 		emit_signal("notify_max_level_achieved") 
 				
@@ -118,9 +123,14 @@ func _on_Levelupbar_food_upgrade_food_bldg_complete():
 	foodResourceGenerated = foodResourceGenerated * foodBuildingLevel
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("contaminationAdd",contaminationPoint)
+	buildingDeployed = false
 
 
 
 func _on_VillageScreen_firebase_update_foodBldg(foodBldglvl):
 	foodBuildingLevel = foodBldglvl
 	
+
+
+func _on_VillageScreen_update_village_screen():
+	emit_signal("updateVillageScreen",foodBuildingLevel)

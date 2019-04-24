@@ -16,7 +16,8 @@ signal updateSpaceTaken
 signal notify_max_level_achieved
 signal deduct_resources_for_water_bldg
 signal upgrade_water_building
-var buildingDeploying
+signal updateVillageScreen
+var buildingDeploying = false
 var timeCheck = 1
 var timeStart
 var timeSave = false
@@ -127,7 +128,7 @@ func upgrade():
 
 
 func _on_levelupbar_water_upgrade_water_bldg_complete():
-	waterBuildingLevel +=1
+	waterBuildingLevel =2
 	contaminationPoint = contaminationPoint * waterBuildingLevel
 	waterResourceGenerated = waterResourceGenerated * waterBuildingLevel
 	emit_signal("updateSpaceTaken",spaceTaken)
@@ -137,3 +138,9 @@ func _on_levelupbar_water_upgrade_water_bldg_complete():
 
 func _on_VillageScreen_firebase_update_waterBldg(waterBldglvl):
 	waterBuildingLevel = waterBldglvl
+
+
+
+
+func _on_VillageScreen_update_village_screen():
+	emit_signal("updateVillageScreen",waterBuildingLevel)

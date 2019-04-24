@@ -16,11 +16,13 @@ signal updateSpaceTaken
 signal deduct_resources_for_academy_bldg
 signal notify_max_level_achieved
 signal upgrade_academy_building
+signal updateVillageScreen
 
 var timeCheck = 1
 var timeStart
 var timeSave = false
 var isUpdated = false
+var buildingDeploying = false
 
 func _ready():
 	#Upon initialization, hide the building because it's already placed there
@@ -64,8 +66,7 @@ func _on_Building_ProgBar_building_complete():
 	academyBuildingLevel = 1
 	emit_signal("buildingIsDeployed")
 	emit_signal("updateVillagerStatus",upVillagerLevel)
-	emit_signal("updateSpaceTaken",spaceTaken)
-	emit_signal("contaminationAdd",contaminationPoint)
+	buildingDeployed = false
 
 
 func _on_BuildingMenu_deploy_building_academy():
@@ -73,19 +74,24 @@ func _on_BuildingMenu_deploy_building_academy():
 	var current_ygg_level = get_node("../../").yggdrasilLevel
 	
 	if(academyBuildingLevel < current_ygg_level):
-		emit_signal("deduct_resources_for_academy_bldg")
-		if(academyBuildingLevel == 0):
-			self.show()	
-			var checklevelupgradegraphics = self.get_child(2)
-			for child in self.get_children():
-				if child == checklevelupgradegraphics:
-					pass
-				else:				
-					for things in child.get_children():
-						things.show()  # replace with function bodypass # replace with function body
+		if buildingDeploying == true:
+			pass
 		else:
-			upgrade()
-
+			buildingDeploying = true
+			emit_signal("deduct_resources_for_academy_bldg")
+			emit_signal("updateSpaceTaken",spaceTaken)
+			emit_signal("contaminationAdd",contaminationPoint)
+			if (academyBuildingLevel == 0):
+				self.show()	
+				var checklevelupgradegraphics = self.get_child(2)
+				for child in self.get_children():
+					if child == checklevelupgradegraphics:
+						pass
+					else:				
+						for things in child.get_children():
+							things.show()  
+			else:
+				upgrade()
 	else:
 		emit_signal("notify_max_level_achieved") 
 
@@ -100,7 +106,12 @@ func _on_Levelupbar_academy_upgrade_academy_bldg_complete():
 	emit_signal("updateVillagerStatus",upVillagerLevel)
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("contaminationAdd",contaminationPoint)
+	buildingDeploying = false
 
 
 func _on_VillageScreen_firebase_update_acadBldg(acadBldglvl):
 	academyBuildingLevel = acadBldglvl
+
+
+func _on_VillageScreen_update_village_screen():
+	emit_signal("updateVillageScreen",academyBuildingLevel)

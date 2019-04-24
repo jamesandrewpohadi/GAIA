@@ -40,6 +40,7 @@ signal firebase_update_cementBldg
 signal firebase_update_acadBldg
 signal firebase_update_treeBldg
 signal build_request
+signal update_village_screen
 
 func _ready():
 	database = load("res://Scenes/Social/Database.tscn").instance()
@@ -204,6 +205,7 @@ func firebase_update():
 	
 func update_firebase():
 	print("updating firebase in progress")
+	emit_signal("update_village_screen")
 	database.put("users/"+playerName+"/game/buildings",'{"academyBuilding":'+str(acadBldglvl)+'}')
 	yield(database,"done")
 	database.put("users/"+playerName+"/game/buildings",'{"cementBuilding":'+str(cementBldglvl)+'}')
@@ -232,7 +234,8 @@ func update_firebase():
 	yield(database,"done")
 	database.put("users/"+playerName+"/game", '{"villagerLevel":'+str(villagerLevel)+'}')
 	yield(database,"done")
-	
+	print("update firebase completed!")
+	print("food building is level: ", foodBldglvl)
 	
 	
 func _on_SaveButton_pressed():
@@ -257,3 +260,46 @@ func _on_BuildingMenu_check_resources(resourceArray):
 		emit_signal("build_request",[false, resourceArray[5]])
 	else:
 		emit_signal("build_request",[true,resourceArray[5]])
+
+
+func _on_Villagers_updateVillageScreen(villagersLevel):
+	villagerLevel = villagersLevel
+
+
+func _on_YggdrasilStatus_updateVillageScreen(yggdrasilstatus):
+	yggdrasilLevel = yggdrasilstatus[0]
+	yggdrasilContamination = yggdrasilstatus[1]
+	yggdrasilSpace = yggdrasilstatus[2]
+
+
+func _on_VillageResourcesCounter_updateVillageScreen(resources):
+	cementResource = resources[0]
+	foodResource = resources[1]
+	oreResource = resources[2]
+	waterResource = resources[3]
+
+
+func _on_TreeBuilding_updateVillageScreen(treelvl):
+	treeBldglvl = treelvl
+
+
+func _on_AcademyBuilding_updateVillageScreen(acadlvl):
+	acadBldglvl = acadlvl
+
+
+
+func _on_CementBuilding_updateVillageScreen(cementlvl):
+	cementBldglvl = cementlvl
+
+
+func _on_OreBuilding_updateVillageScreen(orelvl):
+	oreBldglvl = orelvl
+
+
+
+func _on_FoodBuilding_updateVillageScreen(foodlvl):
+	foodBldglvl = foodlvl
+
+
+func _on_WaterBuilding_updateVillageScreen(waterlvl):
+	waterBldglvl = waterlvl

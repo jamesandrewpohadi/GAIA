@@ -13,6 +13,7 @@ signal notify_upgrade_success
 signal notify_max_level_achieved
 signal update_village_system
 signal update_bldgmenu_space
+signal updateVillageScreen
 var firebaseUpdating = false
 var yggdrasilStatus
 
@@ -100,3 +101,7 @@ func _on_VillageScreen_firebase_update_yggdrasil(yggdrasilArray):
 	contaminationLevel = yggdrasilArray[1]
 	spaceinVillage = yggdrasilArray[2]
 	emit_signal("update_bldgmenu_space",spaceinVillage)
+
+
+func _on_VillageScreen_update_village_screen():
+	emit_signal("updateVillageScreen",[yggdrasilLevel,contaminationLevel,spaceinVillage])

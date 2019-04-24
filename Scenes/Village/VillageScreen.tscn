@@ -443,8 +443,6 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[connection signal="build_request" from="." to="Wrapper/FoodBuilding" method="_on_VillageScreen_build_request"]
-
 [connection signal="build_request" from="." to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageScreen_build_request"]
 
 [connection signal="firebase_update_acadBldg" from="." to="Wrapper/AcademyBuilding" method="_on_VillageScreen_firebase_update_acadBldg"]
@@ -467,6 +465,24 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [connection signal="update_space_constraints_in_bldg_menu" from="." to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageScreen_update_space_constraints_in_bldg_menu"]
 
+[connection signal="update_village_screen" from="." to="Wrapper/Villagers" method="_on_VillageScreen_update_village_screen"]
+
+[connection signal="update_village_screen" from="." to="Wrapper/VillageResourcesCounter" method="_on_VillageScreen_update_village_screen"]
+
+[connection signal="update_village_screen" from="." to="Wrapper/YggdrasilStatus" method="_on_VillageScreen_update_village_screen"]
+
+[connection signal="update_village_screen" from="." to="Wrapper/AcademyBuilding" method="_on_VillageScreen_update_village_screen"]
+
+[connection signal="update_village_screen" from="." to="Wrapper/TreeBuilding" method="_on_VillageScreen_update_village_screen"]
+
+[connection signal="update_village_screen" from="." to="Wrapper/CementBuilding" method="_on_VillageScreen_update_village_screen"]
+
+[connection signal="update_village_screen" from="." to="Wrapper/WaterBuilding" method="_on_VillageScreen_update_village_screen"]
+
+[connection signal="update_village_screen" from="." to="Wrapper/FoodBuilding" method="_on_VillageScreen_update_village_screen"]
+
+[connection signal="update_village_screen" from="." to="Wrapper/OreBuilding" method="_on_VillageScreen_update_village_screen"]
+
 [connection signal="update_village_status" from="." to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageScreen_update_village_status"]
 
 [connection signal="update_villager_status" from="." to="Wrapper/Villagers" method="_on_VillageScreen_update_villager_status"]
@@ -481,6 +497,8 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [connection signal="updateSpaceTaken" from="Wrapper/WaterBuilding" to="Wrapper/YggdrasilStatus" method="_on_WaterBuilding_updateSpaceTaken"]
 
+[connection signal="updateVillageScreen" from="Wrapper/WaterBuilding" to="." method="_on_WaterBuilding_updateVillageScreen"]
+
 [connection signal="contaminationAdd" from="Wrapper/FoodBuilding" to="Wrapper/YggdrasilStatus" method="_on_FoodBuilding_contaminationAdd"]
 
 [connection signal="deduct_resources_for_food_bldg" from="Wrapper/FoodBuilding" to="Wrapper/VillageResourcesCounter" method="_on_FoodBuilding_deduct_resources_for_food_bldg"]
@@ -490,6 +508,8 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 [connection signal="resourceCount" from="Wrapper/FoodBuilding" to="Wrapper/VillageResourcesCounter" method="_on_FoodBuilding_resourceCount"]
 
 [connection signal="updateSpaceTaken" from="Wrapper/FoodBuilding" to="Wrapper/YggdrasilStatus" method="_on_FoodBuilding_updateSpaceTaken"]
+
+[connection signal="updateVillageScreen" from="Wrapper/FoodBuilding" to="." method="_on_FoodBuilding_updateVillageScreen"]
 
 [connection signal="contaminationAdd" from="Wrapper/OreBuilding" to="Wrapper/YggdrasilStatus" method="_on_OreBuilding_contaminationAdd"]
 
@@ -501,6 +521,8 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [connection signal="updateSpaceTaken" from="Wrapper/OreBuilding" to="Wrapper/YggdrasilStatus" method="_on_OreBuilding_updateSpaceTaken"]
 
+[connection signal="updateVillageScreen" from="Wrapper/OreBuilding" to="." method="_on_OreBuilding_updateVillageScreen"]
+
 [connection signal="contaminationAdd" from="Wrapper/CementBuilding" to="Wrapper/YggdrasilStatus" method="_on_CementBuilding_contaminationAdd"]
 
 [connection signal="deduct_resources_for_cement_bldg" from="Wrapper/CementBuilding" to="Wrapper/VillageResourcesCounter" method="_on_CementBuilding_deduct_resources_for_cement_bldg"]
@@ -510,6 +532,10 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 [connection signal="resourceCount" from="Wrapper/CementBuilding" to="Wrapper/VillageResourcesCounter" method="_on_CementBuilding_resourceCount"]
 
 [connection signal="updateSpaceTaken" from="Wrapper/CementBuilding" to="Wrapper/YggdrasilStatus" method="_on_CementBuilding_updateSpaceTaken"]
+
+[connection signal="updateVillageScreen" from="Wrapper/CementBuilding" to="." method="_on_CementBuilding_updateVillageScreen"]
+
+[connection signal="updateVillageScreen" from="Wrapper/Villagers" to="." method="_on_Villagers_updateVillageScreen"]
 
 [connection signal="updateVillagerMenu" from="Wrapper/Villagers" to="VillageCamera/CanvasLayer/VillagerMenu" method="_on_Villagers_updateVillagerMenu"]
 
@@ -521,15 +547,19 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [connection signal="updateSpaceTaken" from="Wrapper/AcademyBuilding" to="Wrapper/YggdrasilStatus" method="_on_AcademyBuilding_updateSpaceTaken"]
 
+[connection signal="updateVillageScreen" from="Wrapper/AcademyBuilding" to="." method="_on_AcademyBuilding_updateVillageScreen"]
+
 [connection signal="updateVillagerStatus" from="Wrapper/AcademyBuilding" to="Wrapper/Villagers" method="_on_AcademyBuilding_updateVillagerStatus"]
 
 [connection signal="notify_max_level_achieved" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_YggdrasilStatus_notify_max_level_achieved"]
 
-[connection signal="notify_upgrade_success" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/UpgradeSuccess" method="_on_YggdrasilStatus_notify_upgrade_success"]
-
 [connection signal="notify_upgrade_success" from="Wrapper/YggdrasilStatus" to="." method="_on_YggdrasilStatus_notify_upgrade_success"]
 
+[connection signal="notify_upgrade_success" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/UpgradeSuccess" method="_on_YggdrasilStatus_notify_upgrade_success"]
+
 [connection signal="reject_upgrade_request" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/InsufficientResourceMessage" method="_on_YggdrasilStatus_reject_upgrade_request"]
+
+[connection signal="updateVillageScreen" from="Wrapper/YggdrasilStatus" to="." method="_on_YggdrasilStatus_updateVillageScreen"]
 
 [connection signal="update_bldgmenu_space" from="Wrapper/YggdrasilStatus" to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_YggdrasilStatus_update_bldgmenu_space"]
 
@@ -545,9 +575,13 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [connection signal="updateSpaceTaken" from="Wrapper/TreeBuilding" to="Wrapper/YggdrasilStatus" method="_on_TreeBuilding_updateSpaceTaken"]
 
+[connection signal="updateVillageScreen" from="Wrapper/TreeBuilding" to="." method="_on_TreeBuilding_updateVillageScreen"]
+
 [connection signal="max_level_reached" from="Wrapper/VillageResourcesCounter" to="VillageCamera/CanvasLayer/MaxLevelAchievedPopup" method="_on_VillageResourcesCounter_max_level_reached"]
 
 [connection signal="response_to_upgrade_request" from="Wrapper/VillageResourcesCounter" to="Wrapper/YggdrasilStatus" method="_on_VillageResourcesCounter_response_to_upgrade_request"]
+
+[connection signal="updateVillageScreen" from="Wrapper/VillageResourcesCounter" to="." method="_on_VillageResourcesCounter_updateVillageScreen"]
 
 [connection signal="update_bldgmenu_resources" from="Wrapper/VillageResourcesCounter" to="VillageCamera/CanvasLayer/BuildingMenu" method="_on_VillageResourcesCounter_update_bldgmenu_resources"]
 

@@ -14,7 +14,9 @@ signal updateSpaceTaken
 signal deduct_resources_for_tree_bldg
 signal upgrade_tree_building
 signal notify_max_level_achieved
+signal updateVillageScreen
 
+var buildingDeploying = false
 var timeCheck = 1
 var timeStart
 var timeSave = false
@@ -62,8 +64,7 @@ func _on_Building_ProgBar_building_complete():
 	buildingDeployed = true
 	treeBuildingLevel = 1
 	emit_signal("buildingIsDeployed")
-	emit_signal("updateSpaceTaken",spaceTaken)
-	emit_signal("repelContamination",contaminationPoint) 
+	buildingDeployed = false
 	
 
 func _on_BuildingMenu_deploy_building_tree():
@@ -71,19 +72,24 @@ func _on_BuildingMenu_deploy_building_tree():
 	var current_ygg_level = get_node("../../").yggdrasilLevel
 	
 	if(treeBuildingLevel < current_ygg_level):
-		emit_signal("deduct_resources_for_tree_bldg")
-		if(treeBuildingLevel == 0):
-			self.show()	
-			var checklevelupgradegraphics = self.get_child(2)
-			for child in self.get_children():
-				if child == checklevelupgradegraphics:
-					pass
-				else:				
-					for things in child.get_children():
-						things.show()  # replace with function bodypass # replace with function body
+		if buildingDeploying == true:
+			pass
 		else:
-			upgrade()
-
+			buildingDeploying = true
+			emit_signal("deduct_resources_for_tree_bldg")
+			emit_signal("updateSpaceTaken",spaceTaken)
+			emit_signal("contaminationAdd",contaminationPoint)
+			if (treeBuildingLevel == 0):
+				self.show()	
+				var checklevelupgradegraphics = self.get_child(2)
+				for child in self.get_children():
+					if child == checklevelupgradegraphics:
+						pass
+					else:				
+						for things in child.get_children():
+							things.show()  
+			else:
+				upgrade()
 	else:
 		emit_signal("notify_max_level_achieved") 
 				
@@ -97,7 +103,12 @@ func _on_Levelupbar_Tree_upgrade_tree_bldg_complete():
 	contaminationPoint = contaminationPoint * treeBuildingLevel
 	emit_signal("updateSpaceTaken",spaceTaken)
 	emit_signal("repelContamination",contaminationPoint)
+	buildingDeploying = false
 
 
 func _on_VillageScreen_firebase_update_treeBldg(treebldglvl):
 	treeBuildingLevel = treebldglvl
+
+
+func _on_VillageScreen_update_village_screen():
+	emit_signal("updateVillageScreen",treeBuildingLevel)
