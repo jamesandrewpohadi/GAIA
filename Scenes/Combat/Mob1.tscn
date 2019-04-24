@@ -4,14 +4,14 @@
 [ext_resource path="res://Sprites/Mob1Sprites/Idle.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Mob1Sprites/Hit1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Mob1Sprites/Hit2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Mob1Sprites/Slash2.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Mob1Sprites/Slash.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Mob1Sprites/Slash3.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Mob1Sprites/ded.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Mob1Sprites/Walk1.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Mob1Sprites/Walk2.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Mob1Sprites/Walk3.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Mob1Sprites/Walk4.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Mob1Sprites/Walk1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Mob1Sprites/Walk2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Mob1Sprites/Walk3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Mob1Sprites/Walk4.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Mob1Sprites/ded.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Mob1Sprites/Slash2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Mob1Sprites/Slash.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Mob1Sprites/Slash3.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -26,20 +26,20 @@ animations = [ {
 "name": "hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "attack",
-"speed": 10.0
+"name": "walk",
+"speed": 6.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "die",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "walk",
-"speed": 6.0
+"name": "attack",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

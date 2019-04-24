@@ -33,14 +33,15 @@ func _on_CloseButton_pressed():
 
 func _on_SoloButton_pressed():
 	dungeonMenu.hide()
-	hide()
-	queue_free()
 	var stageOne = load('res://Scenes/Combat/StageOne.tscn').instance()
 	var player = load('res://Scenes/Combat/Player.tscn').instance()
 	player.position=Vector2(50,500)
 	player.set_network_master(get_tree().get_network_unique_id()) #set unique id as master
 	stageOne.add_child(player)
 	get_tree().get_root().get_node("Main").add_child(stageOne)
+	hide()
+	queue_free()
+	
 
 
 

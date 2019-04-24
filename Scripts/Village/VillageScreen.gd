@@ -145,23 +145,28 @@ func _on_VillageUI_open_resource_menu():
 
 func _on_Combat_pressed():
 	firebase_update()
+	main.get_node("Village").stop()
+	main.get_node("Combat").play()
 	var map = load('res://Scenes/Combat/MapScreen.tscn').instance()
-	hide()
 	get_parent().add_child(map)
+	hide()
 
 
 func _on_Social_pressed():
+	main.get_node("Village").stop()
+	main.get_node("Market").play()
 	main.social.show()
 
 
 func _on_Network_login_success(player_name):
+	print("login ticheng")
 	isLoggedin = true
 	playerName = player_name
 	firebase_update()
 
 	
 func firebase_update():
-	database.query("users/"+playerName+"/game/")
+	database.query("users/"+main.network.player_name+"/game/")
 	yield(database,"done")
 	var data = database.res
 	print("Data is :", data)
@@ -169,7 +174,7 @@ func firebase_update():
 	yggdrasilContamination = int(data["contamination"])
 	yggdrasilSpace = int(data["space"])
 	villagerLevel = int(data["villagerLevel"])
-	database.query("users/"+playerName+"/game/buildings")
+	database.query("users/"+main.network.player_name+"/game/buildings")
 	yield(database,"done")
 	data = database.res
 	acadBldglvl = int(data["academyBuilding"])

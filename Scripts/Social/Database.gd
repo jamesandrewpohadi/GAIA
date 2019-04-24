@@ -29,11 +29,10 @@ func _ready():
 	#init_player("jaexp","jaexp.bots@gmail.com")
 	#var name = "jaexp"
 	#var mail = 'jaexp.bots@gmail.com'
+	pass
 	
 	#put("users/jaexp", '{"GRO":1000,"game":{"friends":"","mangrove":100,"market":{"cement":10,"food":10,"ore":10,"water":10},"population":100,"resources":{"cement":10,"food":10,"ore":10,"water":10},"wealth":100},"mail":jaexp.bots@gmail.com}')
 	#init_player(name, mail)
-	#put("users/jaexp", '{"GRO":1000,"game":{"friends":"","mangrove":100,"market":{"cement":10,"food":10,"ore":10,"water":10},"population":100,"resources":{"cement":10,"food":10,"ore":10,"water":10},"wealth":100},"mail":'+'"jaexp.bots@gmail.com"'+'}')
-	pass
 	#put("user/"+name,'{"G":1000,"g":{"f":"","m":100,"m":{"c":10,"f":10,"o":10,"w":10},"p":100,"r":{"c":10,"f":10,"o":10,"w":10},"w":100},"m":'+mail+'}')
 	
 func init_player(name, mail):
@@ -45,5 +44,6 @@ func push():
 func _on_Database_request_completed(result, response_code, headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
 	res = json.result
+	print(json.result)
 	emit_signal("done")
 	#print(json.result)

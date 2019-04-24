@@ -15,6 +15,9 @@ func _ready():
 		child.queue_free()
 	database.query("users")
 	yield(database,"done")
+	print("database")
+	print(database.res)
+	
 	var i = 0
 	var global_players = []
 	for player in database.res.keys():
@@ -75,6 +78,8 @@ func _on_Back_pressed():
 		var curr_node = view.pop_back()
 		curr_node.hide()
 	else:
+		main.get_node("Village").play()
+		main.get_node("Market").stop()
 		hide()
 
 

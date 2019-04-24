@@ -30,6 +30,16 @@ var invincible = false
 
 export var health = 3
 
+# LEVELING SYSTEM
+export (int) var level = 1
+
+signal experience_gained(growth_data)
+var experience = 0
+var experience_total = 0
+var experience_required = get_required_experience(level + 1)
+
+signal on_loot(dropname)
+
 #signal on_health_changed(healthvalue)
 
 const AOISLASHU = preload("res://Scenes/Combat/BlueSlash.tscn")
@@ -41,6 +51,7 @@ slave var puppet_motion = Vector2()
 
 slave var puppet_isdead = false
 slave var puppet_health = health
+onready var main = get_tree().get_root().get_node("Main")
 
 var networknode 
 
@@ -50,6 +61,8 @@ func _ready():
 		for i in $UI.get_children():
 			i.hide()
 #	emit_signal("on_health_changed",health)
+	$UI/EXPBar.initialize(experience,experience_required)
+	$UI/EXPBar/LevelText.text = "Level "+ String(level)
 	timer = Timer.new()
 	timer.set_one_shot(true)
 	timer.set_wait_time(jumpdelay)
@@ -75,6 +88,11 @@ func _process(delta):
 	if (is_network_master()):
 		$PlayerCam.make_current()
 		if is_dead == false:
+			if(invincible):
+		        # Halve opacity every uneven frame counts
+		        self.modulate.a = 0.5 if Engine.get_frames_drawn() % 2 == 0 else 1.0
+			else:
+				self.modulate.a = 1.0
 			
 			
 			
@@ -191,6 +209,12 @@ func _process(delta):
 		elif (is_dead == true):
 			$AnimatedSprite.play("Dead")
 	else:
+		if(invincible):
+			 # Halve opacity every uneven frame counts
+		   self.modulate.a = 0.5 if Engine.get_frames_drawn() % 2 == 0 else 1.0
+		else:
+			self.modulate.a = 1.0
+		
 		position = puppet_pos
 		motion = puppet_motion
 		
@@ -270,6 +294,8 @@ func _on_Timer_timeout():
 				playerlivecount +=1
 	if (playerlivecount==0):
 		get_parent().get_node('UI/PopupDialog').show()
+		main.get_node("Sad").play()
+		main.get_node("Combat").stop()
 
 func analog_force_change(inForce, inStick):
 	if(inStick.get_name()=="AnalogRight") or (inStick.get_name()=="AnalogLeft"):
@@ -333,3 +359,44 @@ remote func AoiSlashu():
 			get_parent().add_child(AoiSlash)
 			AoiSlash.position = $Position2D.global_position
 	pass # replace with function body
+	
+func get_required_experience(level):
+	return round(pow(level, 1.8) + level * 4)
+
+func gain_experience(amount):
+	experience_total += amount
+	experience += amount
+	var growth_data = []
+	while experience >= experience_required:
+		experience -= experience_required
+		growth_data.append([experience_required, experience_required])
+		level_up()
+	growth_data.append([experience, experience_required])
+	emit_signal("experience_gained", growth_data)
+	
+
+func level_up():
+	$UI/EXPBar/LevelText.text = "Level "+ String(level)
+	level += 1
+	experience_required = get_required_experience(level + 1)
+	
+func loot(DropName):
+	emit_signal("on_loot",DropName)
+	print("Player looting!")
+	pass
+#	for nodes in $UI/Loot.get_children():
+#		if DropName+"Text" in nodes.name:
+##			("Debugging loot")
+#			var dropcount = int(nodes.text)
+#			dropcount += 1
+#			nodes.text = str(dropcount)
+#	for players in get_parent().get_children():
+#		if "Player" in players.name:
+#			var playid = players.get_network_master()
+#			if (self.get_network_master()!=self.get_network_master()):
+#				rpc_id(playid,"loot",DropName)
+	
+
+#	var stats = ['max_hp', 'strength', 'magic']
+#	var random_stat = stats[randi() % stats.size()]
+#	set(random_stat, get(random_stat) + randi() % 4)
