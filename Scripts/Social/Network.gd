@@ -32,6 +32,7 @@ func _on_Join(host, port, name):
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
 	player_info[player_id] = my_info
+	main.village._on_Network_login_success(main.network.player_name)
 	emit_signal("login_success", player_name)
 	
 func _on_Host(host, name):
@@ -41,11 +42,8 @@ func _on_Host(host, name):
 	player_id = str(get_tree().get_network_unique_id())
 	my_info["name"] = player_name
 	player_info[player_id] = my_info
-<<<<<<< HEAD
 	emit_signal("login_success", player_name)
-=======
 	main.get_node("Village").play()
->>>>>>> jamesfinal
 	#main.welcome.hide()
 	#main.village.get_node("VillageCamera/CanvasLayer/VillageUI").show()
 	#main.village.is_village = true
@@ -69,6 +67,7 @@ func _player_disconnected(id):
 func _connected_ok():
 	print("you have connected to a server")
 	rpc('register_player', int(player_id), my_info)
+	main.village._on_Network_login_success(main.network.player_name)
 	main.village.get_node("Village").play()
 	
 	

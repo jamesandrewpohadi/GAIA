@@ -15,6 +15,9 @@ func _ready():
 		child.queue_free()
 	database.query("users")
 	yield(database,"done")
+	print("database")
+	print(database.res)
+	
 	var i = 0
 	var global_players = []
 	for player in database.res.keys():

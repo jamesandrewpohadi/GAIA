@@ -12,3 +12,4 @@ func _ready():
 	#print(IP.get_local_addresses()[11])
 	pass
 	
+

@@ -60,7 +60,7 @@ use_filter = false
 font_data = ExtResource( 27 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="VillageScreen" type="Node2D" index="0"]
+[node name="VillageScreen" type="Node2D"]
 
 position = Vector2( 136, 75 )
 script = ExtResource( 1 )

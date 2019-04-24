@@ -11,7 +11,6 @@
 [ext_resource path="res://Sprites/PlayerSprite/Slash3.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/PlayerSprite/Dead1.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/PlayerSprite/Dead2.png" type="Texture" id=11]
-<<<<<<< HEAD
 [ext_resource path="res://Sprites/PlayerSprite/Jump1.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/PlayerSprite/Jump2.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/PlayerSprite/Jump3.png" type="Texture" id=14]
@@ -22,18 +21,6 @@
 [ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=21]
-=======
-[ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/PlayerSprite/Jump1.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/PlayerSprite/Jump2.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/PlayerSprite/Jump3.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/PlayerSprite/Jump4.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/PlayerSprite/Hit1.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/PlayerSprite/Hit2.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=21]
->>>>>>> jamesfinal
 [ext_resource path="res://analog/analog.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Sprites/UITextures/Asset 1.png" type="Texture" id=23]
 [ext_resource path="res://Scripts/Combat/TextureProgress.gd" type="Script" id=24]
@@ -89,21 +76,12 @@ animations = [ {
 "name": "Fall",
 "speed": 0.0
 }, {
-<<<<<<< HEAD
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "Hit",
 "speed": 3.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 20 ) ],
-=======
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "Punch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
->>>>>>> jamesfinal
 "loop": true,
 "name": "Punch",
 "speed": 5.0
@@ -114,7 +92,6 @@ animations = [ {
 "speed": 3.0
 } ]
 
-<<<<<<< HEAD
 [sub_resource type="DynamicFont" id=3]
 
 size = 40
@@ -123,8 +100,6 @@ use_filter = false
 font_data = ExtResource( 32 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
 
-=======
->>>>>>> jamesfinal
 [node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 208, 168 )

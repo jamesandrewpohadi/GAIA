@@ -14,7 +14,7 @@
 [ext_resource path="res://music/Naruto OST 1 -  Sadness and Sorrow.ogg" type="AudioStream" id=12]
 [ext_resource path="res://music/Naruto Soundtrack - [Victory].ogg" type="AudioStream" id=13]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -35,8 +35,6 @@ visible = false
 [node name="Notification" parent="." index="5" instance=ExtResource( 7 )]
 
 [node name="Database" parent="." index="6" instance=ExtResource( 8 )]
-
-[connection signal="login_success" from="Network" to="VillageScreen" method="_on_Network_login_success"]
 
 [node name="Village" type="AudioStreamPlayer" parent="." index="7"]
 
@@ -82,5 +80,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[connection signal="login_success" from="Network" to="VillageScreen" method="_on_Network_login_success"]
 
 
