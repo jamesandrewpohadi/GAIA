@@ -14,12 +14,14 @@ onready var socketUDP = PacketPeerUDP.new()
 
 func _ready():
 	print(IP.get_local_addresses())
-	if (socketUDP.listen(PORT_SERVER) != OK):
-		printt("Error listening on port: " + str(PORT_SERVER) + " in server: " + "127.0.0.1")
-	else:
-		printt("Listening on port: " + str(PORT_SERVER) + " in server: " + "127.0.0.1")
-	$InputHost.text = str(IP.resolve_hostname("localhost",1))
-	pass
+	print("1.2.3.4".split("."))
+	for ip in IP.get_local_addresses():
+		var paths = ip.split(".")
+		if (paths.size() == 4):
+			if !(paths[0] == "169" || paths[0] == "192" || paths[3] == "1"):
+				$InputHost.text = ip
+				print(ip)
+				break 
 
 func _process(delta):
 	if socketUDP.get_available_packet_count() > 0:

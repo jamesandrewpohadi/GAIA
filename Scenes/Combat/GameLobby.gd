@@ -6,8 +6,10 @@ extends Control
 var Playerinfo
 var Playernames
 
+const PtMemberStatusScn = preload("res://Scenes/Combat/PtMemberStatus.tscn")
 var IconTexture = preload("res://icon.png")
 var networknode
+
 func _ready():
 	print(self.get_path())
 	if(get_tree().get_network_unique_id()!=1):
@@ -54,18 +56,17 @@ remote func _on_StartButton_pressed():
 		
 		var player = player_scene.instance()
 		
+		if(p_id!=get_tree().get_network_unique_id()):
+			var PtMemberStatus = PtMemberStatusScn.instance()
+			PtMemberStatus.set_network_master(p_id)
+			world.get_node("UI/PartyStatus").add_child(PtMemberStatus)
+		
+		
 		
 		player.set_name(str("Player")+str(p_id)) # Use unique ID as node name
 		
 		player.position=Vector2(50+rand_range(0,20),500+rand_range(0,20))
 		player.set_network_master(p_id) #set unique id as master
-
-#		if p_id == get_tree().get_network_unique_id():
-#			# If node for this peer id, set name
-#			player.set_player_name(player_name)
-#		else:
-#			# Otherwise set name from peer
-#			player.set_player_name(players[p_id])
 
 		world.add_child(player)
 		print("Player " + str(p_id) + " added in the game")

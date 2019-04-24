@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Social/Social.gd" type="Script" id=1]
 [ext_resource path="res://Fontpack/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Scenes/Social/Market.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Social/Wish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Social/Global.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Social/Friends.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Social/Market.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Social/Wish.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -246,6 +248,7 @@ scroll_horizontal = 0
 scroll_vertical_enabled = true
 scroll_vertical = 0
 scroll_deadzone = 0
+script = ExtResource( 3 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="List" type="VBoxContainer" parent="Interact/Global" index="0"]
@@ -283,6 +286,7 @@ scroll_horizontal = 0
 scroll_vertical_enabled = true
 scroll_vertical = 0
 scroll_deadzone = 0
+script = ExtResource( 4 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="List" type="VBoxContainer" parent="Interact/Friends" index="0"]
@@ -300,11 +304,11 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Market" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Market" parent="." index="2" instance=ExtResource( 5 )]
 
 visible = false
 
-[node name="Wish" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Wish" parent="." index="3" instance=ExtResource( 6 )]
 
 visible = false
 

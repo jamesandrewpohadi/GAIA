@@ -15,12 +15,15 @@ func _ready():
 		child.queue_free()
 	database.query("users")
 	yield(database,"done")
-	print("test")
-	print(database.res.keys())
 	var i = 0
+	var global_players = []
 	for player in database.res.keys():
+		print(player)
+		global_players.append([player, database.res[player]["game"]["contamination"]])
+	global_players.sort_custom(MyCustomSorter, "sort")
+	for player in global_players:
 		i+= 1
-		addGlobal(player, i, database.res[player]["game"]["contamination"])
+		addGlobal(player[0], i, player[1])
 
 func update():
 	for child in $Interact/Friends/List.get_children():
@@ -89,3 +92,10 @@ func _on_Interact_pressed():
 func _on_Market_pressed():
 	view.push_back(get_node("Market"))
 	$Market.show()
+	
+class MyCustomSorter:
+	static func sort(a,b):
+		if a[1] < b[1]:
+			return true
+		else:
+			return false

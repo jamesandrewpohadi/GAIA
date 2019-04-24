@@ -1,6 +1,7 @@
 extends Area2D
 
 var direction = 1
+var executed = false
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -18,12 +19,16 @@ func _physics_process(delta):
 
 func _on_BlueSlash_body_entered(body):
 	if "Mob" in body.name:
-		body.rpc("dead")
-		$Duration.start()
-		#Player = get_parent()
-		#Player.shotlimit += 1
+		if executed == false:
+			body.rpc("dead")
+			body.motion.x = -15*body.motion.x
+			$Duration.start()
+			#Player = get_parent()
+			#Player.shotlimit += 1
+			executed = true
 	else:
-		$Duration.start()
+		if executed == false:
+			$Duration.start()
 
 func _on_Duration_timeout():
 	queue_free()

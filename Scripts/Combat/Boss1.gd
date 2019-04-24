@@ -48,6 +48,9 @@ sync func dead():
 		health-=1
 	if(health==0):
 		is_dead = true
+		for nodes in get_parent().get_children():
+			if "Player" in nodes.name:
+				nodes.gain_experience(50)
 		motion = Vector2(0,0)
 		$AnimatedSprite.play("die")
 		$CollisionShape2D.disabled = true
