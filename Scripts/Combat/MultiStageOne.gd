@@ -97,6 +97,7 @@ sync func goodbye_combat(player_id):
 sync func try_again():
 	main.get_node("Combat").play()
 	main.get_node("Sad").stop()
+	main.get_node("Aggression").stop()
 	main.get_node("Victory").stop()
 	networknode = get_tree().get_root().get_node("Main/Network")
 	networknode._player_lobby_entered(get_tree().get_network_unique_id())
@@ -109,6 +110,7 @@ func _on_TryAgain_pressed():
 	main.get_node("Combat").play()
 	main.get_node("Sad").stop()
 	main.get_node("Victory").stop()
+	main.get_node("Aggression").stop()
 	hide()
 	rpc("try_again")
 	pass
@@ -121,6 +123,7 @@ func _on_GoBack2_pressed():
 	main.get_node("Village").play()
 	main.get_node("Combat").stop()
 	main.get_node("Aggression").stop()
+	main.get_node("Victory").stop()
 	main.village.show()
 #	for i in get_parent().get_children():
 #		if "Village" in i.name:
@@ -130,6 +133,7 @@ func _on_GoBack2_pressed():
 func _on_TryAgain2_pressed():
 	main.get_node("Combat").play()
 	main.get_node("Sad").stop()
+	main.get_node("Aggression").stop()
 	main.get_node("Victory").stop()
 	hide()
 	rpc("try_again")

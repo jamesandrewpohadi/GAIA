@@ -34,7 +34,6 @@ func _on_ConfirmationDialog_confirmed():
 	main.get_node("Combat").stop()
 	main.get_node("Aggression").stop()
 	main.get_node("Sad").stop()
-	main.get_node("Victory").stop()
 	main.village.show()
 #	for i in get_parent().get_children():
 #		if "Village" in i.name:
@@ -79,8 +78,8 @@ func _on_GoBack_pressed():
 	
 func _on_TryAgain_pressed():
 	main.get_node("Combat").play()
+	main.get_node("Aggression").stop()
 	main.get_node("Sad").stop()
-	main.get_node("Victory").stop()
 	hide()
 	queue_free()
 	var stageOne = load('res://Scenes/Combat/StageOne.tscn').instance()
@@ -129,7 +128,8 @@ func _on_GoBack2_pressed():
 	main.get_node("Village").play()
 	main.get_node("Combat").stop()
 	main.get_node("Aggression").stop()
-	main.village.hide()
+	main.get_node("Victory").stop()
+	main.village.show()
 #	for i in get_parent().get_children():
 #		if "Village" in i.name:
 #			i.show()
@@ -138,6 +138,7 @@ func _on_GoBack2_pressed():
 func _on_TryAgain2_pressed():
 	main.get_node("Sad").stop()
 	main.get_node("Victory").stop()
+	main.get_node("Aggression").stop()
 	main.get_node("Combat").play()
 	hide()
 	queue_free()

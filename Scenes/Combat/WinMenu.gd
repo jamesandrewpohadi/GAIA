@@ -20,8 +20,8 @@ func _on_MobBoss1_on_boss_dead():
 	main.get_node("Victory").play()
 	main.get_node("Aggression").stop()
 	main.get_node("Combat").stop()
-	for i in get_parent().get_parent().get_children():
-		if "Player" in i.name:
-			i.get_node("UI/AreaAnalogLeft/AnalogLeft").set_process_input(false)
+#	for i in get_parent().get_parent().get_children():
+#		if "Player" in i.name:
+#			i.get_node("UI/AreaAnalogLeft/AnalogLeft").set_process_input(false)
 	show()
 	pass # replace with function body
