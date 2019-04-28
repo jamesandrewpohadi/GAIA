@@ -15,7 +15,7 @@
 [ext_resource path="res://music/Naruto Soundtrack - [Victory].ogg" type="AudioStream" id=13]
 [ext_resource path="res://music/Epic Dark Battle Music - Escape [Powerful Fantasy Horror by Ebunny].ogg" type="AudioStream" id=14]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
