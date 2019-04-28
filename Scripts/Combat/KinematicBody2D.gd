@@ -135,6 +135,7 @@ func _process(delta):
 							motion.y -= up
 							can_jump=false
 							$AnimatedSprite.play("Jump")
+							$Jump.play()
 							timer.start()
 					else:
 						$AnimatedSprite.play("Run")
@@ -146,12 +147,14 @@ func _process(delta):
 							motion.y -= up
 							can_jump=false
 							$AnimatedSprite.play("Jump")
+							$Jump.play()
 							timer.start()
 				elif (Input.is_action_pressed("btn_up") && can_jump):
 					print("jump!")
 					motion.y -= up
 					can_jump=false
 					$AnimatedSprite.play("Jump")
+					$Jump.play()
 					timer.start()
 				else:
 					$AnimatedSprite.play("Idle")
@@ -222,6 +225,7 @@ func _process(delta):
 			$AnimatedSprite.play("Idle")
 		if motion.y < 0:
 			$AnimatedSprite.play("Jump")
+			$Jump.play()
 		if motion.y > 0:
 			$AnimatedSprite.play("Fall")
 		if motion.x < 0:
@@ -306,7 +310,7 @@ func analog_force_change(inForce, inStick):
 		
 		#Convert analog velocity to 0 , 1 , -1 
 		analog_velocity = analog_velocity.normalized()
-#		analog_velocity.x = int(round(analog_velocity.x))
+#		analog_velocity.x = int(round(analog_velocity.x)
 #		analog_velocity.y = int(round(analog_velocity.y))
 		
 		analog_velocity.x = stepify(analog_velocity.x, 1)
@@ -343,6 +347,7 @@ func _on_SlashTimer_timeout():
 
 
 sync func _on_TouchScreenButton_pressed():
+	
 	if get_tree().get_network_unique_id() in networknode.players_incombat:
 		for i in networknode.players_incombat:
 			rpc_id(i,"AoiSlashu")

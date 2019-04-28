@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Social/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Social/Network.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://music/Celtic Battle Music - Boudicca.ogg" type="AudioStream" id=11]
 [ext_resource path="res://music/Naruto OST 1 -  Sadness and Sorrow.ogg" type="AudioStream" id=12]
 [ext_resource path="res://music/Naruto Soundtrack - [Victory].ogg" type="AudioStream" id=13]
+[ext_resource path="res://music/Epic Dark Battle Music - Escape [Powerful Fantasy Horror by Ebunny].ogg" type="AudioStream" id=14]
 
 [node name="Main" type="Node"]
 
@@ -39,7 +40,7 @@ visible = false
 [node name="Village" type="AudioStreamPlayer" parent="." index="7"]
 
 stream = ExtResource( 9 )
-volume_db = 0.0
+volume_db = 3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -48,7 +49,7 @@ bus = "Master"
 [node name="Market" type="AudioStreamPlayer" parent="." index="8"]
 
 stream = ExtResource( 10 )
-volume_db = 0.0
+volume_db = 3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -57,7 +58,7 @@ bus = "Master"
 [node name="Combat" type="AudioStreamPlayer" parent="." index="9"]
 
 stream = ExtResource( 11 )
-volume_db = 0.0
+volume_db = 6.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -66,7 +67,7 @@ bus = "Master"
 [node name="Sad" type="AudioStreamPlayer" parent="." index="10"]
 
 stream = ExtResource( 12 )
-volume_db = 0.0
+volume_db = 3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -75,6 +76,15 @@ bus = "Master"
 [node name="Victory" type="AudioStreamPlayer" parent="." index="11"]
 
 stream = ExtResource( 13 )
+volume_db = 3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Aggression" type="AudioStreamPlayer" parent="." index="12"]
+
+stream = ExtResource( 14 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

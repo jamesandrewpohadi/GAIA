@@ -7,6 +7,7 @@ var dungeonMenu
 var player_id
 signal on_lobby_entered
 var networknode
+onready var main = get_tree().get_root().get_node("Main")
 
 func _ready():
 	networknode = get_tree().get_root().get_node("Main/Network")
@@ -47,6 +48,10 @@ func _on_SoloButton_pressed():
 
 
 func _on_Exit_pressed():
+	main.get_node("Village").play()
+	main.get_node("Combat").stop()
+	main.get_node("Victory").stop()
+	main.get_node("Sad").stop()
 	get_parent().get_parent().village.show()
 	get_parent().hide()
 	get_parent().queue_free()

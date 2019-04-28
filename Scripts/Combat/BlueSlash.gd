@@ -7,6 +7,7 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	$Duration.start()
+	$Slash.play()
 	pass
 	
 func set_slash_direction(dir):

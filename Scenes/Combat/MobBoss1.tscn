@@ -52,7 +52,7 @@ extents = Vector2( 9.12227, 11.3101 )
 custom_solver_bias = 0.0
 radius = 60.4958
 
-[node name="MobBoss1" type="KinematicBody2D" index="0"]
+[node name="MobBoss1" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1

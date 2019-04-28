@@ -32,6 +32,7 @@ signal on_boss_dead()
 
 slave var puppet_pos = Vector2()
 slave var puppet_motion = Vector2()
+onready var main = get_tree().get_root().get_node("Main")
 
 var networknode
 
@@ -192,8 +193,12 @@ sync func set_aggression(boolean,aggroplayer=null):
 			player = aggroplayer
 	if boolean == true :
 		self.aggro = true
+		main.get_node("Aggression").play()
+		main.get_node("Combat").stop()
 	elif boolean == false:
 		self.aggro = false
+		main.get_node("Aggression").stop()
+		main.get_node("Combat").play()
 	
 
 sync func _on_Timer_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Combat/hadouken.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/SkillSprites/Hadouken/Water__01.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/SkillSprites/Hadouken/Water__03.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/SkillSprites/Hadouken/Water__04.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/SkillSprites/Hadouken/Water__05.png" type="Texture" id=6]
+[ext_resource path="res://music/Fireball3.ogg" type="AudioStream" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -43,7 +44,6 @@ _sections_unfolded = [ "Collision", "Visibility" ]
 scale = Vector2( 0.551667, 0.551667 )
 frames = SubResource( 1 )
 animation = "HADOUKEN"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
@@ -54,6 +54,15 @@ shape = SubResource( 2 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
 
 rect = Rect2( -10, -10, 20, 20 )
+
+[node name="Hadouken" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Slash"
 
 [connection signal="body_entered" from="." to="." method="_on_WaterGun_body_entered"]
 

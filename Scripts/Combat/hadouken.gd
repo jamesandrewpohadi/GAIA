@@ -13,6 +13,7 @@ var Player
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	$Hadouken.play()
 	pass
 
 func set_fireball_direction(dir):

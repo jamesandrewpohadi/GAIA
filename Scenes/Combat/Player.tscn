@@ -1,24 +1,24 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scripts/Combat/KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/PlayerSprite/Idle.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/PlayerSprite/Run1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/PlayerSprite/Run2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/PlayerSprite/Run3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/PlayerSprite/Run4.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/PlayerSprite/Slash2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/PlayerSprite/Slash1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/PlayerSprite/Slash3.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/PlayerSprite/Dead1.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/PlayerSprite/Dead2.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/PlayerSprite/Jump1.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/PlayerSprite/Jump2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/PlayerSprite/Jump3.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/PlayerSprite/Jump4.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/PlayerSprite/Slash2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/PlayerSprite/Slash1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/PlayerSprite/Slash3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/PlayerSprite/Idle.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/PlayerSprite/Run1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/PlayerSprite/Run2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/PlayerSprite/Run3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/PlayerSprite/Run4.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/PlayerSprite/Jump1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/PlayerSprite/Jump2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/PlayerSprite/Jump3.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/PlayerSprite/Jump4.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/PlayerSprite/Dead1.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/PlayerSprite/Dead2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=19]
 [ext_resource path="res://analog/analog.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Sprites/UITextures/Asset 1.png" type="Texture" id=21]
 [ext_resource path="res://Scripts/Combat/TextureProgress.gd" type="Script" id=22]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Sprites/Drops/mobdrop.png" type="Texture" id=33]
 [ext_resource path="res://Sprites/Drops/BossDrop3x@3x.png" type="Texture" id=34]
 [ext_resource path="res://Scenes/Combat/Camera2D.gd" type="Script" id=35]
+[ext_resource path="res://music/JumpSoundBiblecom1007297584.ogg" type="AudioStream" id=36]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -44,45 +45,45 @@ extents = Vector2( 83.3992, 25.4173 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Run",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Slash",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "Dead",
-"speed": 24.0
+"name": "Idle",
+"speed": 10.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "Fall",
-"speed": 0.0
+"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 24.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Punch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "Hit",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "Punch",
-"speed": 5.0
+"frames": [ ExtResource( 19 ) ],
+"loop": false,
+"name": "Fall",
+"speed": 0.0
 } ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -93,7 +94,7 @@ use_filter = false
 font_data = ExtResource( 30 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 208, 168 )
 scale = Vector2( 0.5, 0.75 )
@@ -147,7 +148,7 @@ position = Vector2( -2, 0 )
 scale = Vector2( 4.26666, 2.90909 )
 frames = SubResource( 2 )
 animation = "Jump"
-frame = 1
+frame = 3
 playing = true
 _sections_unfolded = [ "Visibility" ]
 
@@ -252,9 +253,6 @@ passby_press = false
 action = "btn_up"
 visibility_mode = 0
 _sections_unfolded = [ "Material", "Visibility" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="WaterGunControl" type="Control" parent="UI" index="3"]
 
@@ -589,6 +587,15 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="Jump" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 36 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Slash"
 
 [connection signal="experience_gained" from="." to="UI/EXPBar" method="_on_Player_experience_gained"]
 
