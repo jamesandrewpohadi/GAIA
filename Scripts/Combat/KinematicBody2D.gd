@@ -300,6 +300,7 @@ func _on_Timer_timeout():
 		get_parent().get_node('UI/PopupDialog').show()
 		main.get_node("Sad").play()
 		main.get_node("Combat").stop()
+		main.get_node("Aggression").stop()
 
 func analog_force_change(inForce, inStick):
 	if(inStick.get_name()=="AnalogRight") or (inStick.get_name()=="AnalogLeft"):

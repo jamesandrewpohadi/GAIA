@@ -1,10 +1,10 @@
 [gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scripts/Combat/KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/PlayerSprite/Slash2.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/PlayerSprite/Slash1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/PlayerSprite/Slash3.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/PlayerSprite/Idle.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/PlayerSprite/Idle.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/PlayerSprite/Slash2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/PlayerSprite/Slash1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/PlayerSprite/Slash3.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/PlayerSprite/Run1.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/PlayerSprite/Run2.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/PlayerSprite/Run3.png" type="Texture" id=8]
@@ -13,12 +13,12 @@
 [ext_resource path="res://Sprites/PlayerSprite/Jump2.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/PlayerSprite/Jump3.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/PlayerSprite/Jump4.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/PlayerSprite/Dead1.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/PlayerSprite/Dead2.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/PlayerSprite/Punch2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/PlayerSprite/Punch1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/PlayerSprite/Fall1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/PlayerSprite/Hit3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/PlayerSprite/Dead1.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/PlayerSprite/Dead2.png" type="Texture" id=19]
 [ext_resource path="res://analog/analog.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Sprites/UITextures/Asset 1.png" type="Texture" id=21]
 [ext_resource path="res://Scripts/Combat/TextureProgress.gd" type="Script" id=22]
@@ -45,15 +45,15 @@ extents = Vector2( 83.3992, 25.4173 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Slash",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Slash",
+"speed": 4.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
@@ -65,25 +65,25 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "Dead",
-"speed": 24.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Punch",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "Fall",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "Hit",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 19 ) ],
-"loop": false,
-"name": "Fall",
-"speed": 0.0
+"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 24.0
 } ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -94,7 +94,7 @@ use_filter = false
 font_data = ExtResource( 30 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 208, 168 )
 scale = Vector2( 0.5, 0.75 )
@@ -148,7 +148,7 @@ position = Vector2( -2, 0 )
 scale = Vector2( 4.26666, 2.90909 )
 frames = SubResource( 2 )
 animation = "Jump"
-frame = 3
+frame = 2
 playing = true
 _sections_unfolded = [ "Visibility" ]
 
