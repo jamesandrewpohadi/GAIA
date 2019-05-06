@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scripts/Social/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Social/Network.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Village/VillageScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Social/Social.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Social/Chat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Social/Welcome.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Social/Notification.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Social/Database.tscn" type="PackedScene" id=8]
+[ext_resource path="res://music/Irish Music - Leprechauns Village.ogg" type="AudioStream" id=9]
+[ext_resource path="res://music/Irish Music - Market Town.ogg" type="AudioStream" id=10]
+[ext_resource path="res://music/Celtic Battle Music - Boudicca.ogg" type="AudioStream" id=11]
+[ext_resource path="res://music/Naruto OST 1 -  Sadness and Sorrow.ogg" type="AudioStream" id=12]
+[ext_resource path="res://music/Naruto Soundtrack - [Victory].ogg" type="AudioStream" id=13]
+[ext_resource path="res://music/Epic Dark Battle Music - Escape [Powerful Fantasy Horror by Ebunny].ogg" type="AudioStream" id=14]
+
+[node name="Main" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Network" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="VillageScreen" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="Social" parent="." index="2" instance=ExtResource( 4 )]
+
+visible = false
+
+[node name="Chat" parent="." index="3" instance=ExtResource( 5 )]
+
+visible = false
+
+[node name="Welcome" parent="." index="4" instance=ExtResource( 6 )]
+
+[node name="Notification" parent="." index="5" instance=ExtResource( 7 )]
+
+[node name="Database" parent="." index="6" instance=ExtResource( 8 )]
+
+[node name="Village" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 9 )
+volume_db = 3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Market" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 10 )
+volume_db = 3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Combat" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 11 )
+volume_db = 6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Sad" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 12 )
+volume_db = 3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Victory" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = ExtResource( 13 )
+volume_db = 3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Aggression" type="AudioStreamPlayer" parent="." index="12"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="login_success" from="Network" to="VillageScreen" method="_on_Network_login_success"]
+
+

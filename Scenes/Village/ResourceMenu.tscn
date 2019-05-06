@@ -1,0 +1,370 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Village/ResourceMenu.gd" type="Script" id=1]
+[ext_resource path="res://Kenney_Roguelike_Pack/food.png" type="Texture" id=2]
+[ext_resource path="res://Fontpack/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/Village/ResourceCounter.gd" type="Script" id=4]
+[ext_resource path="res://Kenney_Roguelike_Pack/cool water texture.jpg" type="Texture" id=5]
+[ext_resource path="res://Scripts/Village/waterResourceCounter.gd" type="Script" id=6]
+[ext_resource path="res://Kenney_Roguelike_Pack/clipart2406635.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Village/oreResourceCounter.gd" type="Script" id=8]
+[ext_resource path="res://Kenney_Roguelike_Pack/concrete-1646788_640.jpg" type="Texture" id=9]
+[ext_resource path="res://Scripts/Village/cementResourceCounter.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font" ]
+
+[node name="ResourceMenu" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="ResourceUI" type="WindowDialog" parent="." index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 81.0
+margin_top = 59.0
+margin_right = 905.0
+margin_bottom = 542.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Resource Menu"
+resizable = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="Food" type="Sprite" parent="ResourceUI" index="0"]
+
+position = Vector2( 121.594, 109.64 )
+scale = Vector2( 3.70769, 3.62756 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 65, 0, 30, 30 )
+_sections_unfolded = [ "Region" ]
+
+[node name="foodResourceCounter" type="RichTextLabel" parent="ResourceUI" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 214.0
+margin_top = 68.0
+margin_right = 386.0
+margin_bottom = 166.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 4 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Water" type="Sprite" parent="ResourceUI" index="3"]
+
+position = Vector2( 118.528, 288.493 )
+scale = Vector2( 0.191774, 0.191774 )
+texture = ExtResource( 5 )
+
+[node name="waterResourceCounter" type="RichTextLabel" parent="ResourceUI" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 202.0
+margin_top = 251.0
+margin_right = 398.0
+margin_bottom = 345.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 6 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Ore" type="Sprite" parent="ResourceUI" index="5"]
+
+position = Vector2( 505.461, 106.217 )
+scale = Vector2( 0.176787, 0.154184 )
+texture = ExtResource( 7 )
+
+[node name="oreResourceCounter" type="RichTextLabel" parent="ResourceUI" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 584.0
+margin_top = 66.0
+margin_right = 775.0
+margin_bottom = 143.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 8 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Cement" type="Sprite" parent="ResourceUI" index="7"]
+
+position = Vector2( 504.438, 287.635 )
+scale = Vector2( 0.179385, 0.238265 )
+texture = ExtResource( 9 )
+
+[node name="cementResourceCounter" type="RichTextLabel" parent="ResourceUI" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 621.0
+margin_top = 242.0
+margin_right = 810.0
+margin_bottom = 341.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 10 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Food2" type="RichTextLabel" parent="ResourceUI" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 79.0
+margin_top = 165.0
+margin_right = 292.0
+margin_bottom = 205.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Food"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Food3" type="RichTextLabel" parent="ResourceUI" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 450.0
+margin_top = 353.0
+margin_right = 663.0
+margin_bottom = 393.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Cement"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Food4" type="RichTextLabel" parent="ResourceUI" index="11"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 71.0
+margin_top = 350.0
+margin_right = 284.0
+margin_bottom = 390.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Water"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Ore2" type="RichTextLabel" parent="ResourceUI" index="12"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 460.0
+margin_top = 165.0
+margin_right = 673.0
+margin_bottom = 205.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Ore"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="cementResourceCount" from="." to="ResourceUI/cementResourceCounter" method="_on_ResourceMenu_cementResourceCount"]
+
+[connection signal="foodResourceCount" from="." to="ResourceUI/foodResourceCounter" method="_on_ResourceMenu_foodResourceCount"]
+
+[connection signal="oreResourceCount" from="." to="ResourceUI/oreResourceCounter" method="_on_ResourceMenu_oreResourceCount"]
+
+[connection signal="waterResourceCount" from="." to="ResourceUI/waterResourceCounter" method="_on_ResourceMenu_waterResourceCount"]
+
+

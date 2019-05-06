@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/UITextures/jumpbutton.png" type="Texture" id=1]
+[ext_resource path="res://analog/small_circle.png" type="Texture" id=2]
+
+[node name="JumpButton" type="TouchScreenButton"]
+
+position = Vector2( 1121.55, 563.37 )
+scale = Vector2( 1.09689, 1.01528 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "btn_up"
+visibility_mode = 0
+_sections_unfolded = [ "Material", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+

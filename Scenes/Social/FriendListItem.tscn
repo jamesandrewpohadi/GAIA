@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Social/ListItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Social/FriendListItem.gd" type="Script" id=2]
+
+[node name="ListItem" instance=ExtResource( 1 )]
+
+color = Color( 0.119019, 0.298538, 0.40625, 1 )
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+

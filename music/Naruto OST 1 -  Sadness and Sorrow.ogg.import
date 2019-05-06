@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Naruto OST 1 -  Sadness and Sorrow.ogg-359be5cf78c3e4f737db61e1894a211e.oggstr"
+
+[deps]
+
+source_file="res://music/Naruto OST 1 -  Sadness and Sorrow.ogg"
+dest_files=[ "res://.import/Naruto OST 1 -  Sadness and Sorrow.ogg-359be5cf78c3e4f737db61e1894a211e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

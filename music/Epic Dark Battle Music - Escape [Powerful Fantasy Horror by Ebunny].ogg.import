@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Epic Dark Battle Music - Escape [Powerful Fantasy Horror by Ebunny].ogg-830621a3c4bfe6cebdb4cfee6f19869e.oggstr"
+
+[deps]
+
+source_file="res://music/Epic Dark Battle Music - Escape [Powerful Fantasy Horror by Ebunny].ogg"
+dest_files=[ "res://.import/Epic Dark Battle Music - Escape [Powerful Fantasy Horror by Ebunny].ogg-830621a3c4bfe6cebdb4cfee6f19869e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

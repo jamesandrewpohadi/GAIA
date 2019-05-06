@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Irish Music - Leprechauns Village.ogg-1fed130d5ecada7a4efe8df17806bdda.oggstr"
+
+[deps]
+
+source_file="res://music/Irish Music - Leprechauns Village.ogg"
+dest_files=[ "res://.import/Irish Music - Leprechauns Village.ogg-1fed130d5ecada7a4efe8df17806bdda.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
