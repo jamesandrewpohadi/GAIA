@@ -8,26 +8,26 @@ features:
 - Co-operation and social interaction
 - Education about climate change
 
-## Village System
+**Village System**
 - Educate players on the importance of having a sustainable environment
 - Players are to work with the space constraints, resources limitation and contamination levels and optimize their own village
 - Players can build buildings to produce resources needed for their village but it comes at a price 
 - Players have to make sure their village is a livable one for their villagers
 
-## Social System
+**Social System**
 Building a game community where you can Interact with other players by
 - Adding friends (or removing them)
 - Chat 
 - Invite friends to dungeon games
 - Help each other by Gifting items and resources they need
 
-## Combat
+**Combat**
 - Simple, Fun and Intuitive combat system.
 - 2D Platformer with Pixel art
 - Fast paced action
 - Collaborative real time gameplay with up to four players
 
-## Team
+**Team**
 - Amarjyot Kaur Narula
 - Chong Yi Cheng
 - James Andrew Pohadi
