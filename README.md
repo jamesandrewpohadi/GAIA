@@ -1,7 +1,6 @@
-# GAIA
-> Be the hero to save the Earth - GAIA
+# GAIA [[link]](https://gaiaweb.herokuapp.com)
 
-[Url](https://gaiaweb.herokuapp.com)
+> Be the hero to save the Earth - GAIA
 
 features:
 - Simple, fun and intuitive gameplay
