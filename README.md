@@ -1,4 +1,4 @@
-# GAIA [[link]](https://gaiaweb.herokuapp.com)
+# GAIA
 
 > Be the hero to save the Earth - GAIA
 
